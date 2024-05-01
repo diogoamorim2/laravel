@@ -12,7 +12,7 @@
         <section class="sub-hero-banner" style="background-image: url('art/hero3.webp');">
             <div class="hero-contained">
                 <div class="hero-title fc-white">
-                    <h1 class="ff-damion">Serviços que prestamos</h1>
+                    <h1 class="ff-damion">Serviços que oferecemos</h1>
                     <a href="{{URL('index')}}" class="fc-white">
                         Home
                     </a>

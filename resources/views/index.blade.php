@@ -3,9 +3,6 @@
 @section('head')
 @endsection
 
-@section('nav')
-@endsection
-
 <body>
     
     <!-- FADE OUT ANIMATION WHEN LOADED -->
@@ -52,7 +49,6 @@
         <a href="#" class="btn-back-to-top" aria-label="Back to top button">
             <i class="bi bi-chevron-up"></i>
         </a>
-        
         <!-- NAVIGATION END -->
 
         <!-- ABOUT SECTION START -->
@@ -248,8 +244,16 @@
                     <h3 class="mb-a ff-damion mt-a">Inscreva-se para saber mais sobre nós:</h3>
                 </div>
                 <div class="col-balance">
-                    <form action="#">
-                        <input type="email" id="subscribe-email" aria-label="Subscribe to our email news" placeholder="Email" required>
+                    <form action="newslatter" method="POST">
+                        @csrf
+
+                        <input type="email" id="subscribe-email" aria-label="Receba nossos avisos" 
+                            class="form-control @error('subscribe-email') is-invalid @else is-valid @enderror" 
+                            placeholder="Email" required>
+                            @error('subscribe-email')
+                                <div class="form-text text-danger">{{ $message }}</div>
+                            @enderror
+
                         <button class="btn-bg2">Inscreva-se</button>
                     </form>
                 </div>

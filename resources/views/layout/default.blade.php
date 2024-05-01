@@ -1,38 +1,38 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 @yield('head')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Diogo Amorim">
-    <!-- DESCRIPTION OF THE PAGE -->
-    <meta name="description" content="Siscon Contabilidade">
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Diogo Amorim">
+        <!-- DESCRIPTION OF THE PAGE -->
+        <meta name="description" content="Siscon Contabilidade">
 
-    <!-- KEYWORDS OF THE PAGE TO HELP SEARCH ENGINE -->
-    <meta name="keywords" content="Contabilidade , serviços contabeis , certificado digital">
+        <!-- KEYWORDS OF THE PAGE TO HELP SEARCH ENGINE -->
+        <meta name="keywords" content="Contabilidade , serviços contabeis , certificado digital">
 
-    <!-- OG IMAGE IS THE IMAGE SHOWN WHEN YOUR WEBSITE LINK IS SHARED ON SOCIAL MEDIA -->
-    <meta property="og:image" content="{{asset('art/og-card.png')}}>
-            <meta property=" og:title" content="Siscon Contabilidade">
-    <meta name="twitter:card" content="summary_large_image">
+        <!-- OG IMAGE IS THE IMAGE SHOWN WHEN YOUR WEBSITE LINK IS SHARED ON SOCIAL MEDIA -->
+        <meta property="og:image" content="{{asset('art/og-card.png')}}>
+                <meta property=" og:title" content="Siscon Contabilidade">
+        <meta name="twitter:card" content="summary_large_image">
 
-    <!-- THE TITLE OF THE PAGE -->
-    <title>Siscon Contabilidade</title>
+        <!-- THE TITLE OF THE PAGE -->
+        <title>Siscon Contabilidade</title>
 
-    <link rel="preload" href="{{asset('icons/bootstrap-icons.css')}}" as="style">
-    <link rel="preload" href="{{asset('css/fontstyle.css')}}" as="style">
-    <link rel="preload" href="{{asset('css/layout.css')}}" as="style">
-    <link rel="preload" href="{{asset('css/animation.css')}}" as="style">
-    <link rel="preload" href="{{asset('css/style.css')}}" as="style">
+        <link rel="preload" href="{{asset('icons/bootstrap-icons.css')}}" as="style">
+        <link rel="preload" href="{{asset('css/fontstyle.css')}}" as="style">
+        <link rel="preload" href="{{asset('css/layout.css')}}" as="style">
+        <link rel="preload" href="{{asset('css/animation.css')}}" as="style">
+        <link rel="preload" href="{{asset('css/style.css')}}" as="style">
 
-    <link rel="stylesheet" href="{{asset('icons/bootstrap-icons.css')}}">
-    <link rel="stylesheet" href="{{asset('css/fontstyle.css')}}">
-    <link rel="stylesheet" href="{{asset('css/layout.css')}}">
-    <link rel="stylesheet" href="{{asset('css/animation.css')}}">
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
-    <link rel="icon" type="image/png" href="{{asset('art/favicon.png')}}">
-</head>
+        <link rel="stylesheet" href="{{asset('icons/bootstrap-icons.css')}}">
+        <link rel="stylesheet" href="{{asset('css/fontstyle.css')}}">
+        <link rel="stylesheet" href="{{asset('css/layout.css')}}">
+        <link rel="stylesheet" href="{{asset('css/animation.css')}}">
+        <link rel="stylesheet" href="{{asset('css/style.css')}}">
+        <link rel="icon" type="image/png" href="{{asset('art/favicon.png')}}">
+    </head>
 <!-- MAIN HERO BANNER END -->
 
 <!-- INICIO REDES SOCIAIS -->

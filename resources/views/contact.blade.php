@@ -103,7 +103,7 @@
                             <input type="text" id="message-name" placeholder="Seu nome" aria-label="Digite seu nome" required>
                             <input type="email" class="ml-a" id="message-email" placeholder="Seu email" aria-label="Digite seu email" required>
                         </div>
-                        <input type="text" id="message-subject" aria-label="Nos fale o tema da pergunta" class="mb-20" placeholder="Subject">
+                        <input type="text" id="message-subject" aria-label="Nos fale o tema da pergunta" class="mb-20" placeholder="Assunto">
                         <textarea id="message-message" rows="5" placeholder="Escreva a sua mensagem" aria-label="Escreva a sua mensagem"></textarea>
                         <button type="submit" class="btn-bg1 border-round mt-20">Enviar menssagem</button>
                     </form>
