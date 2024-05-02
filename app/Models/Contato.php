@@ -12,10 +12,13 @@ class Contato extends Model
     protected $fillable = [
         'nome',
         'email',
+        'assunto',
         'telefone_fixo',
         'telefone_celular',
         'empresa_nome',
         'empresa_contato',
-        'comentario'
+        'comentario',
+        'ativo',
+        'newslatter'
     ];
 }

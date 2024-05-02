@@ -11,16 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contato', function (Blueprint $table) {
+        Schema::create('contatos', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
+            $table->string('nome')->nullable();
             $table->text('email');
-            $table->integer('telefone_fixo');
-            $table->integer('telefone_celular');
-            $table->string('empresa_nome');
-            $table->string('empresa_contato');
-            $table->text('comentario');
+            $table->text('assunto')->nullable();
+            $table->integer('telefone_fixo')->nullable();
+            $table->integer('telefone_celular')->nullable();
+            $table->string('empresa_nome')->nullable();
+            $table->string('empresa_contato')->nullable();
+            $table->text('comentario')->nullable();
             $table->boolean('ativo')->default(1);
+            $table->boolean('newslatter')->default(0);
             $table->timestamps();
         });
     }

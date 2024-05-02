@@ -244,13 +244,14 @@
                     <h3 class="mb-a ff-damion mt-a">Inscreva-se para saber mais sobre nós:</h3>
                 </div>
                 <div class="col-balance">
-                    <form action="newslatter" method="POST">
+                    <form action="{{ route('contatos.store') }}" method="POST">
                         @csrf
 
-                        <input type="email" id="subscribe-email" aria-label="Receba nossos avisos" 
+                        <input type="hidden" name="newslatter" value="1">
+                        <input type="email" name="email" id="subscribe-email" aria-label="Receba nossos avisos" 
                             class="form-control @error('subscribe-email') is-invalid @else is-valid @enderror" 
                             placeholder="Email" required>
-                            @error('subscribe-email')
+                            @error('email')
                                 <div class="form-text text-danger">{{ $message }}</div>
                             @enderror
 

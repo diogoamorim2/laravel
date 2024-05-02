@@ -3,27 +3,35 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Contato;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
-use App\Http\Requests\ContatoRequest;
-//use App\Http\Requests\ProductUpdateRequest;
+use App\Models\Contato;
+use App\Http\Requests\ContatoStoreRequest;
+use App\Http\Requests\ContatoUpdateRequest;
+use Illuminate\Support\Facades\Auth;
+
 
 class ContatoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+
+    protected $view = 'index';
+
+    public function index(): View
     {
-        //
-        $contato = Contato::latest()->paginate(5);
-          
-        /*return view('index', compact('contato'))
-                    ->with('i', (request()->input('page', 1) - 1) * 5);*/
+        $contatos = Contato::latest()->paginate(5);
         
-        return view('index');
+        
+        if(Auth::check())
+        {
+            $this->view = 'contato.index';
+        }
+
+        return view($this->view , compact('contatos'))
+                    ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -31,46 +39,65 @@ class ContatoController extends Controller
      */
     public function create(): View
     {
-        //Grava o email contato subscribe-email 
-        return view('index');
+        if(Auth::check())
+        {
+            $this->view = 'contato.create';
+        }
+
+        return view($this->view);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ContatoRequest $request): RedirectResponse
+    public function store(ContatoStoreRequest $request): RedirectResponse
     {
         Contato::create($request->validated());
            
-        return redirect()->route('index')
-                         ->with('success', 'Obrigado pelo cadastro, em breve entraremos em contato.');
+        return redirect()->route('contatos.index')
+                         ->with('success', 'Contato criado com sucesso.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Contato $contato): View
     {
-        return view('index');
+        if(Auth::check())
+        {
+            $this->view = 'contato.show';
+        }
+
+        return view($this->view , compact('contato'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Contato $contato)
     {
-        return view('contato.edit',compact('contato'));
+        if(Auth::check())
+        {
+            $this->view = 'contato.edit';
+        }
+
+        return view($this->view , compact('contato'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(ContatoRequest $request, Contato $contato): RedirectResponse
+    public function update(ContatoUpdateRequest $request, Contato $contato)
     {
+        if(Auth::check())
+        {
+            $this->view = 'contato.index';
+        }
+
         $contato->update($request->validated());
           
-        return redirect()->route('contato.index')
-                        ->with('success','Contato editado com sucesso');
+        return redirect()->route($this->view)
+                        ->with('success','Contato atualizado com sucesso');
     }
 
     /**
@@ -78,9 +105,14 @@ class ContatoController extends Controller
      */
     public function destroy(Contato $contato)
     {
+        if(Auth::check())
+        {
+            $this->view = 'contato.index';
+        }
+
         $contato->delete();
            
-        return redirect()->route('contato.index')
-                        ->with('success','Contato apagado successfully');
+        return redirect()->route($this->view)
+                        ->with('success','Contato apagado com sucesso');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\NewslatterController;
+use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +38,8 @@ Route::get('/service', function () {
 Route::get('/user/{id}', [UserController::class, 'show']);
 
 //cadastrar email subscribe-email - newsletter
-Route::resource('newslatter', NewslatterController::class)->only([
+/*Route::resource('newslatter', ContatoController::class)->only([
     'index', 'show' , 'store'
-]);
+]);*/
+
+Route::resource('contatos', ContatoController::class);

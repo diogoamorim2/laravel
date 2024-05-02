@@ -97,14 +97,16 @@
                         Youtube
                     </a>-->
     
-                    <form action="#" class="message-form mt-50 mb-25">
-                        <span class="fs-h4 fc-primary mb-15">Nos envie uma mensagem</span>
+                    <form action="{{ route('contatos.store') }}" class="message-form mt-50 mb-25">
+                        @csrf
+
+                        <span class="fs-h4 fc-primary mb-15">Envie uma mensagem para nós</span>
                         <div class="row mb-20">
-                            <input type="text" id="message-name" placeholder="Seu nome" aria-label="Digite seu nome" required>
-                            <input type="email" class="ml-a" id="message-email" placeholder="Seu email" aria-label="Digite seu email" required>
+                            <input name="nome" type="text" id="message-name" placeholder="Seu nome" aria-label="Digite seu nome" required>
+                            <input name="email" type="email" class="ml-a" id="message-email" placeholder="Seu email" aria-label="Digite seu email" required>
                         </div>
-                        <input type="text" id="message-subject" aria-label="Nos fale o tema da pergunta" class="mb-20" placeholder="Assunto">
-                        <textarea id="message-message" rows="5" placeholder="Escreva a sua mensagem" aria-label="Escreva a sua mensagem"></textarea>
+                        <input name="assunto" type="text" id="message-subject" aria-label="Nos fale o tema da pergunta" class="mb-20" placeholder="Assunto">
+                        <textarea name="comentario" id="message-message" rows="5" placeholder="Escreva a sua mensagem" aria-label="Escreva a sua mensagem"></textarea>
                         <button type="submit" class="btn-bg1 border-round mt-20">Enviar menssagem</button>
                     </form>
                 </div>
