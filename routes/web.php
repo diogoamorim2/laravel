@@ -3,6 +3,7 @@
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
 
 // Root index group
 Route::get('/', function () {
@@ -37,9 +38,10 @@ Route::get('/service', function () {
 //Controller 
 Route::get('/user/{id}', [UserController::class, 'show']);
 
-//cadastrar email subscribe-email - newsletter
-/*Route::resource('newslatter', ContatoController::class)->only([
-    'index', 'show' , 'store'
-]);*/
-
 Route::resource('contatos', ContatoController::class);
+
+// Test email sending with a route
+Route::get('/mailable', function () {
+    $contato = App\Models\Contato::find(1); 
+    return new App\Mail\Newsletter($contato);
+});
