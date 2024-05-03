@@ -9,7 +9,9 @@ use Illuminate\View\View;
 use App\Models\Contato;
 use App\Http\Requests\ContatoStoreRequest;
 use App\Http\Requests\ContatoUpdateRequest;
+use App\Mail\Newsletter;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 
 class ContatoController extends Controller
@@ -52,7 +54,18 @@ class ContatoController extends Controller
      */
     public function store(ContatoStoreRequest $request): RedirectResponse
     {
-        Contato::create($request->validated());
+        //Salva no BD no contato cadastrado.
+        $request = Contato::create($request->validated());
+
+        //Em caso de usuario não logado e novo cadastrado, dispara email de boas vindas
+        if(!Auth::check())
+        {
+            $contato = Contato::findOrFail($request->id);
+
+            Mail::to($contato->email)
+                //->send(new Newsletter($contato));
+                ->queue(new Newsletter($contato));
+        }
            
         return redirect()->route('contatos.index')
                          ->with('success', 'Contato criado com sucesso.');

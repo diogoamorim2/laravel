@@ -76,7 +76,7 @@
                     </a>
                     <a href="#" class="display-inblock">
                         <i class="bi bi-telephone-fill"></i>
-                        (11) 9 6587-3623
+                        (11) 9 6587-3624
                     </a>
                     
                     <!--<span class="fs-h4 mb-15 mt-25 fc-primary">Follow:</span>
@@ -97,11 +97,12 @@
                         Youtube
                     </a>-->
     
-                    <form action="{{ route('contatos.store') }}" class="message-form mt-50 mb-25">
+                    <form action="{{ route('contatos.store') }}" method="POST" class="message-form mt-50 mb-25">
                         @csrf
 
                         <span class="fs-h4 fc-primary mb-15">Envie uma mensagem para nós</span>
                         <div class="row mb-20">
+                            <input type="hidden" name='newslatter' value="1">
                             <input name="nome" type="text" id="message-name" placeholder="Seu nome" aria-label="Digite seu nome" required>
                             <input name="email" type="email" class="ml-a" id="message-email" placeholder="Seu email" aria-label="Digite seu email" required>
                         </div>
