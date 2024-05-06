@@ -9,6 +9,7 @@ use Illuminate\View\View;
 use App\Models\Contato;
 use App\Http\Requests\ContatoStoreRequest;
 use App\Http\Requests\ContatoUpdateRequest;
+use App\Mail\FaleConosco;
 use App\Mail\Newsletter;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -39,14 +40,23 @@ class ContatoController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): View
+    public function create(ContatoStoreRequest $request): RedirectResponse
     {
-        if(Auth::check())
-        {
-            $this->view = 'contato.create';
-        }
+        //exit('Entrou create');
+         //Salva no BD no contato cadastrado.
+         $request = Contato::create($request->validated());
 
-        return view($this->view);
+         //Em caso de usuario não logado e novo cadastrado, dispara email de boas vindas
+         if(!Auth::check())
+         {
+             $contato = Contato::findOrFail($request->id);
+ 
+             Mail::to($contato->email)
+                 ->queue(new FaleConosco($contato));
+         }
+            
+         return redirect()->route('contatos.index')
+                          ->with('success', 'Mensagem enviada com sucesso.');
     }
 
     /**

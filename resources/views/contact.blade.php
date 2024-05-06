@@ -97,7 +97,7 @@
                         Youtube
                     </a>-->
     
-                    <form action="{{ route('contatos.store') }}" method="POST" class="message-form mt-50 mb-25">
+                    <form action="{{ route('contatos.create') }}" method="GET" class="message-form mt-50 mb-25">
                         @csrf
 
                         <span class="fs-h4 fc-primary mb-15">Envie uma mensagem para nós</span>

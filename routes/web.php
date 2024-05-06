@@ -41,7 +41,9 @@ Route::get('/user/{id}', [UserController::class, 'show']);
 Route::resource('contatos', ContatoController::class);
 
 // Test email sending with a route
-Route::get('/mailable', function () {
-    $contato = App\Models\Contato::find(1); 
-    return new App\Mail\Newsletter($contato);
-});
+/*
+    Route::get('/mailable', function () {
+        $contato = App\Models\Contato::find(1); 
+        return new App\Mail\Newsletter($contato);
+    });
+*/

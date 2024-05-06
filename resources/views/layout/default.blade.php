@@ -104,7 +104,7 @@
             </a>
             <a href="{{URL('https://maps.app.goo.gl/v68DNXwJwkwtCE6s5')}}" class="display-block fc-white icon-link mt-10 mb-10">
                 <i class="bi bi-geo-alt-fill"></i>
-                Estrada do Aderno, 52 - Carapicuíba - SP
+                Estrada do Aderno, 50 - Carapicuíba - SP
             </a>
             <!-- <a href="#" class="display-inblock fc-white icon-link mt-20" aria-label="Follow on facebook">
                         <i class="bi bi-facebook"></i>

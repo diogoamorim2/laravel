@@ -3,13 +3,14 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use App\Models\Contato;
 
-class Newsletter extends Mailable
+class FaleConosco extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -17,7 +18,9 @@ class Newsletter extends Mailable
      * Create a new message instance.
      */
     public function __construct(public Contato $contato)
-    {}
+    {
+        //
+    }
 
     /**
      * Get the message envelope.
@@ -25,8 +28,8 @@ class Newsletter extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Obrigado por se cadastrar com a Siscon Contabilidade',
-            tags: ['newsletter'],
+            subject: 'Obrigado por nos enviar sua dúvida para a Siscon Contabilidade',
+            tags: ['faleconosco'],
             metadata: [
                 'contato_id' => $this->contato->id,
             ],
@@ -39,10 +42,10 @@ class Newsletter extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.newsletter',
+            markdown: 'mail.faleconosco',
             with: [
                 'contatoName' => $this->contato->nome
-            ],
+            ]
         );
     }
 
@@ -55,5 +58,4 @@ class Newsletter extends Mailable
     {
         return [];
     }
-
 }

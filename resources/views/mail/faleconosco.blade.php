@@ -1,19 +1,20 @@
 @extends('mail.layout')
 
-<!DOCTYPE html>    
-<!-- header -->
-    @section('title', 'Obrigado pelo cadastro em nossa newsletter.')
+<!DOCTYPE html>
+<html lang="pt-br">
+        <!-- header -->
+        @section('title', 'Obrigado por enviar usa dúvida para nós.')
 
-    @section('content')    
+        @section('content')
         <body>
             <div class="container">
                 <div class="header">
-                    <h1>Obrigado por se inscrever em nossa newsletter!</h1>
+                    <h1>Obrigado por nos enviar a sua dúvda!</h1>
                 </div>
                 <div class="content">
                     <p>Olá, {{ $contatoName }}</p>
                     <br>
-                    <p>Obrigado por se inscrever na nossa newsletter. Estamos animados para compartilhar as últimas notícias, atualizações e ofertas com você.</p>
+                    <p>Obrigado por se nos enviar a sua dúvida. Iremos analisar e responder no menor tempo possível, por favor fique a vontade para entrar em contato conosco.</p>
                     <p>Fique atento à sua caixa de entrada para nossas próximas mensagens.</p>
                     <br>
                     <p>Atenciosamente,</p>
