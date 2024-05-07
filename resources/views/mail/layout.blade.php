@@ -39,10 +39,10 @@
         <title>@yield('title')</title>
 
         
-        <link rel="preload" href="{{asset('icons/bootstrap-icons.css')}}" as="style">
-        <link rel="preload" href="{{asset('css/fontstyle.css')}}" as="style">
-        <link rel="preload" href="{{asset('css/layout.css')}}" as="style">
-        <link rel="preload" href="{{asset('css/style.css')}}" as="style">
+        <link rel="preload" href="{{URL('icons/bootstrap-icons.css')}}" as="style">
+        <link rel="preload" href="{{URL('css/fontstyle.css')}}" as="style">
+        <link rel="preload" href="{{URL('css/layout.css')}}" as="style">
+        <link rel="preload" href="{{URL('css/style.css')}}" as="style">
     </head>
     <body>
         <div class="container">
@@ -52,7 +52,7 @@
     <footer class="footer">
         <table>
             <tr>
-                <th rowspan="5"><img src="{{asset('image/logo.png')}}"></th>
+                <a href="{{URL('index')}}"> <th rowspan="5"><img src="{{URL('image/logo-removebg.png')}}"></th> </a>
                 <th>Fale conosco</th>
                 <th>Links úteis</th>
                 <th>Contato</th>

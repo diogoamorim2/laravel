@@ -22,6 +22,7 @@ class ContatoController extends Controller
      */
 
     protected $view = 'index';
+    private const EMAIL_CONTATO_SISCON = 'contato@sisconsp.com.br';
 
     public function index(): View
     {
@@ -61,6 +62,9 @@ class ContatoController extends Controller
              $contato = Contato::findOrFail($request->id);
  
              Mail::to($contato->email)
+                 ->queue(new FaleConosco($contato)); 
+
+             Mail::to(self::EMAIL_CONTATO_SISCON)
                  ->queue(new FaleConosco($contato));
          }
         
@@ -90,6 +94,10 @@ class ContatoController extends Controller
             $contato = Contato::findOrFail($request->id);
 
             Mail::to($contato->email)
+                //->send(new Newsletter($contato));
+                ->queue(new Newsletter($contato)); 
+
+            Mail::to(self::EMAIL_CONTATO_SISCON)
                 //->send(new Newsletter($contato));
                 ->queue(new Newsletter($contato));
         }
@@ -133,9 +141,8 @@ class ContatoController extends Controller
         if(Auth::check())
         {
             $this->view = 'contato.index';
+            $contato->update($request->validated());
         }
-
-        $contato->update($request->validated());
           
         return redirect()->route($this->view)
                         ->with('success','Contato atualizado com sucesso');
@@ -149,9 +156,8 @@ class ContatoController extends Controller
         if(Auth::check())
         {
             $this->view = 'contato.index';
+            $contato->delete();
         }
-
-        $contato->delete();
            
         return redirect()->route($this->view)
                         ->with('success','Contato apagado com sucesso');

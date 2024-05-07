@@ -20,18 +20,24 @@
         <!-- THE TITLE OF THE PAGE -->
         <title>Siscon Contabilidade</title>
 
-        <link rel="preload" href="{{asset('icons/bootstrap-icons.css')}}" as="style">
-        <link rel="preload" href="{{asset('css/fontstyle.css')}}" as="style">
-        <link rel="preload" href="{{asset('css/layout.css')}}" as="style">
-        <link rel="preload" href="{{asset('css/animation.css')}}" as="style">
-        <link rel="preload" href="{{asset('css/style.css')}}" as="style">
+        <link rel="preload" href="{{URL('icons/bootstrap-icons.css')}}" as="style">
+        <link rel="preload" href="{{URL('css/fontstyle.css')}}" as="style">
+        <link rel="preload" href="{{URL('css/layout.css')}}" as="style">
+        <link rel="preload" href="{{URL('css/animation.css')}}" as="style">
+        <link rel="preload" href="{{URL('css/style.css')}}" as="style">
 
-        <link rel="stylesheet" href="{{asset('icons/bootstrap-icons.css')}}">
-        <link rel="stylesheet" href="{{asset('css/fontstyle.css')}}">
-        <link rel="stylesheet" href="{{asset('css/layout.css')}}">
-        <link rel="stylesheet" href="{{asset('css/animation.css')}}">
-        <link rel="stylesheet" href="{{asset('css/style.css')}}">
-        <link rel="icon" type="image/png" href="{{asset('art/favicon.png')}}">
+        <link rel="stylesheet" href="{{URL('icons/bootstrap-icons.css')}}">
+        <link rel="stylesheet" href="{{URL('css/fontstyle.css')}}">
+        <link rel="stylesheet" href="{{URL('css/layout.css')}}">
+        <link rel="stylesheet" href="{{URL('css/animation.css')}}">
+        <link rel="stylesheet" href="{{URL('css/style.css')}}">
+        <link rel="icon" type="image/png" href="{{URL('image/favicon.png')}}">
+
+        <style>
+            .col-quad_bg{
+                width: 200px !import;
+            }
+        </style>
     </head>
 <!-- MAIN HERO BANNER END -->
 
@@ -76,21 +82,11 @@
 <footer class="fc-white">
     <div class="contained row flex-just-center">
 
-        <!-- FOOTER WEBSITE MOTO START -->
-        <div class="col-quad">
-            <img src="{{asset('image/logo.png')}}">
-            <!-- <h3 class="ff-damion">Siscon Contabilidade</h3>
-            <p>
-                Nossa missão é empoderar empresas e indivíduos através de serviços contábeis excepcionais e personalizados. <br>
-            </p>
-            <p>
-                Nos dedicamos a ajudar nossos clientes a alcançar seus objetivos financeiros, fornecendo orientação contábil precisa, estratégias de planejamento tributário eficazes e soluções digitais seguras.
-            </p> ->
-            <!-- <p>
-                        Acreditamos no poder da tecnologia para simplificar a contabilidade e estamos comprometidos em fornecer soluções inovadoras, como a emissão de certificados digitais, para manter nossos clientes à frente na era digital.
-                    </p> -->
+        <!-- FOOTER WEBSITE LOGO START -->
+        <div class="col-quad_bg">
+                <img src="{{asset('image/logo-removebg_204_200.png')}}">
         </div>
-        <!-- FOOTER WEBSITE MOTO END -->
+        <!-- FOOTER WEBSITE LOGO END -->
 
         <!-- FOOTER QUICK CONTACT START -->
         <div class="col-quad">
@@ -155,18 +151,6 @@
                 <i class="bi bi-chevron-compact-right"></i>
                 Serviços
             </a>
-            <!-- <a href="{{URL('industries')}}" class="display-block fc-white mt-5 mb-5">
-                        <i class="bi bi-chevron-compact-right"></i>
-                        Industries
-                    </a>
-                    <a href="{{URL('blog/blog')}}" class="display-block fc-white mt-5 mb-5">
-                        <i class="bi bi-chevron-compact-right"></i>
-                        Blog
-                    </a>
-                    <a href="{{URL('career/career')}}" class="display-block fc-white mt-5 mb-5">
-                        <i class="bi bi-chevron-compact-right"></i>
-                        Career
-                    </a> -->
             <a href="{{URL('contact')}}" class="display-block fc-white mt-5 mb-5">
                 <i class="bi bi-chevron-compact-right"></i>
                 Contato
