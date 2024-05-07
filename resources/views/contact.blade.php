@@ -37,9 +37,6 @@
                     <a href="{{URL('index')}}">Home</a>
                     <a href="{{URL('about')}}">Sobre nós</a>
                     <a href="{{URL('service')}}">Serviços</a>
-                    <!-- <a href="{{URL('industries')}}">Industries</a>
-                        <a href="{{URL('blog/blog')}}">Blog</a> 
-                        <a href="{{URL('career/career')}}">Career</a> -->
                     <a href="{{URL('contact')}}" class="btn-bg1 border-round">Fale conosco</a>
                 </div>
             </div>
@@ -49,7 +46,22 @@
         </a>
         <!-- NAVIGATION END -->
 
+        
         <section class="contained">
+            <!-- USER FEEDBACK START -->
+            @if (session('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+            @elseif (session('error'))
+                <div class="alert alert-danger" role="alert">
+                    {{ session('error') }}
+                </div>
+            @endif
+             <!-- USER FEEDBACK END -->
+    
+            </div>
+            <!-- USER FEEDBACK END -->
             <h2 class="section-title ff-damion">Nos encontre</h2>
             <p class="col-wide ta-center mlmr-a">
                 Estamos localizados próximo ao largo da vila Menck em Carapicuíba ao lado da auto-peças NVR.
@@ -78,24 +90,6 @@
                         <i class="bi bi-telephone-fill"></i>
                         (11) 9 6587-3624
                     </a>
-                    
-                    <!--<span class="fs-h4 mb-15 mt-25 fc-primary">Follow:</span>
-                    <a href="#" class="display-inblock mr-10">
-                        <i class="bi bi-facebook"></i>
-                        Facebook
-                    </a>
-                    <a href="#" class="display-inblock mr-10">
-                        <i class="bi bi-instagram"></i>
-                        Instagram
-                    </a>
-                    <a href="#" class="display-inblock mr-10">
-                        <i class="bi bi-twitter"></i>
-                        Twitter
-                    </a>
-                    <a href="#" class="display-inblock mr-10">
-                        <i class="bi bi-youtube"></i>
-                        Youtube
-                    </a>-->
     
                     <form action="{{ route('contatos.create') }}" method="GET" class="message-form mt-50 mb-25">
                         @csrf

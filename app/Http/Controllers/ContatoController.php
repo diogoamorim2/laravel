@@ -42,21 +42,29 @@ class ContatoController extends Controller
      */
     public function create(ContatoStoreRequest $request): RedirectResponse
     {
-        //exit('Entrou create');
+        
+        $msgRetorno = 'Mensagem enviada com sucesso.';
+        $status = 'success';
+
          //Salva no BD no contato cadastrado.
          $request = Contato::create($request->validated());
 
+         if(!$request)
+         {
+            $msgRetorno = $msgRetorno;
+            $status = 'error';
+         }
+
          //Em caso de usuario não logado e novo cadastrado, dispara email de boas vindas
-         if(!Auth::check())
+         if(!Auth::check() && $request)
          {
              $contato = Contato::findOrFail($request->id);
  
              Mail::to($contato->email)
                  ->queue(new FaleConosco($contato));
          }
-            
-         return redirect()->route('contatos.index')
-                          ->with('success', 'Mensagem enviada com sucesso.');
+        
+         return redirect('/contact')->with($status, $msgRetorno);
     }
 
     /**
@@ -64,11 +72,20 @@ class ContatoController extends Controller
      */
     public function store(ContatoStoreRequest $request): RedirectResponse
     {
+        $msgRetorno = 'Mensagem enviada com sucesso.';
+        $status = 'sucess';
+
         //Salva no BD no contato cadastrado.
         $request = Contato::create($request->validated());
 
+        if(!$request)
+        {
+            $msgRetorno = 'Falha ao enviar a mensagem.';
+            $status = 'error';
+        }
+
         //Em caso de usuario não logado e novo cadastrado, dispara email de boas vindas
-        if(!Auth::check())
+        if(!Auth::check()  && $request)
         {
             $contato = Contato::findOrFail($request->id);
 
@@ -78,7 +95,8 @@ class ContatoController extends Controller
         }
            
         return redirect()->route('contatos.index')
-                         ->with('success', 'Contato criado com sucesso.');
+                        ->with($status, $msgRetorno);
+                         //->view('contatos.index', $msgRetorno, 200);
     }
 
     /**

@@ -78,13 +78,14 @@
 
         <!-- FOOTER WEBSITE MOTO START -->
         <div class="col-quad">
-            <h3 class="ff-damion">Siscon</h3>
+            <img src="{{asset('image/logo.png')}}">
+            <!-- <h3 class="ff-damion">Siscon Contabilidade</h3>
             <p>
                 Nossa missão é empoderar empresas e indivíduos através de serviços contábeis excepcionais e personalizados. <br>
             </p>
             <p>
                 Nos dedicamos a ajudar nossos clientes a alcançar seus objetivos financeiros, fornecendo orientação contábil precisa, estratégias de planejamento tributário eficazes e soluções digitais seguras.
-            </p>
+            </p> ->
             <!-- <p>
                         Acreditamos no poder da tecnologia para simplificar a contabilidade e estamos comprometidos em fornecer soluções inovadoras, como a emissão de certificados digitais, para manter nossos clientes à frente na era digital.
                     </p> -->

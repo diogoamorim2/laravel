@@ -26,8 +26,8 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrapFive();
         Blade::withoutDoubleEncoding();
 
-        if ($this->app->environment('local')) {
+        /*if ($this->app->environment('local')) {
             Mail::alwaysTo('diogo@sisconsp.com.br');
-        }
+        }*/
     }
 }

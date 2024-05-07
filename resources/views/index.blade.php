@@ -53,6 +53,18 @@
 
         <!-- ABOUT SECTION START -->
         <section class="contained row" id="about">
+            <!-- USER FEEDBACK START -->
+            @if (session('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+            @elseif (session('error'))
+                <div class="alert alert-danger" role="alert">
+                    {{ session('error') }}
+                </div>
+            @endif
+             <!-- USER FEEDBACK END -->
+
             <h2 class="section-title ff-damion">Sobre nós</h2>
             <div class="col-balance">
                 <span class="fc-primary fs-h2">
