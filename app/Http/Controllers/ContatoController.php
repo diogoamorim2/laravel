@@ -11,6 +11,7 @@ use App\Http\Requests\ContatoStoreRequest;
 use App\Http\Requests\ContatoUpdateRequest;
 use App\Mail\FaleConosco;
 use App\Mail\Newsletter;
+use App\Mail\FaleConoscoContato;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
@@ -65,7 +66,7 @@ class ContatoController extends Controller
                  ->queue(new FaleConosco($contato)); 
 
              Mail::to(self::EMAIL_CONTATO_SISCON)
-                 ->queue(new FaleConosco($contato));
+                 ->queue(new FaleConoscoContato($contato));
          }
         
          return redirect('/contact')->with($status, $msgRetorno);
@@ -94,10 +95,6 @@ class ContatoController extends Controller
             $contato = Contato::findOrFail($request->id);
 
             Mail::to($contato->email)
-                //->send(new Newsletter($contato));
-                ->queue(new Newsletter($contato)); 
-
-            Mail::to(self::EMAIL_CONTATO_SISCON)
                 //->send(new Newsletter($contato));
                 ->queue(new Newsletter($contato));
         }
