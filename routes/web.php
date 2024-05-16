@@ -3,7 +3,7 @@
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Mail;
+//use Illuminate\Support\Facades\Mail;
 
 // Root index group
 Route::get('/', function () {
@@ -26,9 +26,9 @@ Route::get('/industries', function () {
     return view('industries');
 });
 
-Route::get('/outros', function () {
+/*Route::get('/outros', function () {
     return view('outros');
-});
+});*/
 
 Route::get('/service', function () {
     return view('service');

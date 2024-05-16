@@ -95,7 +95,7 @@
                 <i class="bi bi-envelope-fill"></i>
                 contato@sisconsp.com.br
             </a>
-            <a href="contact" class="display-block fc-white icon-link mt-10 mb-10">
+            <a href="https://wa.me/11965873624" class="display-inblock" target=”blank”>
                 <i class="bi bi-telephone-fill"></i>
                 (11) 9 6587-3624
             </a>

@@ -19,7 +19,6 @@ yarn-error.log
 /.vscode
 .vagrant*
 bin
-docker/docker
 .*.swp
 a.out
 *.orig
@@ -41,6 +40,7 @@ pyenv
 Vagrantfile
 .pem
 .test.php
+.md
 
 # Compiled source #
 ###################
@@ -69,3 +69,7 @@ Vagrantfile
 *.log
 *.sql
 *.sqlite
+*.scdi
+
+#Docker
+.docker/*
