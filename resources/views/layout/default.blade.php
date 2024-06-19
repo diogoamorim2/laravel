@@ -32,6 +32,7 @@
         <link rel="stylesheet" href="{{URL('css/animation.css')}}">
         <link rel="stylesheet" href="{{URL('css/style.css')}}">
         <link rel="icon" type="image/png" href="{{URL('image/favicon.png')}}">
+        <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
         <style>
             .col-quad_bg{
