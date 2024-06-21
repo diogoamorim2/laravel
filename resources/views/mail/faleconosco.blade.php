@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
         <!-- header -->
-        @section('title', 'Obrigado por enviar usa dúvida para nós.')
+        @section('title', 'Nova mensagem enviado pelo site Siscon.')
 
         @section('content')
         <body>
@@ -12,10 +12,17 @@
                     <h1>Obrigado por nos enviar a sua dúvda!</h1>
                 </div>
                 <div class="content">
-                    <p>Olá, {{ $contatoName }}</p>
+                    <p>Olá, Contato Siscon</p>
                     <br>
-                    <p>Obrigado por se nos enviar a sua dúvida. Iremos analisar e responder no menor tempo possível, por favor fique a vontade para entrar em contato conosco.</p>
-                    <p>Fique atento à sua caixa de entrada para nossas próximas mensagens.</p>
+                    <p>Recebemos novo questionamento recebido pelo site:</p>
+                    <p>Nome do contato: {{ $contatoName }}</p>
+                    <p>Email: {{ $email }}</p>
+                    <p>Assunto: {{ $assunto }}</p>
+                    <p>Telefone_fixo: {{ $telefone_fixo }}</p>
+                    <p>Telefone celular: {{ $telefone_celular }}</p>
+                    <p>Empresa nome: {{ $empresa_nome }}</p>
+                    <p>Empresa Contato: {{ $empresa_contato }}</p>
+                    <p>Comentario: {{ $comentario }}</p>
                     <br>
                     <p>Atenciosamente,</p>
                     <p>Siscon Contabilidade</p>

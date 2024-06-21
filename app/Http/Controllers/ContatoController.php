@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use App\Models\Contato;
 use App\Http\Requests\ContatoStoreRequest;
 use App\Http\Requests\ContatoUpdateRequest;
-use App\Mail\FaleConosco;
-use App\Mail\Newsletter;
 use App\Mail\FaleConoscoContato;
+use App\Mail\Newsletter;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
@@ -53,20 +53,23 @@ class ContatoController extends Controller
 
          if(!$request)
          {
-            $msgRetorno = $msgRetorno;
-            $status = 'error';
+            $msgRetorno = "Sucess ao enviar a mensagem";
+            $status = 'true';
          }
 
          //Em caso de usuario não logado e novo cadastrado, dispara email de boas vindas
          if(!Auth::check() && $request)
          {
+            //Busca e grava como novo contato
              $contato = Contato::findOrFail($request->id);
  
-             Mail::to($contato->email)
-                 ->queue(new FaleConosco($contato)); 
+             //Envia email
+             /*Mail::to($contato->email)
+                ->send(new Newsletter($contato)); */
 
-             Mail::to(self::EMAIL_CONTATO_SISCON)
-                 ->queue(new FaleConoscoContato($contato));
+            Mail::to(self::EMAIL_CONTATO_SISCON)
+                ->send(new FaleConoscoContato($contato)); 
+
          }
         
          return redirect('/contact')->with($status, $msgRetorno);

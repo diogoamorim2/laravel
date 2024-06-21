@@ -42,7 +42,7 @@ class FaleConoscoContato extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'mail.faleconoscocontato',
+            markdown: 'mail.faleconosco',
             with: [
                 'contatoName' => $this->contato->nome,
                 'email' => $this->contato->email, 
