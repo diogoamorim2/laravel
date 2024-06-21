@@ -64,8 +64,8 @@ class ContatoController extends Controller
              $contato = Contato::findOrFail($request->id);
  
              //Envia email
-             /*Mail::to($contato->email)
-                ->send(new Newsletter($contato)); */
+             Mail::to($contato->email)
+                ->send(new Newsletter($contato));
 
             Mail::to(self::EMAIL_CONTATO_SISCON)
                 ->send(new FaleConoscoContato($contato)); 
