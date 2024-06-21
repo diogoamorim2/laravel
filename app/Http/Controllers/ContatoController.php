@@ -53,7 +53,7 @@ class ContatoController extends Controller
 
          if(!$request)
          {
-            $msgRetorno = "Sucess ao enviar a mensagem";
+            $msgRetorno = "Falha ao enviar a mensagem";
             $status = 'true';
          }
 
