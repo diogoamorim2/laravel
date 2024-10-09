@@ -77,11 +77,15 @@
             </div>
             <div class="col-balance">
                 <div class="sticky-img-dual">
+                    <!--
                     <img src="{{asset('art/hero1.webp')}}" alt="">
                     <img src="{{asset('svg/blob.svg')}}" alt="" class="blob">
                     <img src="{{asset('art/hero2.webp')}}" alt="">
+                -->
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/3PWgUvvxjkI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
                 </div>
             </div>
+            
             <div class="sticky-img-dual-spacer"></div>
         </section>
         <!-- ABOUT SECTION END -->
