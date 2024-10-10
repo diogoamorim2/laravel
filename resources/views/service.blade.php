@@ -45,17 +45,17 @@
                 </div>
             </div>
         </nav>
-        <a href="#" class="btn-back-to-top" aria-label="Voltar para o topo">
+        <!-- <a href="#" class="btn-back-to-top" aria-label="Voltar para o topo">
             <i class="bi bi-chevron-up"></i>
-        </a>
+        </a> -->
         <!-- NAVIGATION END -->
 
         <!-- SERVICES START -->
         <section class="contained">
             <h2 class="section-title ff-damion">Serviços</h2>
             <div class="col-wide mlmr-a ta-center">
-                <span class="fc-primary fs-h2">
-                    Experimente nossos serviços especializados disponiveis para nossos clientes..
+                <span class="fc-primary fs-h2"> 
+                    Experimente nossos serviços especializados disponiveis para nossos clientes.
                 </span>
                 <p>
                 Somos uma empresa de contabilidade comprometida com a excelência, fornecendo serviços contábeis de alta qualidade para empresas e indivíduos. <br>
@@ -68,7 +68,7 @@
 
                     <!-- INDIVIDUAL SERVICES FEATURE START -->
                     <img src="{{asset('art/hero1.webp')}}" class="img-unheight" alt="" id="service-dev">
-                    <span class="fs-h3 mt-25">Serviços Contábeis para Empresas</span>
+                    <span class="fc-primary fs-h2"> Serviços Contábeis para Empresas</span>
                     <p>
                         Nossos serviços contábeis para empresas são projetados para fornecer um suporte financeiro completo para o seu negócio. <br>
                         Oferecemos uma variedade de serviços, incluindo:
@@ -83,25 +83,90 @@
 
                     <!-- INDIVIDUAL SERVICES FEATURE START -->
                     <img src="{{asset('art/hero2.webp')}}" class="img-unheight mt-50" alt="" id="service-data">
-                    <span class="fs-h3 mt-25">Serviços Contábeis para pessoa física</span>
+                    <span class="fc-primary fs-h2"> Serviços Contábeis para pessoa física</span>
                     <p>
-                        <strong>Preparação de imposto de renda:</strong> Nossos especialistas em impostos trabalham para garantir que você esteja em conformidade com todas as leis fiscais e que esteja aproveitando todas as deduções e créditos fiscais disponíveis.<br>
-                        <strong>Planejamento tributário</strong> Trabalhamos com você para desenvolver uma estratégia de planejamento tributário eficaz que pode ajudar a minimizar sua responsabilidade fiscal.<br>
-                        <strong>Consultoria financeira:</strong> Nossos consultores financeiros podem fornecer orientação e conselhos sobre uma variedade de questões financeiras, incluindo planejamento de aposentadoria, investimentos e muito mais.
+                        Além de atender empresas, a Siscon oferece um conjunto abrangente de serviços contábeis especializados para pessoas físicas. Nossa missão é simplificar sua vida financeira e maximizar seus benefícios fiscais.
+                        <br>
+                        <br>
+                        <span class="fc-primary fs-h2">
+                            Nossos Serviços Incluem:
+                        </span>
+                        <ul>
+                            <strong>Preparação de Imposto de Renda:</strong>
+                            <ul>
+                                <li>Análise detalhada de sua situação fiscal</li>
+                                <li>Preenchimento preciso da declaração</li>
+                                <li>Identificação de todas as deduções possíveis</li>
+                                <li>Acompanhamento pós-entrega e suporte em caso de malha fina</li>
+                            </ul>
+                            <strong>Planejamento Tributário Personalizado:</strong>
+                            <ul>
+                                <li>Avaliação completa de sua situação financeira</li>
+                                <li>Estratégias para otimização da carga tributária</li>
+                                <li>Recomendações para investimentos fiscalmente eficientes</li>
+                                <li>Planejamento sucessório e patrimonial</li>
+                            </ul>
+                            <strong>Consultoria Financeira Abrangente:</strong>
+                            <ul>
+                                <li>Análise de fluxo de caixa pessoal</li>
+                                <li>Aconselhamento para gestão de dívidas</li>
+                                <li>Planejamento para aposentadoria</li>
+                                <li>Orientação para investimentos alinhados com seus objetivos</li>
+                            </ul>
+                            <strong>Serviços Especializados:</strong>
+                            <ul>
+                                <li>Assessoria para profissionais autônomos e freelancers</li>
+                                <li>Consultoria para expatriados e não-residentes</li>
+                                <li>Planejamento financeiro para eventos de vida (casamento, filhos, compra de imóveis)</li>
+                            </ul>
+                        </ul>
                     </p>
                     <!-- INDIVIDUAL SERVICES FEATURE END -->
 
                     <!-- INDIVIDUAL SERVICES FEATURE START -->
                     <img src="{{asset('art/hero3.webp')}}" class="img-unheight mt-50" alt="" id="service-design">
-                    <span class="fs-h3 mt-25">Emissão de Certificado Digital</span>
+                    <span class="fc-primary fs-h2">Emissão de Certificado Digital.</span>
                     <p>
-                        <strong>Assinatura de documentos digitalmente:</strong> Com um certificado digital, você pode assinar documentos digitalmente, garantindo a autenticidade e integridade do documento.
-                        <strong>Realização de transações seguras na internet</strong> Um certificado digital pode ser usado para criptografar dados sensíveis, garantindo que suas transações online sejam seguras.
-                        <strong>Cumprimento de obrigações acessórias:</strong> Muitas obrigações fiscais e contábeis agora requerem um certificado digital para autenticação.
+                        Aqui na Siscon, não nos limitamos apenas aos serviços contábeis tradicionais. Expandimos nossa oferta para incluir soluções digitais essenciais para o seu negócio no mundo moderno.
                     </p>
                     <p>
                         Estamos ansiosos para trabalhar com você e ajudar a atender às suas necessidades contábeis. Entre em contato conosco hoje mesmo para saber mais sobre nossos serviços.
                     </p>
+                    <span class="fc-primary fs-h2"> 
+                        Digital: Sua Identidade no Mundo Virtual
+                    </span>
+                    <p>
+                        Além de nossa expertise contábil, oferecemos serviços de emissão de certificado digital, uma ferramenta indispensável para empresas e profissionais no ambiente digital atual.
+                    </p>
+                    <span class="fc-primary fs-h2">
+                        O que é o Certificado Digital?
+                    </span>
+                    <p>
+                        O certificado digital é uma identidade eletrônica que garante a autenticidade e a segurança de suas transações online. É como um documento de identidade virtual, único e intransferível.
+                    <p>
+                    <span class="fc-primary fs-h2">
+                        Benefícios do Certificado Digital:
+                    </span>
+                    <ul>
+                        <li> Assinatura Digital de Documentos: Assine contratos e documentos oficiais eletronicamente, com validade jurídica.</li>
+                        <li>Transações Seguras: Realize operações bancárias e financeiras online com máxima segurança.</li>
+                        <li>Cumprimento de Obrigações Acessórias: Envie declarações e cumpra obrigações fiscais de forma eficiente e segura.</li>
+                        <li>Economia de Tempo: Elimine a necessidade de deslocamentos para realizar processos burocráticos.</li>
+                        <li>Sustentabilidade: Reduza o uso de papel, contribuindo para a preservação do meio ambiente.</li>
+                    </ul>
+                    <span class="fc-primary fs-h2">
+                        Nosso Compromisso
+                    </span>
+                    <p>
+                        Estamos empenhados em oferecer soluções contábeis abrangentes e inovadoras, adaptadas às necessidades específicas do seu negócio. Nossa equipe de especialistas está pronta para guiá-lo através dos complexos cenários contábeis e digitais, garantindo conformidade e eficiência.
+                    </p>
+                    <span class="fc-primary fs-h2">
+                        Entre em Contato
+                    </span>
+                    <p>
+                        Descubra como podemos impulsionar o sucesso do seu negócio com nossos serviços contábeis especializados e soluções de certificação digital. Entre em contato conosco hoje mesmo para uma consulta personalizada e gratuita.
+                    </p>
+                    <a href="{{URL('contact')}}" class="btn-bg1 border-round">Fale conosco</a>
                     <!-- INDIVIDUAL SERVICES FEATURE END -->
                 </div>
 
@@ -119,6 +184,12 @@
 
             </div>
         </section>
+        
+        <a href="https://wa.me/5511965873624" target="_blank" class="whatsapp-button">
+            <i class="fab fa-whatsapp"></i>
+            <img style="width: 50px" src="{{asset('image/whatsbggreen.webp')}}" alt="Fale conosco">
+            <!-- <span>WhatsApp</span> -->
+        </a>
         <!-- SERVICES END -->
     </main>
     

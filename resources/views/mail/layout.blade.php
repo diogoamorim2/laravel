@@ -43,6 +43,8 @@
         <link rel="preload" href="{{URL('css/fontstyle.css')}}" as="style">
         <link rel="preload" href="{{URL('css/layout.css')}}" as="style">
         <link rel="preload" href="{{URL('css/style.css')}}" as="style">
+        <link rel="stylesheet" href="{{URL('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css')}}">
+        <link rel="stylesheet" href="{{URL('css/all.min.css')}}">
     </head>
     <body>
         <div class="container">

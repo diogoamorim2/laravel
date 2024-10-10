@@ -41,9 +41,9 @@
                 </div>
             </div>
         </nav>
-        <a href="#" class="btn-back-to-top" aria-label="Voltar para o topo">
+        <!-- <a href="#" class="btn-back-to-top" aria-label="Voltar para o topo">
             <i class="bi bi-chevron-up"></i>
-        </a>
+        </a> -->
         <!-- NAVIGATION END -->
 
         
@@ -86,11 +86,10 @@
                         <i class="bi bi-envelope-fill"></i>
                         contato@sisconsp.com.br
                     </a>
-                    <a href="https://wa.me/11965873624" class="display-inblock" target=”blank”>
-                        <i class="bi bi-telephone-fill"></i>
+                    <a href="https://wa.me/11965873624" class="display-inblock" target="_blank">
+                        <i class="bi bi-whatsapp"></i>
                         (11) 9 6587-3624
                     </a>
-    
                     <form action="{{ route('contatos.create') }}" method="GET" class="message-form mt-50 mb-25">
                         @csrf
 
@@ -116,6 +115,12 @@
     @section('footer')
     @endsection
     <!-- FOOTER END -->
+
+    <a href="https://wa.me/5511965873624" target="_blank" class="whatsapp-button">
+        <i class="fab fa-whatsapp"></i>
+        <img style="width: 50px" src="{{asset('image/whatsbggreen.webp')}}" alt="Fale conosco">
+        <!-- <span>WhatsApp</span> -->
+    </a>
 
 </body>
 </html>

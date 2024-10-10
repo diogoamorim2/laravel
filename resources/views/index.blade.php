@@ -46,9 +46,16 @@
                 </div>
             </div>
         </nav>
-        <a href="#" class="btn-back-to-top" aria-label="Back to top button">
-            <i class="bi bi-chevron-up"></i>
+
+        <a href="https://wa.me/5511965873624" target="_blank" class="whatsapp-button">
+            <i class="fab fa-whatsapp"></i>
+            <img style="width: 50px" src="{{asset('image/whatsbggreen.webp')}}" alt="Fale conosco">
+            <!-- <span>WhatsApp</span> -->
         </a>
+
+        <!-- <a href="#" class="btn-back-to-top" aria-label="Back to top button">
+            <i class="bi bi-chevron-up"></i>
+        </a> -->
         <!-- NAVIGATION END -->
 
         <!-- ABOUT SECTION START -->
@@ -85,8 +92,23 @@
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/3PWgUvvxjkI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
                 </div>
             </div>
-            
             <div class="sticky-img-dual-spacer"></div>
+            <h2 class="section-title ff-damion">Sobre nós</h2>
+            <div class="col-balance">
+                <div class="sticky-img-dual">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/-urSrobDaVE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+                </div>
+            </div>
+            <div class="col-balance">
+                <span class="fc-primary fs-h2">
+                    Emissão de Certificado digital
+                </span>
+                <p>
+                    Oferecemos soluções em certificação digital em conjunto com nossa parceira Valid. <br>
+                </p>
+                <a href="{{URL('about')}}" class="btn-bg1 mt-25 border-round">Saiba mais</a>
+            </div>
+            
         </section>
         <!-- ABOUT SECTION END -->
 
