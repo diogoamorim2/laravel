@@ -72,4 +72,4 @@ Vagrantfile
 *.scdi
 
 #Docker
-.docker/*
+.docker/
