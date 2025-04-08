@@ -185,10 +185,16 @@
             </div>
         </section>
         
-        <a href="https://wa.me/5511965873624" target="_blank" class="whatsapp-button">
-            <i class="fab fa-whatsapp"></i>
-            <img style="width: 50px" src="{{asset('image/whatsbggreen.webp')}}" alt="Fale conosco">
-            <!-- <span>WhatsApp</span> -->
+        <a href="https://wa.me/5511965873624"
+            target="_blank"
+            class="whatsapp-button"
+            aria-label="Fale conosco pelo WhatsApp">  {{-- Label para acessibilidade --}}
+        
+            <img src="{{asset('image/whatsbggreen.webp')}}"
+                alt="Ícone WhatsApp"> {{-- Alt text descrevendo a imagem --}}
+        
+            {{-- Opcional: Texto para leitores de tela, se quiser ser mais explícito --}}
+            {{-- <span class="sr-only">Fale conosco pelo WhatsApp</span> --}}
         </a>
         <!-- SERVICES END -->
     </main>

@@ -37,6 +37,75 @@
         <style>
             .col-quad_bg{
                 width: 200px !import;
+            },
+            /* Estilo Base para o Botão WhatsApp */
+            .whatsapp-button {
+                position: fixed; /* Mantém o botão fixo na tela */
+                bottom: 30px;    /* Distância da parte inferior */
+                right: 30px;     /* Distância da direita */
+                z-index: 1000;   /* Garante que fique sobre outros elementos */
+                display: flex;   /* Útil para alinhar a imagem interna se necessário */
+                justify-content: center;
+                align-items: center;
+                /* background-color: #25D366; */ /* Cor de fundo opcional, se a imagem não preencher */
+                /* border-radius: 50%; */      /* Para deixar o fundo redondo, se tiver cor */
+                /* padding: 10px; */           /* Espaçamento interno, se tiver cor de fundo */
+                box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+                transition: transform 0.2s ease-in-out; /* Efeito suave ao passar o mouse */
+            }
+
+            .whatsapp-button img {
+                display: block; /* Remove espaço extra abaixo da imagem */
+                width: 60px;    /* Tamanho padrão para desktop (ajuste conforme necessário) */
+                height: 60px;   /* Manter proporção ou definir igual à largura para redondo */
+                border-radius: 50%; /* Se a própria imagem deve ser redonda */
+            }
+
+            .whatsapp-button:hover {
+                transform: scale(1.1); /* Aumenta um pouco no hover */
+            }
+
+
+            /* --- Ajustes para Telas Menores (Mobile) --- */
+
+            /* Exemplo: Telas com largura máxima de 768px (Tablets e Celulares) */
+            @media (max-width: 768px) {
+                .whatsapp-button {
+                    bottom: 20px; /* Menor distância da borda */
+                    right: 20px;  /* Menor distância da borda */
+                    /* padding: 8px; */ /* Menor espaçamento interno, se tiver fundo */
+                }
+
+                .whatsapp-button img {
+                    width: 50px;  /* Tamanho ligeiramente menor para mobile */
+                    height: 50px;
+                }
+            }
+
+            /* Exemplo: Telas com largura máxima de 480px (Celulares menores) */
+            @media (max-width: 480px) {
+                .whatsapp-button {
+                    bottom: 15px;
+                    right: 15px;
+                }
+
+                .whatsapp-button img {
+                    width: 45px; /* Ainda menor se necessário */
+                    height: 45px;
+                }
+            }
+
+            /* Classe auxiliar para leitores de tela (se você usar o <span>) */
+            .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
             }
         </style>
     </head>

@@ -1,0 +1,9 @@
+############COMO INSTALAR###################
+1 - git clone git@github.com:diogoamorim2/laravel.git
+2 - composer update / composer install
+3 - docker composer build
+4 - docker composer run -d
+5 - grave o .env do dir raiz (em localhost - DB_DATABASE=sisconsp - DB_HOST=localhost:3306 - DB_USERNAME=root / DB_PASSWORD=root)
+6 - docker-compose exec app bash
+7 - php artisan migrate 
+8 - http://localhost:8989/
