@@ -65,10 +65,10 @@ class ContatoController extends Controller
  
              //Envia email
              Mail::to($contato->email)
-                ->send(new Newsletter($contato));
+                ->queue(new Newsletter($contato));
 
             Mail::to(self::EMAIL_CONTATO_SISCON)
-                ->send(new FaleConoscoContato($contato)); 
+                ->queue(new FaleConoscoContato($contato));
 
          }
         
