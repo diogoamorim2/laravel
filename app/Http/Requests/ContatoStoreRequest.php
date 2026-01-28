@@ -23,15 +23,15 @@ class ContatoStoreRequest extends FormRequest
     {
         return [
             'nome' => 'nullable|string',
-            'email' => 'required',
+            'email' => 'required|email',
             'assunto' => 'nullable|string',
-            'telefone_fixo' => 'nullable|integer|min:1|max:15',
-            'telefone_celular' => 'nullable|integer|min:1|max:15',
+            'telefone_fixo' => 'nullable|string|max:20',
+            'telefone_celular' => 'nullable|string|max:20',
             'empresa_nome' => 'nullable|string',
             'empresa_contato' => 'nullable|string',
             'comentario' => 'nullable|string',
             'ativo' => 'nullable|bool',
-            'newslatter' => 'nullable|string'
+            'newslatter' => 'nullable|string',
         ];
     }
 }
