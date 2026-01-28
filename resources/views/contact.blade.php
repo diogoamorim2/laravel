@@ -99,9 +99,11 @@
                             <input name="nome" type="text" id="message-name" placeholder="Seu nome" aria-label="Digite seu nome" required>
                             <input name="email" type="email" class="ml-a" id="message-email" placeholder="Seu email" aria-label="Digite seu email" required>
                         </div>
+                        <label for="message-subject" class="display-block mb-5 fw-bold">Assunto</label>
                         <input name="assunto" type="text" id="message-subject" aria-label="Nos fale o tema da pergunta" class="mb-20" placeholder="Assunto">
+                        <label for="message-message" class="display-block mb-5 fw-bold">Mensagem</label>
                         <textarea name="comentario" id="message-message" rows="5" placeholder="Escreva a sua mensagem" aria-label="Escreva a sua mensagem"></textarea>
-                        <button type="submit" class="btn-bg1 border-round mt-20">Enviar menssagem</button>
+                        <button type="submit" class="btn-bg1 border-round mt-20">Enviar mensagem</button>
                     </form>
                 </div>
                 <!-- CONTACT INFO END -->
