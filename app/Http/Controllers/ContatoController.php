@@ -25,54 +25,25 @@ class ContatoController extends Controller
     protected $view = 'index';
     private const EMAIL_CONTATO_SISCON = 'contato@sisconsp.com.br';
 
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['store', 'create']);
+    }
+
     public function index(): View
     {
         $contatos = Contato::latest()->paginate(5);
-        
-        
-        if(Auth::check())
-        {
-            $this->view = 'contato.index';
-        }
 
-        return view($this->view , compact('contatos'))
-                    ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('contato.index', compact('contatos'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(ContatoStoreRequest $request): RedirectResponse
+    public function create(): RedirectResponse
     {
-        
-        $msgRetorno = 'Mensagem enviada com sucesso.';
-        $status = 'success';
-
-         //Salva no BD no contato cadastrado.
-         $request = Contato::create($request->validated());
-
-         if(!$request)
-         {
-            $msgRetorno = "Falha ao enviar a mensagem";
-            $status = 'true';
-         }
-
-         //Em caso de usuario não logado e novo cadastrado, dispara email de boas vindas
-         if(!Auth::check() && $request)
-         {
-            //Busca e grava como novo contato
-             $contato = Contato::findOrFail($request->id);
- 
-             //Envia email
-             Mail::to($contato->email)
-                ->send(new Newsletter($contato));
-
-            Mail::to(self::EMAIL_CONTATO_SISCON)
-                ->send(new FaleConoscoContato($contato)); 
-
-         }
-        
-         return redirect('/contact')->with($status, $msgRetorno);
+        return redirect('/contact');
     }
 
     /**
@@ -81,30 +52,31 @@ class ContatoController extends Controller
     public function store(ContatoStoreRequest $request): RedirectResponse
     {
         $msgRetorno = 'Mensagem enviada com sucesso.';
-        $status = 'sucess';
+        $status = 'success';
 
         //Salva no BD no contato cadastrado.
-        $request = Contato::create($request->validated());
+        $contato = Contato::create($request->validated());
 
-        if(!$request)
+        if(!$contato)
         {
             $msgRetorno = 'Falha ao enviar a mensagem.';
             $status = 'error';
         }
 
         //Em caso de usuario não logado e novo cadastrado, dispara email de boas vindas
-        if(!Auth::check()  && $request)
+        if(!Auth::check()  && $contato)
         {
-            $contato = Contato::findOrFail($request->id);
-
             Mail::to($contato->email)
-                //->send(new Newsletter($contato));
                 ->queue(new Newsletter($contato));
+
+            // Se for contato do form de contato (tem comentário ou assunto), envia email para admin
+            if ($request->filled('comentario') || $request->filled('assunto')) {
+                Mail::to(self::EMAIL_CONTATO_SISCON)
+                    ->queue(new FaleConoscoContato($contato));
+            }
         }
            
-        return redirect()->route('contatos.index')
-                        ->with($status, $msgRetorno);
-                         //->view('contatos.index', $msgRetorno, 200);
+        return back()->with($status, $msgRetorno);
     }
 
     /**
