@@ -801,6 +801,13 @@ button{
     border: none;
 }
 
+input:focus,
+textarea:focus,
+select:focus{
+    outline: 2px solid var(--primaryColor);
+    outline-offset: -2px;
+}
+
 [class*="btn-"]{
     padding: 8px 20px;
     cursor: pointer;

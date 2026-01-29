@@ -309,7 +309,7 @@
         <section class="contained ta-center">
             <h2 class="section-title ff-damion">Fale conosco</h2>
             <p class="col-wide mlmr-a">
-                Para qualquer dúvida nos envie uma menssagem para entendermos como podemos melhor atender você.
+                Para qualquer dúvida nos envie uma mensagem para entendermos como podemos melhor atender você.
             </p>
             <a href="{{URL('contact')}}" class="btn-bg1 border-round mt-25">
                 Entrar em contato
