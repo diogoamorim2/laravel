@@ -23,6 +23,11 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+// Added login route for auth middleware
+Route::get('/login', function () {
+    return 'Login Page'; // Placeholder
+})->name('login');
+
 Route::get('/industries', function () {
     return view('industries');
 });
