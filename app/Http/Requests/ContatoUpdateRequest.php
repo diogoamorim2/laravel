@@ -31,7 +31,7 @@ class ContatoUpdateRequest extends FormRequest
             'empresa_contato' => 'nullable|string',
             'comentario' => 'nullable|string',
             'ativo' => 'nullable|bool',
-            'newslatter' => 'nullable|string'
+            'newslatter' => 'nullable|string',
         ];
     }
 }

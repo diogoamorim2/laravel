@@ -2,15 +2,15 @@
 
 namespace App\Mail;
 
+use App\Models\Contato;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-use App\Models\Contato;
 
-class FaleConoscoContato extends Mailable
+class FaleConoscoContato extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -45,15 +45,15 @@ class FaleConoscoContato extends Mailable
             markdown: 'mail.faleconosco',
             with: [
                 'contatoName' => $this->contato->nome,
-                'email' => $this->contato->email, 
-                'assunto' => $this->contato->assunto, 
-                'telefone_fixo' => $this->contato->telefone_fixo, 
-                'telefone_celular' => $this->contato->telefone_celular, 
-                'empresa_nome' => $this->contato->empresa_nome, 
-                'empresa_contato' => $this->contato->empresa_contato, 
-                'comentario' => $this->contato->comentario, 
-                'ativo' => $this->contato->ativo, 
-                'newslatter' => $this->contato->newslatter
+                'email' => $this->contato->email,
+                'assunto' => $this->contato->assunto,
+                'telefone_fixo' => $this->contato->telefone_fixo,
+                'telefone_celular' => $this->contato->telefone_celular,
+                'empresa_nome' => $this->contato->empresa_nome,
+                'empresa_contato' => $this->contato->empresa_contato,
+                'comentario' => $this->contato->comentario,
+                'ativo' => $this->contato->ativo,
+                'newslatter' => $this->contato->newslatter,
             ]
         );
     }
