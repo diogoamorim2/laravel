@@ -1,0 +1,4 @@
+## 2024-05-23 - CSRF via GET Route Misuse
+**Vulnerability:** The application was using a GET route (`create`) to perform state-changing operations (database writes, email sending), allowing for CSRF attacks and data leakage via URL logging.
+**Learning:** The developer likely used GET because `Route::resource` was used and they didn't want to implement a separate POST route or confused `create` (show form) with `store` (save data). The `create` and `store` methods had duplicated but slightly different logic (admin emails were missing in `store`), creating a functionality gap when fixing the security issue.
+**Prevention:** Strictly enforce that state-changing operations (CREATE, UPDATE, DELETE) only happen via POST/PUT/DELETE verbs. Use resource controllers correctly: `create` should only return a View. Logic should be centralized in Service classes or strictly in `store/update`.
