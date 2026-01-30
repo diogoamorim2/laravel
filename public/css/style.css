@@ -763,7 +763,12 @@ a.fc-white::after{
     background-color: var(--bgWhite);
 }
 :focus{
-    outline: 3px solid transparent;
+    outline: transparent;
+}
+
+:focus-visible{
+    outline: 3px solid var(--primaryColor);
+    outline-offset: 2px;
 }
 
 .icon-link > i{
