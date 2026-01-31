@@ -154,7 +154,7 @@
 
         <!-- FOOTER WEBSITE LOGO START -->
         <div class="col-quad_bg">
-                <img src="{{asset('image/logo-removebg_204_200.png')}}">
+                <img loading="lazy" src="{{asset('image/logo-removebg_204_200.png')}}">
         </div>
         <!-- FOOTER WEBSITE LOGO END -->
 
