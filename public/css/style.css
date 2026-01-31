@@ -766,6 +766,11 @@ a.fc-white::after{
     outline: 3px solid transparent;
 }
 
+:focus-visible {
+    outline: 3px solid var(--primaryColor);
+    outline-offset: 2px;
+}
+
 .icon-link > i{
     display: -webkit-inline-box;
     display: -webkit-inline-flex;
