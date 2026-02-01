@@ -36,7 +36,7 @@ class ContatoController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(ContatoStoreRequest $request): RedirectResponse
+    public function create(): RedirectResponse
     {
 
         $msgRetorno = 'Mensagem enviada com sucesso.';
@@ -73,10 +73,10 @@ class ContatoController extends Controller
     public function store(ContatoStoreRequest $request): RedirectResponse
     {
         $msgRetorno = 'Mensagem enviada com sucesso.';
-        $status = 'sucess';
+        $status = 'success';
 
         //Salva no BD no contato cadastrado.
-        $request = Contato::create($request->validated());
+        $contato = Contato::create($request->validated());
 
         if (! $request) {
             $msgRetorno = 'Falha ao enviar a mensagem.';
@@ -88,8 +88,13 @@ class ContatoController extends Controller
             $contato = Contato::findOrFail($request->id);
 
             Mail::to($contato->email)
-                //->send(new Newsletter($contato));
                 ->queue(new Newsletter($contato));
+
+            // Send email to admin if it's a contact request (has subject or comment)
+            if ($contato->assunto || $contato->comentario) {
+                Mail::to(self::EMAIL_CONTATO_SISCON)
+                    ->queue(new FaleConoscoContato($contato));
+            }
         }
 
         return redirect()->route('contatos.index')
