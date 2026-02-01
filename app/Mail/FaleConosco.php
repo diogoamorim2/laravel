@@ -2,13 +2,12 @@
 
 namespace App\Mail;
 
+use App\Models\Contato;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-use App\Models\Contato;
 
 class FaleConosco extends Mailable
 {
@@ -44,7 +43,7 @@ class FaleConosco extends Mailable
         return new Content(
             markdown: 'mail.faleconosco',
             with: [
-                'contatoName' => $this->contato->nome
+                'contatoName' => $this->contato->nome,
             ]
         );
     }

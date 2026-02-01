@@ -19,6 +19,6 @@ class Contato extends Model
         'empresa_contato',
         'comentario',
         'ativo',
-        'newslatter'
+        'newslatter',
     ];
 }
