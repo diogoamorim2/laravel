@@ -96,12 +96,12 @@
                         <span class="fs-h4 fc-primary mb-15">Envie uma mensagem para nós</span>
                         <div class="row mb-20">
                             <input type="hidden" name='newslatter' value="1">
-                            <input name="nome" type="text" id="message-name" placeholder="Seu nome" aria-label="Digite seu nome" required>
-                            <input name="email" type="email" class="ml-a" id="message-email" placeholder="Seu email" aria-label="Digite seu email" required>
+                        <input name="nome" type="text" id="message-name" placeholder="Seu nome *" aria-label="Digite seu nome" required>
+                        <input name="email" type="email" class="ml-a" id="message-email" placeholder="Seu email *" aria-label="Digite seu email" required>
                         </div>
                         <input name="assunto" type="text" id="message-subject" aria-label="Nos fale o tema da pergunta" class="mb-20" placeholder="Assunto">
                         <textarea name="comentario" id="message-message" rows="5" placeholder="Escreva a sua mensagem" aria-label="Escreva a sua mensagem"></textarea>
-                        <button type="submit" class="btn-bg1 border-round mt-20">Enviar menssagem</button>
+                    <button type="submit" class="btn-bg1 border-round mt-20">Enviar mensagem</button>
                     </form>
                 </div>
                 <!-- CONTACT INFO END -->
@@ -128,5 +128,29 @@
         {{-- <span class="sr-only">Fale conosco pelo WhatsApp</span> --}}
     </a>
 
+<style>
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+    .spin { animation: spin 1s linear infinite; display: inline-block; margin-right: 5px; }
+</style>
+
+<script>
+    (function() {
+        var form = document.querySelector('.message-form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                var btn = form.querySelector('button[type="submit"]');
+                if (btn) {
+                    btn.innerHTML = '<i class="bi bi-arrow-repeat spin"></i> Enviando...';
+                    btn.disabled = true;
+                    // Re-enable after 10s just in case
+                    setTimeout(function() {
+                        btn.disabled = false;
+                        btn.innerHTML = 'Enviar mensagem';
+                    }, 10000);
+                }
+            });
+        }
+    })();
+</script>
 </body>
 </html>
