@@ -68,8 +68,8 @@
             <div class="col-balance">
                 <div class="sticky-img-dual">
                     <!-- <img src="{{asset('art/hero1.webp')}}" alt=""> -->
-                    <img src="{{asset('svg/blob.svg')}}" alt="" class="blob">
-                    <img src="{{asset('art/hero2.webp')}}" alt="">
+                    <img loading="lazy" src="{{asset('svg/blob.svg')}}" alt="" class="blob">
+                    <img loading="lazy" src="{{asset('art/hero2.webp')}}" alt="">
                 </div>
             </div>
             <div class="sticky-img-dual-spacer"></div>
@@ -77,8 +77,8 @@
             
             <div class="col-balance">
                 <div class="sticky-img-dual">
-                    <img src="{{asset('svg/blob.svg')}}" alt="" class="blob">
-                    <img src="{{asset('art/hero1.webp')}}" alt="">
+                    <img loading="lazy" src="{{asset('svg/blob.svg')}}" alt="" class="blob">
+                    <img loading="lazy" src="{{asset('art/hero1.webp')}}" alt="">
                     <!-- <img src="{{asset('art/hero2.webp')}}" alt=""> -->
                 </div>
             </div>
@@ -176,8 +176,8 @@
             </div>
             <div class="col-balance">
                 <div class="sticky-img-dual">
-                    <img src="{{asset('svg/blob.svg')}}" alt="" class="blob">
-                    <img src="{{asset('image/banner.webp')}}" alt="">
+                    <img loading="lazy" src="{{asset('svg/blob.svg')}}" alt="" class="blob">
+                    <img loading="lazy" src="{{asset('image/banner.webp')}}" alt="">
                 </div>
             </div>
             <div class="sticky-img-dual-spacer"></div>

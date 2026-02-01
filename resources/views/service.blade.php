@@ -67,7 +67,7 @@
                 <div class="col-wide">
 
                     <!-- INDIVIDUAL SERVICES FEATURE START -->
-                    <img src="{{asset('art/hero1.webp')}}" class="img-unheight" alt="" id="service-dev">
+                    <img loading="lazy" src="{{asset('art/hero1.webp')}}" class="img-unheight" alt="" id="service-dev">
                     <span class="fc-primary fs-h2"> Serviços Contábeis para Empresas</span>
                     <p>
                         Nossos serviços contábeis para empresas são projetados para fornecer um suporte financeiro completo para o seu negócio. <br>
@@ -82,7 +82,7 @@
                     <!-- INDIVIDUAL SERVICES FEATURE END -->
 
                     <!-- INDIVIDUAL SERVICES FEATURE START -->
-                    <img src="{{asset('art/hero2.webp')}}" class="img-unheight mt-50" alt="" id="service-data">
+                    <img loading="lazy" src="{{asset('art/hero2.webp')}}" class="img-unheight mt-50" alt="" id="service-data">
                     <span class="fc-primary fs-h2"> Serviços Contábeis para pessoa física</span>
                     <p>
                         Além de atender empresas, a Siscon oferece um conjunto abrangente de serviços contábeis especializados para pessoas físicas. Nossa missão é simplificar sua vida financeira e maximizar seus benefícios fiscais.
@@ -124,7 +124,7 @@
                     <!-- INDIVIDUAL SERVICES FEATURE END -->
 
                     <!-- INDIVIDUAL SERVICES FEATURE START -->
-                    <img src="{{asset('art/hero3.webp')}}" class="img-unheight mt-50" alt="" id="service-design">
+                    <img loading="lazy" src="{{asset('art/hero3.webp')}}" class="img-unheight mt-50" alt="" id="service-design">
                     <span class="fc-primary fs-h2">Emissão de Certificado Digital.</span>
                     <p>
                         Aqui na Siscon, não nos limitamos apenas aos serviços contábeis tradicionais. Expandimos nossa oferta para incluir soluções digitais essenciais para o seu negócio no mundo moderno.
