@@ -2,12 +2,12 @@
 
 namespace App\Mail;
 
+use App\Models\Contato;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-use App\Models\Contato;
 
 class Newsletter extends Mailable
 {
@@ -17,7 +17,8 @@ class Newsletter extends Mailable
      * Create a new message instance.
      */
     public function __construct(public Contato $contato)
-    {}
+    {
+    }
 
     /**
      * Get the message envelope.
@@ -41,7 +42,7 @@ class Newsletter extends Mailable
         return new Content(
             view: 'mail.newsletter',
             with: [
-                'contatoName' => $this->contato->nome
+                'contatoName' => $this->contato->nome,
             ],
         );
     }
@@ -55,5 +56,4 @@ class Newsletter extends Mailable
     {
         return [];
     }
-
 }
