@@ -1,6 +1,22 @@
 @extends('layout.default')
 
 @section('head')
+<style>
+    .spinner {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        border: 2px solid rgba(255,255,255,0.3);
+        border-radius: 50%;
+        border-top-color: #fff;
+        animation: spin 1s ease-in-out infinite;
+        margin-left: 10px;
+        vertical-align: middle;
+    }
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+</style>
 @endsection
 
 <body>
@@ -90,7 +106,7 @@
                         <i class="bi bi-whatsapp"></i>
                         (11) 9 6587-3624
                     </a>
-                    <form action="{{ route('contatos.store') }}" method="POST" class="message-form mt-50 mb-25">
+                    <form action="{{ route('contatos.store') }}" method="POST" class="message-form mt-50 mb-25" id="contact-form">
                         @csrf
 
                         <span class="fs-h4 fc-primary mb-15">Envie uma mensagem para nós</span>
@@ -101,7 +117,7 @@
                         </div>
                         <input name="assunto" type="text" id="message-subject" aria-label="Nos fale o tema da pergunta" class="mb-20" placeholder="Assunto">
                         <textarea name="comentario" id="message-message" rows="5" placeholder="Escreva a sua mensagem" aria-label="Escreva a sua mensagem"></textarea>
-                    <button type="submit" class="btn-bg1 border-round mt-20">Enviar mensagem</button>
+                        <button type="submit" class="btn-bg1 border-round mt-20" id="btn-submit">Enviar mensagem</button>
                     </form>
                 </div>
                 <!-- CONTACT INFO END -->
@@ -128,29 +144,12 @@
         {{-- <span class="sr-only">Fale conosco pelo WhatsApp</span> --}}
     </a>
 
-<style>
-    @keyframes spin { 100% { transform: rotate(360deg); } }
-    .spin { animation: spin 1s linear infinite; display: inline-block; margin-right: 5px; }
-</style>
-
-<script>
-    (function() {
-        var form = document.querySelector('.message-form');
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                var btn = form.querySelector('button[type="submit"]');
-                if (btn) {
-                    btn.innerHTML = '<i class="bi bi-arrow-repeat spin"></i> Enviando...';
-                    btn.disabled = true;
-                    // Re-enable after 10s just in case
-                    setTimeout(function() {
-                        btn.disabled = false;
-                        btn.innerHTML = 'Enviar mensagem';
-                    }, 10000);
-                }
-            });
-        }
-    })();
-</script>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            var btn = document.getElementById('btn-submit');
+            btn.disabled = true;
+            btn.innerHTML = 'Enviando... <span class="spinner"></span>';
+        });
+    </script>
 </body>
 </html>
