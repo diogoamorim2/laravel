@@ -2,12 +2,11 @@
 
 namespace Tests\Feature\Security;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
-use App\Models\Contato;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\Newsletter;
 use App\Mail\FaleConoscoContato;
+use App\Mail\Newsletter;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Mail;
+use Tests\TestCase;
 
 class CsrfTest extends TestCase
 {
