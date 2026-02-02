@@ -36,7 +36,7 @@ class ContatoController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): RedirectResponse
+    public function create(): View
     {
         return redirect('/contact');
     }
@@ -55,10 +55,12 @@ class ContatoController extends Controller
         if (! $contato) {
             $msgRetorno = 'Falha ao enviar a mensagem.';
             $status = 'error';
+
+            return redirect()->back()->with($status, $msgRetorno);
         }
 
         //Em caso de usuario não logado e novo cadastrado, dispara email de boas vindas
-        if (! Auth::check() && $contato) {
+        if (! Auth::check() && $request) {
             Mail::to($contato->email)
                 ->queue(new Newsletter($contato));
 
@@ -69,9 +71,8 @@ class ContatoController extends Controller
             }
         }
 
-        return redirect()->route('contatos.index')
+        return redirect()->back()
             ->with($status, $msgRetorno);
-        //->view('contatos.index', $msgRetorno, 200);
     }
 
     /**

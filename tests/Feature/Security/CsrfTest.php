@@ -2,12 +2,11 @@
 
 namespace Tests\Feature\Security;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
-use App\Models\Contato;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\Newsletter;
 use App\Mail\FaleConoscoContato;
+use App\Mail\Newsletter;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Mail;
+use Tests\TestCase;
 
 class CsrfTest extends TestCase
 {
@@ -30,8 +29,9 @@ class CsrfTest extends TestCase
         $url = route('contatos.create', $data);
         $response = $this->get($url);
 
-        // Assert it redirects to /contact (as per our new logic)
-        $response->assertRedirect('/contact');
+        // Assert it returns the view (status 200)
+        $response->assertStatus(200);
+        $response->assertViewIs('contact');
 
         // Assert NO data is in DB
         $this->assertDatabaseMissing('contatos', [
