@@ -38,33 +38,7 @@ class ContatoController extends Controller
      */
     public function create(): RedirectResponse
     {
-
-        $msgRetorno = 'Mensagem enviada com sucesso.';
-        $status = 'success';
-
-        //Salva no BD no contato cadastrado.
-        $request = Contato::create($request->validated());
-
-        if (! $request) {
-            $msgRetorno = 'Falha ao enviar a mensagem';
-            $status = 'true';
-        }
-
-        //Em caso de usuario não logado e novo cadastrado, dispara email de boas vindas
-        if (! Auth::check() && $request) {
-            //Busca e grava como novo contato
-            $contato = Contato::findOrFail($request->id);
-
-            //Envia email
-            Mail::to($contato->email)
-                ->send(new Newsletter($contato));
-
-            Mail::to(self::EMAIL_CONTATO_SISCON)
-                ->send(new FaleConoscoContato($contato));
-
-        }
-
-        return redirect('/contact')->with($status, $msgRetorno);
+        return redirect('/contact');
     }
 
     /**
@@ -78,15 +52,15 @@ class ContatoController extends Controller
         //Salva no BD no contato cadastrado.
         $contato = Contato::create($request->validated());
 
-        if (! $request) {
+        if (! $contato) {
             $msgRetorno = 'Falha ao enviar a mensagem.';
             $status = 'error';
+
+            return redirect()->back()->with($status, $msgRetorno);
         }
 
         //Em caso de usuario não logado e novo cadastrado, dispara email de boas vindas
-        if (! Auth::check() && $request) {
-            $contato = Contato::findOrFail($request->id);
-
+        if (! Auth::check()) {
             Mail::to($contato->email)
                 ->queue(new Newsletter($contato));
 
@@ -97,9 +71,8 @@ class ContatoController extends Controller
             }
         }
 
-        return redirect()->route('contatos.index')
+        return redirect()->back()
             ->with($status, $msgRetorno);
-        //->view('contatos.index', $msgRetorno, 200);
     }
 
     /**
