@@ -112,8 +112,8 @@
                         <span class="fs-h4 fc-primary mb-15">Envie uma mensagem para nós</span>
                         <div class="row mb-20">
                             <input type="hidden" name='newslatter' value="1">
-                            <input name="nome" type="text" id="message-name" placeholder="Seu nome" aria-label="Digite seu nome" required>
-                            <input name="email" type="email" class="ml-a" id="message-email" placeholder="Seu email" aria-label="Digite seu email" required>
+                        <input name="nome" type="text" id="message-name" placeholder="Seu nome *" aria-label="Digite seu nome" required>
+                        <input name="email" type="email" class="ml-a" id="message-email" placeholder="Seu email *" aria-label="Digite seu email" required>
                         </div>
                         <input name="assunto" type="text" id="message-subject" aria-label="Nos fale o tema da pergunta" class="mb-20" placeholder="Assunto">
                         <textarea name="comentario" id="message-message" rows="5" placeholder="Escreva a sua mensagem" aria-label="Escreva a sua mensagem"></textarea>
