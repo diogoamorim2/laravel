@@ -23,7 +23,7 @@ class ContatoStoreRequest extends FormRequest
     {
         return [
             'nome' => 'nullable|string',
-            'email' => 'required',
+            'email' => 'required|email',
             'assunto' => 'nullable|string',
             'telefone_fixo' => 'nullable|string|max:20',
             'telefone_celular' => 'nullable|string|max:20',
