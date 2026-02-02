@@ -38,7 +38,7 @@ class ContatoController extends Controller
      */
     public function create(): View
     {
-        return view('contact');
+        return redirect('/contact');
     }
 
     /**
@@ -55,10 +55,12 @@ class ContatoController extends Controller
         if (! $contato) {
             $msgRetorno = 'Falha ao enviar a mensagem.';
             $status = 'error';
+
+            return redirect()->back()->with($status, $msgRetorno);
         }
 
         //Em caso de usuario não logado e novo cadastrado, dispara email de boas vindas
-        if (! Auth::check() && $contato) {
+        if (! Auth::check() && $request) {
             Mail::to($contato->email)
                 ->queue(new Newsletter($contato));
 
