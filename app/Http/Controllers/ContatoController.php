@@ -60,7 +60,7 @@ class ContatoController extends Controller
         }
 
         //Em caso de usuario não logado e novo cadastrado, dispara email de boas vindas
-        if (! Auth::check()) {
+        if (! Auth::check() && $request) {
             Mail::to($contato->email)
                 ->queue(new Newsletter($contato));
 
