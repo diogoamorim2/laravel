@@ -112,7 +112,7 @@
 <!-- MAIN HERO BANNER END -->
 
 <!-- INICIO REDES SOCIAIS -->
-@yeld('redessociais')
+@yield('redessociais')
 <!-- <div class="hero-socials">
         <a href="#" class="mt-a icon-link" aria-label="Follow us on facebook">
             <i class="bi bi-facebook"></i>
@@ -129,7 +129,7 @@
     </div> -->
 <!-- FINAL REDES SOCIAIS -->
 
-@yeld('nav')
+@yield('nav')
 <!-- <nav>
     <div class="contained">
         <a href="{{URL('index')}}" class="logo fc-primary ff-damion row flex-alig-center">

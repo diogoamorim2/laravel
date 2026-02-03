@@ -38,7 +38,7 @@ class ContatoController extends Controller
      */
     public function create(): View
     {
-        return redirect('/contact');
+        return view('contact');
     }
 
     /**
