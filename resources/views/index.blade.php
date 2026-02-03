@@ -1,6 +1,7 @@
 @extends('layout.default')
 
 @section('head')
+<link rel="preload" as="image" href="{{ asset('art/hero1.webp') }}">
 @endsection
 
 <body>
