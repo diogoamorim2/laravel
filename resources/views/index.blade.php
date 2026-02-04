@@ -289,7 +289,7 @@
                     <h3 class="mb-a ff-damion mt-a">Inscreva-se para saber mais sobre nós:</h3>
                 </div>
                 <div class="col-balance">
-                    <form action="{{ route('contatos.store') }}" method="POST">
+                    <form action="{{ route('contatos.store') }}" method="POST" id="newsletter-form">
                         @csrf
 
                         <input type="hidden" name="newslatter" value="1">
@@ -300,7 +300,7 @@
                                 <div class="form-text text-danger">{{ $message }}</div>
                             @enderror
 
-                        <button class="btn-bg2">Inscreva-se</button>
+                        <button class="btn-bg2" id="btn-subscribe">Inscreva-se</button>
                     </form>
                 </div>
             </div>
@@ -317,6 +317,14 @@
             </a>
         </section>
     </main>
+
+    <script>
+        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+            var btn = document.getElementById('btn-subscribe');
+            btn.disabled = true;
+            btn.innerHTML = 'Inscrevendo... <span class="spinner"></span>';
+        });
+    </script>
 
 @section('footer')
 @endsection

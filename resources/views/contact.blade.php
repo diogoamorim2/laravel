@@ -1,22 +1,6 @@
 @extends('layout.default')
 
 @section('head')
-<style>
-    .spinner {
-        display: inline-block;
-        width: 1em;
-        height: 1em;
-        border: 2px solid rgba(255,255,255,0.3);
-        border-radius: 50%;
-        border-top-color: #fff;
-        animation: spin 1s ease-in-out infinite;
-        margin-left: 10px;
-        vertical-align: middle;
-    }
-    @keyframes spin {
-        to { transform: rotate(360deg); }
-    }
-</style>
 @endsection
 
 <body>
