@@ -35,7 +35,11 @@ Route::get('/service', function () {
 //Controller
 Route::get('/user/{id}', [UserController::class, 'show']);
 
-Route::resource('contatos', ContatoController::class);
+Route::post('/contatos', [ContatoController::class, 'store'])
+    ->name('contatos.store')
+    ->middleware('throttle:3,1');
+
+Route::resource('contatos', ContatoController::class)->except(['store']);
 
 //View disabled
 /*
