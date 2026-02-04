@@ -1,6 +1,8 @@
 @extends('layout.default')
 
 @section('head')
+    <!-- Preload LCP Image for performance optimization -->
+    <link rel="preload" href="{{ asset('art/hero1.webp') }}" as="image" type="image/webp">
 @endsection
 
 <body>

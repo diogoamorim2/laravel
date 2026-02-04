@@ -5,3 +5,7 @@
 ## 2026-05-21 - [Undefined Request in Create]
 **Learning:** The `ContatoController::create` method attempts to use an undefined `$request` variable, leading to 500 errors.
 **Action:** When working on Controllers, ensure method signatures and variable scopes are correct.
+
+## 2026-05-23 - [LCP Optimization via Preload]
+**Learning:** Background images defined in CSS are discovered late by the browser. Adding `<link rel="preload" as="image">` for the first image in the slideshow significantly improves LCP perception.
+**Action:** Always check `animation.css` or component styles for hidden LCP candidates and preload them explicitly in the head.
