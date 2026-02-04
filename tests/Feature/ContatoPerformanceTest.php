@@ -27,7 +27,7 @@ class ContatoPerformanceTest extends TestCase
 
         DB::enableQueryLog();
 
-        $response = $this->post(route('contatos.store'), $data);
+        $response = $this->from(route('contatos.index'))->post(route('contatos.store'), $data);
 
         $queries = DB::getQueryLog();
         $queryCount = count($queries);
