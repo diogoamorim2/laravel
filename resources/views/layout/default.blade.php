@@ -1,5 +1,3 @@
-@yield('head')
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -108,6 +106,7 @@
             border-width: 0;
             }
         </style>
+        @yield('head')
     </head>
 <!-- MAIN HERO BANNER END -->
 
