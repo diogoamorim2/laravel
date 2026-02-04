@@ -5,3 +5,7 @@
 ## 2026-05-21 - [Undefined Request in Create]
 **Learning:** The `ContatoController::create` method attempts to use an undefined `$request` variable, leading to 500 errors.
 **Action:** When working on Controllers, ensure method signatures and variable scopes are correct.
+
+## 2026-05-21 - [HTML Structure and LCP]
+**Learning:** The `@yield('head')` directive was placed before the `<!DOCTYPE html>` declaration in the layout file, potentially causing browsers to render in quirks mode. Also, background images used in CSS are not discovered by the browser until the CSS is parsed, delaying LCP.
+**Action:** Always ensure the layout structure is valid HTML (yields inside `<head>` or `<body>`). Use `<link rel="preload" as="image">` for critical background images (LCP candidates) in the head section.

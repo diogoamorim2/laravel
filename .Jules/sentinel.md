@@ -8,7 +8,7 @@
 **Learning:** Never trust user input (`$request->id`) to identify a resource that was just created. The `create()` method returns the model instance; always use that instance.
 **Prevention:** Use the return value of `Model::create()` or `save()` for subsequent operations. Do not re-query based on input parameters for a just-created resource.
 
-## 2026-02-04 - Missing Rate Limiting on Contact Form
-**Vulnerability:** The contact form submission endpoint (`/contatos`) lacked rate limiting, allowing an attacker to flood the application with requests, potentially causing Denial of Service (DoS) and spamming the configured email addresses.
-**Learning:** `Route::resource` does not apply rate limiting by default. Sensitive endpoints, especially those triggering emails or heavy processing, require explicit `throttle` middleware.
-**Prevention:** Apply specific rate limiting middleware (e.g., `throttle:3,1`) to public-facing form submission routes.
+## 2026-02-03 - Implicit Redirect Dependencies in Tests
+**Vulnerability:** Broken access control (unthrottled endpoint) and broken endpoint (`/user/1`).
+**Learning:** Adding security middleware (`throttle`) and refactoring routes exposed brittle tests that relied on implicit `redirect()->back()` behavior. Tests were failing because they didn't simulate the `Referer` header (`from()`), causing `back()` to default to root instead of the expected index page.
+**Prevention:** When writing tests for controllers that use `redirect()->back()`, explicitly set the "from" URL using `$this->from($url)->post(...)` to ensure deterministic behavior independent of test execution order or route definition.
