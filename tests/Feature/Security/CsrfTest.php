@@ -29,9 +29,9 @@ class CsrfTest extends TestCase
         $url = route('contatos.create', $data);
         $response = $this->get($url);
 
-        // Assert it returns the view (status 200)
-        $response->assertStatus(200);
-        $response->assertViewIs('contact');
+        // Assert it redirects to the contact page
+        $response->assertStatus(302);
+        $response->assertRedirect('/contact');
 
         // Assert NO data is in DB
         $this->assertDatabaseMissing('contatos', [

@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\ContatoController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 
@@ -32,10 +31,12 @@ Route::get('/service', function () {
     return view('service');
 });
 
-//Controller
-Route::get('/user/{id}', [UserController::class, 'show']);
+Route::post('/contatos', [ContatoController::class, 'store'])
+    ->name('contatos.store')
+    ->middleware('throttle:3,1');
 
-Route::resource('contatos', ContatoController::class);
+Route::resource('contatos', ContatoController::class)
+    ->except(['store']);
 
 //View disabled
 /*

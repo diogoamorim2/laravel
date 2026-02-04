@@ -22,14 +22,14 @@ class ContatoStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nome' => 'nullable|string',
-            'email' => 'required|email',
-            'assunto' => 'nullable|string',
+            'nome' => 'nullable|string|max:255',
+            'email' => 'required|email|max:255',
+            'assunto' => 'nullable|string|max:255',
             'telefone_fixo' => 'nullable|string|max:20',
             'telefone_celular' => 'nullable|string|max:20',
-            'empresa_nome' => 'nullable|string',
-            'empresa_contato' => 'nullable|string',
-            'comentario' => 'nullable|string',
+            'empresa_nome' => 'nullable|string|max:255',
+            'empresa_contato' => 'nullable|string|max:255',
+            'comentario' => 'nullable|string|max:2000',
             'ativo' => 'nullable|bool',
             'newslatter' => 'nullable|string',
         ];

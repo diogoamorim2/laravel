@@ -96,11 +96,47 @@
                         <span class="fs-h4 fc-primary mb-15">Envie uma mensagem para nós</span>
                         <div class="row mb-20">
                             <input type="hidden" name='newslatter' value="1">
-                        <input name="nome" type="text" id="message-name" placeholder="Seu nome *" aria-label="Digite seu nome" required>
-                        <input name="email" type="email" class="ml-a" id="message-email" placeholder="Seu email *" aria-label="Digite seu email" required>
+                            <div class="col-balance">
+                                <input name="nome" type="text" id="message-name" placeholder="Seu nome *" aria-label="Digite seu nome" required
+                                    class="@error('nome') is-invalid @enderror"
+                                    aria-invalid="{{ $errors->has('nome') ? 'true' : 'false' }}"
+                                    aria-describedby="error-nome"
+                                    autocomplete="name">
+                                @error('nome')
+                                    <span id="error-nome" class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-balance ml-a">
+                                <input name="email" type="email" id="message-email" placeholder="Seu email *" aria-label="Digite seu email" required
+                                    class="@error('email') is-invalid @enderror"
+                                    aria-invalid="{{ $errors->has('email') ? 'true' : 'false' }}"
+                                    aria-describedby="error-email"
+                                    autocomplete="email">
+                                @error('email')
+                                    <span id="error-email" class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
                         </div>
-                        <input name="assunto" type="text" id="message-subject" aria-label="Nos fale o tema da pergunta" class="mb-20" placeholder="Assunto">
-                        <textarea name="comentario" id="message-message" rows="5" placeholder="Escreva a sua mensagem" aria-label="Escreva a sua mensagem"></textarea>
+
+                        <div class="mb-20">
+                            <input name="assunto" type="text" id="message-subject" aria-label="Nos fale o tema da pergunta" placeholder="Assunto"
+                                class="@error('assunto') is-invalid @enderror"
+                                aria-invalid="{{ $errors->has('assunto') ? 'true' : 'false' }}"
+                                aria-describedby="error-assunto">
+                            @error('assunto')
+                                <span id="error-assunto" class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div>
+                            <textarea name="comentario" id="message-message" rows="5" placeholder="Escreva a sua mensagem" aria-label="Escreva a sua mensagem"
+                                class="@error('comentario') is-invalid @enderror"
+                                aria-invalid="{{ $errors->has('comentario') ? 'true' : 'false' }}"
+                                aria-describedby="error-comentario"></textarea>
+                            @error('comentario')
+                                <span id="error-comentario" class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                         <button type="submit" class="btn-bg1 border-round mt-20" id="btn-submit">Enviar mensagem</button>
                     </form>
                 </div>
