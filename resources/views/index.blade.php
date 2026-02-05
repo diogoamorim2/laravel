@@ -2,6 +2,28 @@
 
 @section('head')
 <link rel="preload" as="image" href="{{ asset('art/hero1.webp') }}">
+<style>
+.youtube-facade {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+}
+.youtube-facade .play-button {
+    font-size: 4rem;
+    color: white;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    transition: transform 0.2s;
+}
+.youtube-facade:hover .play-button {
+    transform: scale(1.1);
+}
+</style>
 @endsection
 
 <body>
@@ -96,14 +118,18 @@
                     <img src="{{asset('svg/blob.svg')}}" alt="" class="blob">
                     <img src="{{asset('art/hero2.webp')}}" alt="">
                 -->
-                <iframe width="560" height="315" loading="lazy" src="https://www.youtube.com/embed/3PWgUvvxjkI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+                <div class="youtube-facade" data-video-id="3PWgUvvxjkI" style="background-image: url('https://i.ytimg.com/vi/3PWgUvvxjkI/hqdefault.jpg');" aria-label="Play Video">
+                    <div class="play-button"><i class="bi bi-play-circle-fill"></i></div>
+                </div>
                 </div>
             </div>
             <div class="sticky-img-dual-spacer"></div>
             <h2 class="section-title ff-damion">Sobre nós</h2>
             <div class="col-balance">
                 <div class="sticky-img-dual">
-                <iframe width="560" height="315" loading="lazy" src="https://www.youtube.com/embed/-urSrobDaVE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+                <div class="youtube-facade" data-video-id="-urSrobDaVE" style="background-image: url('https://i.ytimg.com/vi/-urSrobDaVE/hqdefault.jpg');" aria-label="Play Video">
+                    <div class="play-button"><i class="bi bi-play-circle-fill"></i></div>
+                </div>
                 </div>
             </div>
             <div class="col-balance">
@@ -323,6 +349,27 @@
             var btn = document.getElementById('btn-subscribe');
             btn.disabled = true;
             btn.innerHTML = 'Inscrevendo... <span class="spinner"></span>';
+        });
+
+        document.querySelectorAll('.youtube-facade').forEach(function(facade) {
+            facade.addEventListener('click', function() {
+                var videoId = this.dataset.videoId;
+                var iframe = document.createElement('iframe');
+                iframe.setAttribute('src', 'https://www.youtube.com/embed/' + videoId + '?autoplay=1');
+                iframe.setAttribute('width', '100%');
+                iframe.setAttribute('height', '100%');
+                iframe.setAttribute('title', 'YouTube video player');
+                iframe.setAttribute('frameborder', '0');
+                iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                iframe.setAttribute('allowfullscreen', '');
+                iframe.style.borderRadius = '12px';
+
+                this.innerHTML = '';
+                this.appendChild(iframe);
+                this.classList.remove('youtube-facade');
+                this.style.backgroundImage = 'none';
+                this.style.display = 'block';
+            });
         });
     </script>
 
