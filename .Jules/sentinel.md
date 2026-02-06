@@ -12,3 +12,8 @@
 **Vulnerability:** Broken access control (unthrottled endpoint) and broken endpoint (`/user/1`).
 **Learning:** Adding security middleware (`throttle`) and refactoring routes exposed brittle tests that relied on implicit `redirect()->back()` behavior. Tests were failing because they didn't simulate the `Referer` header (`from()`), causing `back()` to default to root instead of the expected index page.
 **Prevention:** When writing tests for controllers that use `redirect()->back()`, explicitly set the "from" URL using `$this->from($url)->post(...)` to ensure deterministic behavior independent of test execution order or route definition.
+
+## 2026-05-24 - Missing Security Headers
+**Vulnerability:** The application lacked standard security headers (`X-Frame-Options`, `X-Content-Type-Options`, `X-XSS-Protection`, `Referrer-Policy`), increasing exposure to clickjacking, MIME sniffing, and XSS.
+**Learning:** Laravel framework does not include these headers by default in the base middleware stack. Explicit middleware is required to harden the HTTP response.
+**Prevention:** Implement a global middleware (e.g., `EnsureSecurityHeaders`) to inject these headers on every response.
