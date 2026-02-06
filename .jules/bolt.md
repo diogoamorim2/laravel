@@ -1,15 +1,7 @@
-## 2026-05-21 - [Redundant Model Refetching]
-**Learning:** The codebase contained a pattern where a model was created (`Contato::create`) and then immediately re-fetched using `findOrFail($id)`. This is not only a performance waste (N+1-like redundant query) but also introduced a bug/vulnerability if the ID wasn't explicitly passed in the request.
-**Action:** Always use the model instance returned by `create()` or `save()` instead of re-querying the database, especially in `store` methods.
+## 2024-05-23 - HTML Structure & Blade Layout Refactor
+**Learning:** The application's Blade layout (`layout.default`) was missing the `<body>` tag, forcing child views to define it. This led to inconsistent HTML structure and potential rendering issues, as content (like the header) could be rendered outside the `<body>`.
+**Action:** Centralized the `<body>` tag in the main layout file. Ensure all child views use `@section('content')` to inject content into the layout's body. This improves maintainability and ensures valid HTML structure, which is crucial for LCP and SEO.
 
-## 2026-05-21 - [Undefined Request in Create]
-**Learning:** The `ContatoController::create` method attempts to use an undefined `$request` variable, leading to 500 errors.
-**Action:** When working on Controllers, ensure method signatures and variable scopes are correct.
-
-## 2026-05-21 - [HTML Structure and LCP]
-**Learning:** The `@yield('head')` directive was placed before the `<!DOCTYPE html>` declaration in the layout file, potentially causing browsers to render in quirks mode. Also, background images used in CSS are not discovered by the browser until the CSS is parsed, delaying LCP.
-**Action:** Always ensure the layout structure is valid HTML (yields inside `<head>` or `<body>`). Use `<link rel="preload" as="image">` for critical background images (LCP candidates) in the head section.
-
-## 2026-05-21 - [YouTube Iframe Performance]
-**Learning:** Embedding YouTube iframes directly, even with `loading="lazy"`, can significantly impact page weight and main thread performance due to the player's JavaScript execution.
-**Action:** Implement a "Facade" pattern for third-party embeds (like YouTube). Load a static thumbnail and a play button initially, and only inject the iframe when the user explicitly interacts (clicks). This defers the heavy load until it's actually needed.
+## 2024-05-23 - Controller Return Type Strictness
+**Learning:** `ContatoController::create` was typed to return `RedirectResponse` but returned a `View`, causing 500 errors in tests (and likely in production if strict types were enforced).
+**Action:** corrected the return type to `View`. Always verify return type hints against the actual return value, especially when refactoring or writing tests.

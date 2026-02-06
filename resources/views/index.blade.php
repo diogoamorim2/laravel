@@ -26,8 +26,7 @@
 </style>
 @endsection
 
-<body>
-    
+@section('content')
     <!-- FADE OUT ANIMATION WHEN LOADED -->
     <span class="fade"></span>
     <main>
@@ -372,6 +371,7 @@
             });
         });
     </script>
+@endsection
 
 @section('footer')
 @endsection

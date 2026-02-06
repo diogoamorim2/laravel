@@ -3,7 +3,7 @@
 @section('head')
 @endsection
 
-<body>
+@section('content')
     <!-- FADE OUT ANIMATION WHEN LOADED -->
     <span class="fade"></span>
     <main>
@@ -199,10 +199,7 @@
         <!-- SERVICES END -->
     </main>
     
-    <!-- FOOTER START -->
-    @section('footer')
-    @endsection
-    <!-- FOOTER END -->
-    
-</body>
-</html>
+@endsection
+
+@section('footer')
+@endsection
