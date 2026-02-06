@@ -3,7 +3,7 @@
 @section('head')
 @endsection
 
-<body>
+@section('content')
     <!-- FADE OUT ANIMATION WHEN LOADED -->
     <span class="fade"></span>
     <main>
@@ -151,11 +151,6 @@
 
     </main>
 
-    <!-- FOOTER START -->
-    @section('footer')
-    @endsection
-    <!-- FOOTER END -->
-
     <a href="https://wa.me/5511965873624"
         target="_blank"
         class="whatsapp-button"
@@ -175,5 +170,7 @@
             btn.innerHTML = 'Enviando... <span class="spinner"></span>';
         });
     </script>
-</body>
-</html>
+@endsection
+
+@section('footer')
+@endsection
