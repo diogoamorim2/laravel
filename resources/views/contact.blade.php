@@ -3,7 +3,7 @@
 @section('head')
 @endsection
 
-<body>
+@section('content')
     <!-- FADE OUT ANIMATION WHEN LOADED -->
     <span class="fade"></span>
     <main>
@@ -50,11 +50,11 @@
         <section class="contained">
             <!-- USER FEEDBACK START -->
             @if (session('success'))
-                <div class="alert alert-success" role="alert">
+                <div class="alert alert-success" role="alert" aria-live="polite">
                     {{ session('success') }}
                 </div>
             @elseif (session('error'))
-                <div class="alert alert-danger" role="alert">
+                <div class="alert alert-danger" role="alert" aria-live="polite">
                     {{ session('error') }}
                 </div>
             @endif
@@ -151,11 +151,6 @@
 
     </main>
 
-    <!-- FOOTER START -->
-    @section('footer')
-    @endsection
-    <!-- FOOTER END -->
-
     <a href="https://wa.me/5511965873624"
         target="_blank"
         class="whatsapp-button"
@@ -175,5 +170,7 @@
             btn.innerHTML = 'Enviando... <span class="spinner"></span>';
         });
     </script>
-</body>
-</html>
+@endsection
+
+@section('footer')
+@endsection

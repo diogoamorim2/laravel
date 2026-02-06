@@ -3,7 +3,7 @@
 @section('head')
 @endsection
 
-<body>
+@section('content')
     <!-- FADE OUT ANIMATION WHEN LOADED -->
     <span class="fade"></span>
     <main>
@@ -260,10 +260,7 @@
 
     </main>
     
-    <!-- FOOTER START -->
-    @section('footer')
-    @endsection
-    <!-- FOOTER END -->
+@endsection
 
-</body>
-</html>
+@section('footer')
+@endsection

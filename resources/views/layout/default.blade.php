@@ -18,12 +18,6 @@
         <!-- THE TITLE OF THE PAGE -->
         <title>Siscon Contabilidade</title>
 
-        <link rel="preload" href="{{URL('icons/bootstrap-icons.css')}}" as="style">
-        <link rel="preload" href="{{URL('css/fontstyle.css')}}" as="style">
-        <link rel="preload" href="{{URL('css/layout.css')}}" as="style">
-        <link rel="preload" href="{{URL('css/animation.css')}}" as="style">
-        <link rel="preload" href="{{URL('css/style.css')}}" as="style">
-
         <link rel="stylesheet" href="{{URL('icons/bootstrap-icons.css')}}">
         <link rel="stylesheet" href="{{URL('css/fontstyle.css')}}">
         <link rel="stylesheet" href="{{URL('css/layout.css')}}">
@@ -96,6 +90,9 @@
         </style>
         @yield('head')
     </head>
+<body>
+    @yield('content')
+
 <!-- MAIN HERO BANNER END -->
 
 <!-- INICIO REDES SOCIAIS -->
@@ -220,5 +217,5 @@
         <small>&copy; Siscon contabilidade - Copyright 2024</small>
     </div>
 </footer>
-
+</body>
 </html>
