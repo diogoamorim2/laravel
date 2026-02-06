@@ -17,3 +17,8 @@
 **Vulnerability:** The application lacked standard security headers (`X-Frame-Options`, `X-Content-Type-Options`, `X-XSS-Protection`, `Referrer-Policy`), increasing exposure to clickjacking, MIME sniffing, and XSS.
 **Learning:** Laravel framework does not include these headers by default in the base middleware stack. Explicit middleware is required to harden the HTTP response.
 **Prevention:** Implement a global middleware (e.g., `EnsureSecurityHeaders`) to inject these headers on every response.
+
+## 2026-05-24 - Improper Integer Validation for Phone Numbers
+**Vulnerability:** The `ContatoUpdateRequest` validated phone numbers as integers with `max:10000`, causing a Denial of Service for valid updates (since real phone numbers exceed this value). It also lacked `max` length limits on string fields.
+**Learning:** Using `integer` validation rule with `max` checks numeric value, not digit count. For phone numbers, always use `string` validation with regex or length constraints, as they are identifiers, not mathematical numbers.
+**Prevention:** Audit validation rules for semantic correctness. Use `string` for phone numbers and ensure `max` rules align with database column sizes (e.g., `varchar(255)`).

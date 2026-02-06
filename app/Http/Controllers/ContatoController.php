@@ -36,7 +36,7 @@ class ContatoController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): RedirectResponse
+    public function create(): View
     {
         return view('contact');
     }

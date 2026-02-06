@@ -22,14 +22,14 @@ class ContatoUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nome' => 'nullable|string',
-            'email' => 'required',
-            'assunto' => 'nullable|string',
-            'telefone_fixo' => 'nullable|integer|min:1|max:10000',
-            'telefone_celular' => 'nullable|integer|min:1|max:10000',
-            'empresa_nome' => 'nullable|string',
-            'empresa_contato' => 'nullable|string',
-            'comentario' => 'nullable|string',
+            'nome' => 'nullable|string|max:255',
+            'email' => 'required|email|max:255',
+            'assunto' => 'nullable|string|max:255',
+            'telefone_fixo' => 'nullable|string|max:20',
+            'telefone_celular' => 'nullable|string|max:20',
+            'empresa_nome' => 'nullable|string|max:255',
+            'empresa_contato' => 'nullable|string|max:255',
+            'comentario' => 'nullable|string|max:2000',
             'ativo' => 'nullable|bool',
             'newslatter' => 'nullable|string',
         ];
