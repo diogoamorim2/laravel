@@ -50,11 +50,11 @@
         <section class="contained">
             <!-- USER FEEDBACK START -->
             @if (session('success'))
-                <div class="alert alert-success" role="alert">
+                <div class="alert alert-success" role="alert" aria-live="polite">
                     {{ session('success') }}
                 </div>
             @elseif (session('error'))
-                <div class="alert alert-danger" role="alert">
+                <div class="alert alert-danger" role="alert" aria-live="polite">
                     {{ session('error') }}
                 </div>
             @endif
