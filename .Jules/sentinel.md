@@ -22,3 +22,8 @@
 **Vulnerability:** The `ContatoUpdateRequest` validated phone numbers as integers with `max:10000`, causing a Denial of Service for valid updates (since real phone numbers exceed this value). It also lacked `max` length limits on string fields.
 **Learning:** Using `integer` validation rule with `max` checks numeric value, not digit count. For phone numbers, always use `string` validation with regex or length constraints, as they are identifiers, not mathematical numbers.
 **Prevention:** Audit validation rules for semantic correctness. Use `string` for phone numbers and ensure `max` rules align with database column sizes (e.g., `varchar(255)`).
+
+## 2026-06-15 - Integer Schema for Phone Numbers
+**Vulnerability:** Despite validation rules enforcing string format, the database schema defined `telefone_fixo` and `telefone_celular` as `integer`. This caused data loss (stripping leading zeros) and potential integer overflow on strictly-typed database engines for valid phone numbers.
+**Learning:** Validation rules are the first line of defense, but the database schema is the final enforcer. Mismatches between validation (string) and schema (integer) lead to silent data corruption or runtime errors. Phone numbers are strings, not integers.
+**Prevention:** Always define phone number columns as `string` (varchar) in migrations. Verify schema types match expected data format, especially for non-mathematical numeric identifiers.
