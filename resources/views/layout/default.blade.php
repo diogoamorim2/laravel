@@ -91,6 +91,7 @@
         @yield('head')
     </head>
 <body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
     @yield('content')
 
 <!-- MAIN HERO BANNER END -->

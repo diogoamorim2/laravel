@@ -6,7 +6,7 @@
 @section('content')
     <!-- FADE OUT ANIMATION WHEN LOADED -->
     <span class="fade"></span>
-    <main>
+    <main id="main-content">
 
         <!-- SUB HERO BANNER START -->
         <section class="sub-hero-banner" style="background-image: url('art/hero3.webp');">
