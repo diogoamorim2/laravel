@@ -1125,3 +1125,25 @@ a.fc-white{
     background-color: #f8d7da;
     border-color: #f5c2c7;
 }
+
+/* Skip to content link */
+.skip-link {
+    position: absolute;
+    top: -9999px;
+    left: 0;
+    z-index: 9999;
+    padding: 15px;
+    background-color: var(--bgWhite);
+    color: var(--primaryColor);
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: top 0.3s ease-in-out;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: 3px solid var(--primaryColor);
+    outline-offset: -3px;
+}

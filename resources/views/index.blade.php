@@ -29,7 +29,7 @@
 @section('content')
     <!-- FADE OUT ANIMATION WHEN LOADED -->
     <span class="fade"></span>
-    <main>
+    <main id="main-content">
         <!-- MAIN HERO BANNER START -->
         <section class="hero-banner">
             <div class="hero-contained">
