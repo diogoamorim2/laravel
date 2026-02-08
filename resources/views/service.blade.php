@@ -187,6 +187,7 @@
         
         <a href="https://wa.me/5511965873624"
             target="_blank"
+            rel="noopener noreferrer"
             class="whatsapp-button"
             aria-label="Fale conosco pelo WhatsApp">  {{-- Label para acessibilidade --}}
         

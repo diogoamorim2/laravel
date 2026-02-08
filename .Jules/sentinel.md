@@ -22,3 +22,8 @@
 **Vulnerability:** The `ContatoUpdateRequest` validated phone numbers as integers with `max:10000`, causing a Denial of Service for valid updates (since real phone numbers exceed this value). It also lacked `max` length limits on string fields.
 **Learning:** Using `integer` validation rule with `max` checks numeric value, not digit count. For phone numbers, always use `string` validation with regex or length constraints, as they are identifiers, not mathematical numbers.
 **Prevention:** Audit validation rules for semantic correctness. Use `string` for phone numbers and ensure `max` rules align with database column sizes (e.g., `varchar(255)`).
+
+## 2026-05-24 - Reverse Tabnabbing Vulnerability
+**Vulnerability:** Multiple external links using `target="_blank"` were missing `rel="noopener noreferrer"`, exposing users to potential reverse tabnabbing attacks where the target page could manipulate the window.opener.
+**Learning:** While modern browsers imply `noopener`, explicitly including it along with `noreferrer` is a critical defense-in-depth practice. Malformed HTML attributes (e.g., `target=”blank”`) can also bypass security checks if not caught.
+**Prevention:** Enforce the presence of `rel="noopener noreferrer"` on all `target="_blank"` links via automated linting or CI/CD checks.
