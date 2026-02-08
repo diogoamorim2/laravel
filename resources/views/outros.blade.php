@@ -9545,13 +9545,13 @@
                       <p class="kv-ee-header" data-type="text" tabindex="0">Siga-nos<span data-prop="titleSocial" class="ck-editable-element" data-editable="basic" style="display:none;"></span></p>
                       <ul class="kv-ee-links kv-ee-body-text" data-type="social">
                         <li>
-                          <a href="https://www.facebook.com/sisconsp/?view_public_for=103052978245733" target="_blank" aria-label="Social link Facebook">
+                          <a href="https://www.facebook.com/sisconsp/?view_public_for=103052978245733" target="_blank" rel="noopener noreferrer" aria-label="Social link Facebook">
                             <i class="fa fa-facebook-official"></i>
                             <span class="kv-ee-social-provider">Facebook</span>
                           </a>
                         </li>
                         <li>
-                          <a href="https://serasa.certificadodigital.com.br/parceiro/ccdgo-vila-america/" target="_blank" aria-label="Social link OpenTable">
+                          <a href="https://serasa.certificadodigital.com.br/parceiro/ccdgo-vila-america/" target="_blank" rel="noopener noreferrer" aria-label="Social link OpenTable">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 535 512">
                               <circle cx="48.64" cy="256" r="48.64"></circle>
                               <path d="M340.45,61.45C233,61.45,145.91,148.55,145.91,256S233,450.55,340.45,450.55,535,363.44,535,256,447.9,61.45,340.45,61.45Zm0,243.19A48.64,48.64,0,1,1,389.09,256,48.64,48.64,0,0,1,340.45,304.64Z"></path>
