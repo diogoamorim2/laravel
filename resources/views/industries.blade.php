@@ -32,9 +32,10 @@
     <link rel="icon" type="image/png" href="art/favicon.png">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
     <!-- FADE OUT ANIMATION WHEN LOADED -->
     <span class="fade"></span>
-    <main>
+    <main id="main-content">
         <!-- SUB HERO BANNER START -->
         <section class="sub-hero-banner" style="background-image: url('art/hero2.webp');">
             <div class="hero-contained">

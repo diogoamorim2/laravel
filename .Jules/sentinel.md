@@ -27,3 +27,7 @@
 **Vulnerability:** Multiple external links using `target="_blank"` were missing `rel="noopener noreferrer"`, exposing users to potential reverse tabnabbing attacks where the target page could manipulate the window.opener.
 **Learning:** While modern browsers imply `noopener`, explicitly including it along with `noreferrer` is a critical defense-in-depth practice. Malformed HTML attributes (e.g., `target=”blank”`) can also bypass security checks if not caught.
 **Prevention:** Enforce the presence of `rel="noopener noreferrer"` on all `target="_blank"` links via automated linting or CI/CD checks.
+## 2026-06-15 - Integer Schema for Phone Numbers
+**Vulnerability:** Despite validation rules enforcing string format, the database schema defined `telefone_fixo` and `telefone_celular` as `integer`. This caused data loss (stripping leading zeros) and potential integer overflow on strictly-typed database engines for valid phone numbers.
+**Learning:** Validation rules are the first line of defense, but the database schema is the final enforcer. Mismatches between validation (string) and schema (integer) lead to silent data corruption or runtime errors. Phone numbers are strings, not integers.
+**Prevention:** Always define phone number columns as `string` (varchar) in migrations. Verify schema types match expected data format, especially for non-mathematical numeric identifiers.

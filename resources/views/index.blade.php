@@ -13,12 +13,26 @@
     justify-content: center;
     align-items: center;
     border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+.youtube-thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
 }
 .youtube-facade .play-button {
     font-size: 4rem;
     color: white;
     text-shadow: 0 2px 10px rgba(0,0,0,0.5);
     transition: transform 0.2s;
+    position: relative;
+    z-index: 1;
 }
 .youtube-facade:hover .play-button {
     transform: scale(1.1);
@@ -29,7 +43,7 @@
 @section('content')
     <!-- FADE OUT ANIMATION WHEN LOADED -->
     <span class="fade"></span>
-    <main>
+    <main id="main-content">
         <!-- MAIN HERO BANNER START -->
         <section class="hero-banner">
             <div class="hero-contained">
@@ -118,7 +132,8 @@
                     <img src="{{asset('svg/blob.svg')}}" alt="" class="blob">
                     <img src="{{asset('art/hero2.webp')}}" alt="">
                 -->
-                <div class="youtube-facade" data-video-id="3PWgUvvxjkI" style="background-image: url('https://i.ytimg.com/vi/3PWgUvvxjkI/hqdefault.jpg');" aria-label="Play Video">
+                <div class="youtube-facade" data-video-id="3PWgUvvxjkI" aria-label="Play Video">
+                    <img src="https://i.ytimg.com/vi/3PWgUvvxjkI/hqdefault.jpg" class="youtube-thumb" alt="Video Thumbnail" loading="lazy">
                     <div class="play-button"><i class="bi bi-play-circle-fill"></i></div>
                 </div>
                 </div>
@@ -127,7 +142,8 @@
             <h2 class="section-title ff-damion">Sobre nós</h2>
             <div class="col-balance">
                 <div class="sticky-img-dual">
-                <div class="youtube-facade" data-video-id="-urSrobDaVE" style="background-image: url('https://i.ytimg.com/vi/-urSrobDaVE/hqdefault.jpg');" aria-label="Play Video">
+                <div class="youtube-facade" data-video-id="-urSrobDaVE" aria-label="Play Video">
+                    <img src="https://i.ytimg.com/vi/-urSrobDaVE/hqdefault.jpg" class="youtube-thumb" alt="Video Thumbnail" loading="lazy">
                     <div class="play-button"><i class="bi bi-play-circle-fill"></i></div>
                 </div>
                 </div>
