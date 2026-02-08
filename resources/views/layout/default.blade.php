@@ -91,6 +91,7 @@
         @yield('head')
     </head>
 <body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
     @yield('content')
 
 <!-- MAIN HERO BANNER END -->
@@ -149,7 +150,7 @@
                 <i class="bi bi-envelope-fill"></i>
                 contato@sisconsp.com.br
             </a>
-            <a href="https://wa.me/11965873624" class="display-inblock" target=”blank”>
+            <a href="https://wa.me/11965873624" class="display-inblock" target="_blank" rel="noopener noreferrer">
                 <i class="bi bi-telephone-fill"></i>
                 (11) 9 6587-3624
             </a>

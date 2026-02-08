@@ -9,3 +9,6 @@
 ## 2026-02-08 - Lazy Loading YouTube Thumbnails
 **Learning:** Background images cannot be natively lazy loaded by the browser. Replacing `background-image` with an `<img>` tag using `object-fit: cover` and `loading="lazy"` achieves the same visual result but significantly improves initial page load performance by deferring the download of off-screen images.
 **Action:** When optimizing image-heavy components (like video facades), prefer `<img>` tags over background images to leverage native lazy loading. Ensure proper CSS (absolute positioning, object-fit) to maintain the layout.
+## 2024-05-23 - YouTube Facade Lazy Loading
+**Learning:** Inline `style='background-image: ...'` prevents native lazy loading. Replacing it with an `<img loading='lazy'>` tag inside the container (with `object-fit: cover`) allows the browser to defer loading off-screen images, improving initial page load performance.
+**Action:** Audit other components for similar patterns where background images are used purely for presentation of content that could be lazy-loaded.

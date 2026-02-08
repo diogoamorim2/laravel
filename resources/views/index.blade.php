@@ -14,6 +14,16 @@
     position: relative;
     overflow: hidden;
 }
+.youtube-thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+}
 .youtube-facade .play-button {
     font-size: 4rem;
     color: white;
@@ -41,7 +51,7 @@
 @section('content')
     <!-- FADE OUT ANIMATION WHEN LOADED -->
     <span class="fade"></span>
-    <main>
+    <main id="main-content">
         <!-- MAIN HERO BANNER START -->
         <section class="hero-banner">
             <div class="hero-contained">
@@ -83,6 +93,7 @@
 
         <a href="https://wa.me/5511965873624"
             target="_blank"
+            rel="noopener noreferrer"
             class="whatsapp-button"
             aria-label="Fale conosco pelo WhatsApp">  {{-- Label para acessibilidade --}}
         
@@ -130,7 +141,7 @@
                     <img src="{{asset('art/hero2.webp')}}" alt="">
                 -->
                 <div class="youtube-facade" data-video-id="3PWgUvvxjkI" aria-label="Play Video">
-                    <img src="https://i.ytimg.com/vi/3PWgUvvxjkI/hqdefault.jpg" loading="lazy" alt="YouTube Thumbnail" class="youtube-thumb">
+                    <img src="https://i.ytimg.com/vi/3PWgUvvxjkI/hqdefault.jpg" class="youtube-thumb" alt="Video Thumbnail" loading="lazy">
                     <div class="play-button"><i class="bi bi-play-circle-fill"></i></div>
                 </div>
                 </div>
@@ -140,7 +151,7 @@
             <div class="col-balance">
                 <div class="sticky-img-dual">
                 <div class="youtube-facade" data-video-id="-urSrobDaVE" aria-label="Play Video">
-                    <img src="https://i.ytimg.com/vi/-urSrobDaVE/hqdefault.jpg" loading="lazy" alt="YouTube Thumbnail" class="youtube-thumb">
+                    <img src="https://i.ytimg.com/vi/-urSrobDaVE/hqdefault.jpg" class="youtube-thumb" alt="Video Thumbnail" loading="lazy">
                     <div class="play-button"><i class="bi bi-play-circle-fill"></i></div>
                 </div>
                 </div>
@@ -333,7 +344,7 @@
 
                         <input type="hidden" name="newslatter" value="1">
                         <input type="email" name="email" id="subscribe-email" aria-label="Receba nossos avisos" 
-                            class="form-control @error('subscribe-email') is-invalid @else is-valid @enderror" 
+                            class="form-control @error('email') is-invalid @else is-valid @enderror"
                             placeholder="Email" required>
                             @error('email')
                                 <div class="form-text text-danger">{{ $message }}</div>

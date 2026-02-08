@@ -6,7 +6,7 @@
 @section('content')
     <!-- FADE OUT ANIMATION WHEN LOADED -->
     <span class="fade"></span>
-    <main>
+    <main id="main-content">
         <!-- SUB HERO BANNER START -->
         <section class="sub-hero-banner" style="background-image: url('art/hero2.webp');">
             <div class="hero-contained">
@@ -86,7 +86,7 @@
                         <i class="bi bi-envelope-fill"></i>
                         contato@sisconsp.com.br
                     </a>
-                    <a href="https://wa.me/11965873624" class="display-inblock" target="_blank">
+                    <a href="https://wa.me/11965873624" class="display-inblock" target="_blank" rel="noopener noreferrer">
                         <i class="bi bi-whatsapp"></i>
                         (11) 9 6587-3624
                     </a>
@@ -153,6 +153,7 @@
 
     <a href="https://wa.me/5511965873624"
         target="_blank"
+        rel="noopener noreferrer"
         class="whatsapp-button"
         aria-label="Fale conosco pelo WhatsApp">  {{-- Label para acessibilidade --}}
 

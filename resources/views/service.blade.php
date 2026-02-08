@@ -6,7 +6,7 @@
 @section('content')
     <!-- FADE OUT ANIMATION WHEN LOADED -->
     <span class="fade"></span>
-    <main>
+    <main id="main-content">
 
         <!-- SUB HERO BANNER START -->
         <section class="sub-hero-banner" style="background-image: url('art/hero3.webp');">
@@ -187,6 +187,7 @@
         
         <a href="https://wa.me/5511965873624"
             target="_blank"
+            rel="noopener noreferrer"
             class="whatsapp-button"
             aria-label="Fale conosco pelo WhatsApp">  {{-- Label para acessibilidade --}}
         
