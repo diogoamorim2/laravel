@@ -336,7 +336,7 @@
 
                         <input type="hidden" name="newslatter" value="1">
                         <input type="email" name="email" id="subscribe-email" aria-label="Receba nossos avisos" 
-                            class="form-control @error('subscribe-email') is-invalid @else is-valid @enderror" 
+                            class="form-control @error('email') is-invalid @else is-valid @enderror"
                             placeholder="Email" required>
                             @error('email')
                                 <div class="form-text text-danger">{{ $message }}</div>
