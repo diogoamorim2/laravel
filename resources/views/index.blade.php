@@ -6,8 +6,6 @@
 .youtube-facade {
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -33,6 +31,16 @@
     transition: transform 0.2s;
     position: relative;
     z-index: 1;
+}
+.youtube-thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    border-radius: 12px;
 }
 .youtube-facade:hover .play-button {
     transform: scale(1.1);
