@@ -25,4 +25,21 @@ class YouTubeFacadeTest extends TestCase
         $response->assertSee('data-video-id="3PWgUvvxjkI"', false);
         $response->assertSee('data-video-id="-urSrobDaVE"', false);
     }
+
+    /**
+     * Test that the YouTube facade uses lazy loaded images instead of inline background styles.
+     */
+    public function test_youtube_facade_uses_lazy_loaded_image(): void
+    {
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
+
+        // Assert that the facade does NOT use background-image inline style for the first video
+        $response->assertDontSee("style=\"background-image: url('https://i.ytimg.com/vi/3PWgUvvxjkI/hqdefault.jpg');\"", false);
+
+        // Assert that the image tag is present with loading="lazy" for the first video
+        $response->assertSee('src="https://i.ytimg.com/vi/3PWgUvvxjkI/hqdefault.jpg"', false);
+        $response->assertSee('loading="lazy"', false);
+    }
 }
