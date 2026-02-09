@@ -140,7 +140,7 @@
                     <img src="{{asset('svg/blob.svg')}}" alt="" class="blob">
                     <img src="{{asset('art/hero2.webp')}}" alt="">
                 -->
-                <div class="youtube-facade" data-video-id="3PWgUvvxjkI" aria-label="Play Video">
+                <div class="youtube-facade" data-video-id="3PWgUvvxjkI" aria-label="Play Video" role="button" tabindex="0">
                     <img src="https://i.ytimg.com/vi/3PWgUvvxjkI/hqdefault.jpg" class="youtube-thumb" alt="Video Thumbnail" loading="lazy">
                     <div class="play-button"><i class="bi bi-play-circle-fill"></i></div>
                 </div>
@@ -150,7 +150,7 @@
             <h2 class="section-title ff-damion">Sobre nós</h2>
             <div class="col-balance">
                 <div class="sticky-img-dual">
-                <div class="youtube-facade" data-video-id="-urSrobDaVE" aria-label="Play Video">
+                <div class="youtube-facade" data-video-id="-urSrobDaVE" aria-label="Play Video" role="button" tabindex="0">
                     <img src="https://i.ytimg.com/vi/-urSrobDaVE/hqdefault.jpg" class="youtube-thumb" alt="Video Thumbnail" loading="lazy">
                     <div class="play-button"><i class="bi bi-play-circle-fill"></i></div>
                 </div>
@@ -376,7 +376,7 @@
         });
 
         document.querySelectorAll('.youtube-facade').forEach(function(facade) {
-            facade.addEventListener('click', function() {
+            var loadVideo = function() {
                 var videoId = this.dataset.videoId;
                 var iframe = document.createElement('iframe');
                 iframe.setAttribute('src', 'https://www.youtube.com/embed/' + videoId + '?autoplay=1');
@@ -393,6 +393,16 @@
                 this.classList.remove('youtube-facade');
                 this.style.backgroundImage = 'none';
                 this.style.display = 'block';
+                this.removeAttribute('tabindex');
+                this.removeAttribute('role');
+            };
+
+            facade.addEventListener('click', loadVideo);
+            facade.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    loadVideo.call(this);
+                }
             });
         });
     </script>
