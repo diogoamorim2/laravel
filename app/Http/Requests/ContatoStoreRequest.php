@@ -25,13 +25,13 @@ class ContatoStoreRequest extends FormRequest
             'nome' => 'nullable|string|max:255',
             'email' => 'required|email|max:255',
             'assunto' => 'nullable|string|max:255',
-            'telefone_fixo' => 'nullable|string|max:20',
-            'telefone_celular' => 'nullable|string|max:20',
+            'telefone_fixo' => ['nullable', 'string', 'max:20', 'regex:/^[\d\s\(\)\-\+]+$/'],
+            'telefone_celular' => ['nullable', 'string', 'max:20', 'regex:/^[\d\s\(\)\-\+]+$/'],
             'empresa_nome' => 'nullable|string|max:255',
             'empresa_contato' => 'nullable|string|max:255',
             'comentario' => 'nullable|string|max:2000',
             'ativo' => 'nullable|bool',
-            'newslatter' => 'nullable|string',
+            'newslatter' => 'nullable|boolean',
         ];
     }
 }
