@@ -12,3 +12,7 @@
 ## 2024-05-23 - YouTube Facade Lazy Loading
 **Learning:** Inline `style='background-image: ...'` prevents native lazy loading. Replacing it with an `<img loading='lazy'>` tag inside the container (with `object-fit: cover`) allows the browser to defer loading off-screen images, improving initial page load performance.
 **Action:** Audit other components for similar patterns where background images are used purely for presentation of content that could be lazy-loaded.
+
+## 2026-02-09 - Preconnecting to YouTube Domains
+**Learning:** Lazy loading video thumbnails reduces initial payload, but playback start time still suffers from DNS and connection latency. Adding `preconnect` and `dns-prefetch` hints for the video host (e.g., `youtube.com`, `i.ytimg.com`) significantly improves perceived responsiveness on interaction.
+**Action:** Audit all third-party integrations (maps, chat widgets, video players) and add appropriate resource hints to the `<head>` to preload connections.
