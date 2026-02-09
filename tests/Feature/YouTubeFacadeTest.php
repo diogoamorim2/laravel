@@ -42,4 +42,20 @@ class YouTubeFacadeTest extends TestCase
         $response->assertSee('src="https://i.ytimg.com/vi/3PWgUvvxjkI/hqdefault.jpg"', false);
         $response->assertSee('loading="lazy"', false);
     }
+
+    /**
+     * Test that the YouTube facade has accessibility attributes.
+     */
+    public function test_youtube_facade_has_accessibility_attributes(): void
+    {
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
+
+        // Assert that the facade has role="button"
+        $response->assertSee('role="button"', false);
+
+        // Assert that the facade has tabindex="0"
+        $response->assertSee('tabindex="0"', false);
+    }
 }
