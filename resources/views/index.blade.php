@@ -2,6 +2,14 @@
 
 @section('head')
 <link rel="preload" as="image" href="{{ asset('art/hero1.webp') }}">
+{{--
+    ⚡ Bolt Optimization: Preconnect to YouTube domains to speed up thumbnail loading and video playback.
+    This saves DNS lookup and TCP handshake time when the user eventually plays a video.
+--}}
+<link rel="preconnect" href="https://i.ytimg.com">
+<link rel="dns-prefetch" href="https://i.ytimg.com">
+<link rel="preconnect" href="https://www.youtube.com">
+<link rel="dns-prefetch" href="https://www.youtube.com">
 <style>
 .youtube-facade {
     width: 100%;
