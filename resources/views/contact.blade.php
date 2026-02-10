@@ -1,6 +1,17 @@
 @extends('layout.default')
 
 @section('head')
+    {{--
+        ⚡ Bolt Optimization: Preload LCP image to improve Largest Contentful Paint.
+    --}}
+    <link rel="preload" as="image" href="{{ asset('art/hero2.webp') }}">
+
+    {{--
+        ⚡ Bolt Optimization: Preconnect to Google Maps domains.
+        This speeds up the map iframe loading by performing DNS/TCP handshakes early.
+    --}}
+    <link rel="preconnect" href="https://www.google.com">
+    <link rel="preconnect" href="https://maps.gstatic.com">
 @endsection
 
 @section('content')

@@ -16,3 +16,7 @@
 ## 2026-02-09 - Preconnecting to YouTube Domains
 **Learning:** Lazy loading video thumbnails reduces initial payload, but playback start time still suffers from DNS and connection latency. Adding `preconnect` and `dns-prefetch` hints for the video host (e.g., `youtube.com`, `i.ytimg.com`) significantly improves perceived responsiveness on interaction.
 **Action:** Audit all third-party integrations (maps, chat widgets, video players) and add appropriate resource hints to the `<head>` to preload connections.
+
+## 2026-02-12 - LCP Preloading & Third-Party Preconnects
+**Learning:** Background images defined in CSS (e.g., `style="background-image: url(...)"`) are not discovered by the browser's preload scanner, delaying the Largest Contentful Paint (LCP). Additionally, third-party iframes (like Google Maps) introduce significant DNS/TCP latency.
+**Action:** explicitly preload LCP background images using `<link rel="preload" as="image" href="...">` in the `<head>`. For heavy third-party integrations (Maps, YouTube), add `<link rel="preconnect">` to their respective domains to speed up the connection phase.
