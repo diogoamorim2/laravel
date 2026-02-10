@@ -22,6 +22,7 @@ class ContatoStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'fax' => 'prohibited', // Honeypot field: must be empty or missing
             'nome' => 'nullable|string|max:255',
             'email' => 'required|email|max:255',
             'assunto' => 'nullable|string|max:255',
