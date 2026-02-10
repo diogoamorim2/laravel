@@ -31,3 +31,8 @@
 **Vulnerability:** Despite validation rules enforcing string format, the database schema defined `telefone_fixo` and `telefone_celular` as `integer`. This caused data loss (stripping leading zeros) and potential integer overflow on strictly-typed database engines for valid phone numbers.
 **Learning:** Validation rules are the first line of defense, but the database schema is the final enforcer. Mismatches between validation (string) and schema (integer) lead to silent data corruption or runtime errors. Phone numbers are strings, not integers.
 **Prevention:** Always define phone number columns as `string` (varchar) in migrations. Verify schema types match expected data format, especially for non-mathematical numeric identifiers.
+
+## 2026-06-21 - Honeypot Spam Protection Pattern
+**Vulnerability:** Public forms (Contact, Newsletter) were susceptible to automated spam bot submissions.
+**Learning:** Simple CAPTCHAs or rate limiting (per IP) are insufficient against distributed botnets. Hidden honeypot fields are effective low-friction deterrents.
+**Prevention:** Use a hidden input field named deceptively (e.g., 'fax') and validate it with the 'prohibited' rule in FormRequests.

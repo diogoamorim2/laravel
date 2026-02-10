@@ -349,6 +349,8 @@
                 <div class="col-balance">
                     <form action="{{ route('contatos.store') }}" method="POST" id="newsletter-form">
                         @csrf
+                        {{-- Honeypot field for spam protection --}}
+                        <input type="text" name="fax" style="display:none" tabindex="-1" autocomplete="off">
 
                         <input type="hidden" name="newslatter" value="1">
                         <input type="email" name="email" id="subscribe-email" aria-label="Receba nossos avisos" 
