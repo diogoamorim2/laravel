@@ -1,6 +1,10 @@
 @extends('layout.default')
 
 @section('head')
+    {{--
+        ⚡ Bolt Optimization: Preload LCP image to improve Largest Contentful Paint.
+    --}}
+    <link rel="preload" as="image" href="{{ asset('art/hero1.webp') }}">
 @endsection
 
 @section('content')
