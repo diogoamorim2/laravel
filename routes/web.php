@@ -35,8 +35,17 @@ Route::post('/contatos', [ContatoController::class, 'store'])
     ->name('contatos.store')
     ->middleware('throttle:3,1');
 
-Route::resource('contatos', ContatoController::class)
-    ->except(['store']);
+Route::get('/contatos/create', [ContatoController::class, 'create'])->name('contatos.create');
+
+Route::middleware('auth')->group(function () {
+    Route::resource('contatos', ContatoController::class)
+        ->only(['index', 'show', 'edit', 'update', 'destroy']);
+});
+
+// Login route required for auth middleware redirection
+Route::get('/login', function () {
+    return redirect('/');
+})->name('login');
 
 //View disabled
 /*

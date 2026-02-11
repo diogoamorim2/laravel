@@ -36,3 +36,8 @@
 **Vulnerability:** Public forms (Contact, Newsletter) were susceptible to automated spam bot submissions.
 **Learning:** Simple CAPTCHAs or rate limiting (per IP) are insufficient against distributed botnets. Hidden honeypot fields are effective low-friction deterrents.
 **Prevention:** Use a hidden input field named deceptively (e.g., 'fax') and validate it with the 'prohibited' rule in FormRequests.
+
+## 2026-02-07 - Broken Access Control in Resource Controller
+**Vulnerability:** The `ContatoController` relied on manual `Auth::check()` logic within methods to protect administrative actions (`index`, `show`, `edit`), but fell back to rendering the public homepage instead of denying access. This allowed unauthenticated users to execute controller logic (like querying the database) and potentially receive sensitive data passed to the view (Broken Access Control).
+**Learning:** Manual checks inside controller methods are error-prone and can lead to "fail-open" or "fail-confusing" states where the route returns 200 OK instead of 403/302. Relying on `Route::resource` without explicit middleware exposes all standard actions by default.
+**Prevention:** Always use `middleware('auth')` on the route definition for administrative resources. Use `only()` or `except()` to strictly define which methods are exposed and protected. Ensure `auth` middleware has a valid `login` route to redirect to.
