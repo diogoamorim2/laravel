@@ -28,65 +28,8 @@
 
         <style>
             .col-quad_bg{
-                width: 200px !import;
-            },
-            /* Estilo Base para o Botão WhatsApp */
-            .whatsapp-button {
-                position: fixed; /* Mantém o botão fixo na tela */
-                bottom: 30px;    /* Distância da parte inferior */
-                right: 30px;     /* Distância da direita */
-                z-index: 1000;   /* Garante que fique sobre outros elementos */
-                display: flex;   /* Útil para alinhar a imagem interna se necessário */
-                justify-content: center;
-                align-items: center;
-                /* background-color: #25D366; */ /* Cor de fundo opcional, se a imagem não preencher */
-                /* border-radius: 50%; */      /* Para deixar o fundo redondo, se tiver cor */
-                /* padding: 10px; */           /* Espaçamento interno, se tiver cor de fundo */
-                box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil */
-                transition: transform 0.2s ease-in-out; /* Efeito suave ao passar o mouse */
+                width: 200px !important;
             }
-
-            .whatsapp-button img {
-                display: block; /* Remove espaço extra abaixo da imagem */
-                width: 60px;    /* Tamanho padrão para desktop (ajuste conforme necessário) */
-                height: 60px;   /* Manter proporção ou definir igual à largura para redondo */
-                border-radius: 50%; /* Se a própria imagem deve ser redonda */
-            }
-
-            .whatsapp-button:hover {
-                transform: scale(1.1); /* Aumenta um pouco no hover */
-            }
-
-
-            /* --- Ajustes para Telas Menores (Mobile) --- */
-
-            /* Exemplo: Telas com largura máxima de 768px (Tablets e Celulares) */
-            @media (max-width: 768px) {
-                .whatsapp-button {
-                    bottom: 20px; /* Menor distância da borda */
-                    right: 20px;  /* Menor distância da borda */
-                    /* padding: 8px; */ /* Menor espaçamento interno, se tiver fundo */
-                }
-
-                .whatsapp-button img {
-                    width: 50px;  /* Tamanho ligeiramente menor para mobile */
-                    height: 50px;
-                }
-            }
-
-            /* Exemplo: Telas com largura máxima de 480px (Celulares menores) */
-            @media (max-width: 480px) {
-                .whatsapp-button {
-                    bottom: 15px;
-                    right: 15px;
-                }
-
-                .whatsapp-button img {
-                    width: 45px; /* Ainda menor se necessário */
-                    height: 45px;
-                }
-            }
-
         </style>
         @yield('head')
     </head>
@@ -218,5 +161,25 @@
         <small>&copy; Siscon contabilidade - Copyright 2024</small>
     </div>
 </footer>
+
+<a href="#" class="btn-back-to-top" aria-label="Voltar para o topo">
+    <i class="bi bi-chevron-up"></i>
+</a>
+
+<script>
+    window.addEventListener('scroll', function() {
+        var backToTop = document.querySelector('.btn-back-to-top');
+        if (window.scrollY > 300) {
+            backToTop.classList.add('show-scroll');
+        } else {
+            backToTop.classList.remove('show-scroll');
+        }
+    });
+
+    document.querySelector('.btn-back-to-top').addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
 </body>
 </html>
