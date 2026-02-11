@@ -1,34 +1,20 @@
 <?php
 
 use App\Http\Controllers\ContatoController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 
 //use Illuminate\Support\Facades\Mail;
 
 // Root index group
-Route::get('/', function () {
-    return view('index');
-});
-
-Route::get('/index', function () {
-    return view('index');
-});
-
-Route::get('/about', function () {
-    return view('about');
-});
-
-Route::get('/contact', function () {
-    return view('contact');
-});
-
-Route::get('/industries', function () {
-    return view('industries');
-});
-
-Route::get('/service', function () {
-    return view('service');
+Route::controller(PageController::class)->group(function () {
+    Route::get('/', 'index');
+    Route::get('/index', 'index');
+    Route::get('/about', 'about');
+    Route::get('/contact', 'contact');
+    Route::get('/industries', 'industries');
+    Route::get('/service', 'service');
 });
 
 Route::post('/contatos', [ContatoController::class, 'store'])
