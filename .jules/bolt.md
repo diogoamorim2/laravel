@@ -20,3 +20,7 @@
 ## 2026-02-12 - LCP Preloading & Third-Party Preconnects
 **Learning:** Background images defined in CSS (e.g., `style="background-image: url(...)"`) are not discovered by the browser's preload scanner, delaying the Largest Contentful Paint (LCP). Additionally, third-party iframes (like Google Maps) introduce significant DNS/TCP latency.
 **Action:** explicitly preload LCP background images using `<link rel="preload" as="image" href="...">` in the `<head>`. For heavy third-party integrations (Maps, YouTube), add `<link rel="preconnect">` to their respective domains to speed up the connection phase.
+
+## 2026-02-13 - Route Caching Optimization
+**Learning:** Defining routes using Closures in `routes/web.php` prevents Laravel from caching routes (`php artisan route:cache`), which significantly degrades boot performance in production.
+**Action:** Refactor all closure-based routes into dedicated controllers (e.g., `PageController`). This enables route caching, resulting in faster request dispatching and lower application overhead.
