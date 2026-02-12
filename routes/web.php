@@ -1,42 +1,37 @@
 <?php
 
 use App\Http\Controllers\ContatoController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 
 //use Illuminate\Support\Facades\Mail;
 
 // Root index group
-Route::get('/', function () {
-    return view('index');
-});
-
-Route::get('/index', function () {
-    return view('index');
-});
-
-Route::get('/about', function () {
-    return view('about');
-});
-
-Route::get('/contact', function () {
-    return view('contact');
-});
-
-Route::get('/industries', function () {
-    return view('industries');
-});
-
-Route::get('/service', function () {
-    return view('service');
+Route::controller(PageController::class)->group(function () {
+    Route::get('/', 'index');
+    Route::get('/index', 'index');
+    Route::get('/about', 'about');
+    Route::get('/contact', 'contact');
+    Route::get('/industries', 'industries');
+    Route::get('/service', 'service');
 });
 
 Route::post('/contatos', [ContatoController::class, 'store'])
     ->name('contatos.store')
     ->middleware('throttle:3,1');
 
-Route::resource('contatos', ContatoController::class)
-    ->except(['store']);
+Route::get('/contatos/create', [ContatoController::class, 'create'])->name('contatos.create');
+
+Route::middleware('auth')->group(function () {
+    Route::resource('contatos', ContatoController::class)
+        ->only(['index', 'show', 'edit', 'update', 'destroy']);
+});
+
+// Login route required for auth middleware redirection
+Route::get('/login', function () {
+    return redirect('/');
+})->name('login');
 
 //View disabled
 /*

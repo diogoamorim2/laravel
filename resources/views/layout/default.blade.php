@@ -162,23 +162,22 @@
     </div>
 </footer>
 
-<a href="#" class="btn-back-to-top" aria-label="Voltar para o topo">
+<a href="#main-content" class="btn-back-to-top" aria-label="Voltar para o topo">
     <i class="bi bi-chevron-up"></i>
 </a>
 
 <script>
-    window.addEventListener('scroll', function() {
-        var backToTop = document.querySelector('.btn-back-to-top');
-        if (window.scrollY > 300) {
-            backToTop.classList.add('show-scroll');
-        } else {
-            backToTop.classList.remove('show-scroll');
+    document.addEventListener('DOMContentLoaded', function() {
+        var backToTopBtn = document.querySelector('.btn-back-to-top');
+        if (backToTopBtn) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
         }
-    });
-
-    document.querySelector('.btn-back-to-top').addEventListener('click', function(e) {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 </script>
 </body>
