@@ -127,7 +127,7 @@ nav > div{
 
 .btn-back-to-top{
     position: fixed;
-    bottom: 15px; right: 15px;
+    bottom: 130px; right: 30px;
     padding: 0 !important;
     -webkit-border-radius: 50%;
        -moz-border-radius: 50%;
@@ -144,7 +144,15 @@ nav > div{
     -webkit-box-shadow: 0 8px 20px -10px var(--primaryColor);
        -moz-box-shadow: 0 8px 20px -10px var(--primaryColor);
             box-shadow: 0 8px 20px -10px var(--primaryColor);
-    z-index: 5;
+    z-index: 990;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, background-color 0.2s, transform 0.2s;
+}
+
+.btn-back-to-top.show {
+    opacity: 1;
+    visibility: visible;
 }
 .btn-back-to-top > i{
     position: absolute;

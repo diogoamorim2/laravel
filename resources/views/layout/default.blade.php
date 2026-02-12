@@ -218,5 +218,24 @@
         <small>&copy; Siscon contabilidade - Copyright 2024</small>
     </div>
 </footer>
+
+<a href="#main-content" class="btn-back-to-top" aria-label="Voltar para o topo">
+    <i class="bi bi-chevron-up"></i>
+</a>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var backToTopBtn = document.querySelector('.btn-back-to-top');
+        if (backToTopBtn) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+        }
+    });
+</script>
 </body>
 </html>
