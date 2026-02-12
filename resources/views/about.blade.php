@@ -51,9 +51,6 @@
             </div>
         </nav>
 
-        <a href="#" class="btn-back-to-top" aria-label="Back to top button">
-            <i class="bi bi-chevron-up"></i>
-        </a>
         <!-- NAVIGATION END -->
 
         <section class="contained row">
