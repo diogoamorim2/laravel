@@ -17,19 +17,13 @@ class ContatoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    protected $view = 'index';
-
     private const EMAIL_CONTATO_SISCON = 'contato@sisconsp.com.br';
 
     public function index(): View
     {
         $contatos = Contato::latest()->paginate(5);
 
-        if (Auth::check()) {
-            $this->view = 'contato.index';
-        }
-
-        return view($this->view, compact('contatos'))
+        return view('contato.index', compact('contatos'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -80,11 +74,7 @@ class ContatoController extends Controller
      */
     public function show(Contato $contato): View
     {
-        if (Auth::check()) {
-            $this->view = 'contato.show';
-        }
-
-        return view($this->view, compact('contato'));
+        return view('contato.show', compact('contato'));
     }
 
     /**
@@ -92,11 +82,7 @@ class ContatoController extends Controller
      */
     public function edit(Contato $contato)
     {
-        if (Auth::check()) {
-            $this->view = 'contato.edit';
-        }
-
-        return view($this->view, compact('contato'));
+        return view('contato.edit', compact('contato'));
     }
 
     /**
@@ -104,12 +90,9 @@ class ContatoController extends Controller
      */
     public function update(ContatoUpdateRequest $request, Contato $contato)
     {
-        if (Auth::check()) {
-            $this->view = 'contato.index';
-            $contato->update($request->validated());
-        }
+        $contato->update($request->validated());
 
-        return redirect()->route($this->view)
+        return redirect()->route('contatos.index')
             ->with('success', 'Contato atualizado com sucesso');
     }
 
@@ -118,12 +101,9 @@ class ContatoController extends Controller
      */
     public function destroy(Contato $contato)
     {
-        if (Auth::check()) {
-            $this->view = 'contato.index';
-            $contato->delete();
-        }
+        $contato->delete();
 
-        return redirect()->route($this->view)
+        return redirect()->route('contatos.index')
             ->with('success', 'Contato apagado com sucesso');
     }
 }
