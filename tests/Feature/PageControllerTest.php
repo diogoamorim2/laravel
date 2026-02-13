@@ -65,4 +65,14 @@ class PageControllerTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('contact');
     }
+
+    /**
+     * Test that the login route redirects to home.
+     */
+    public function test_login_route_redirects_to_home(): void
+    {
+        $response = $this->get('/login');
+        $response->assertStatus(302);
+        $response->assertRedirect('/');
+    }
 }

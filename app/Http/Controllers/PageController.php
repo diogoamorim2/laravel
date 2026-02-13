@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 class PageController extends Controller
@@ -44,5 +45,13 @@ class PageController extends Controller
     public function contact(): View
     {
         return view('contact');
+    }
+
+    /**
+     * Redirect to the home page.
+     */
+    public function login(): RedirectResponse
+    {
+        return redirect('/');
     }
 }

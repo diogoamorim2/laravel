@@ -15,6 +15,7 @@ Route::controller(PageController::class)->group(function () {
     Route::get('/contact', 'contact');
     Route::get('/industries', 'industries');
     Route::get('/service', 'service');
+    Route::get('/login', 'login')->name('login');
 });
 
 Route::post('/contatos', [ContatoController::class, 'store'])
@@ -28,10 +29,6 @@ Route::middleware('auth')->group(function () {
         ->only(['index', 'show', 'edit', 'update', 'destroy']);
 });
 
-// Login route required for auth middleware redirection
-Route::get('/login', function () {
-    return redirect('/');
-})->name('login');
 
 //View disabled
 /*
