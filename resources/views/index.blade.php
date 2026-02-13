@@ -81,23 +81,7 @@
         <!-- MAIN HERO BANNER END -->
 
         <!-- NAVIGATION START -->
-        <nav>
-            <div class="contained">
-                <a href="{{URL('index')}}" class="logo fc-primary ff-damion row flex-alig-center">
-                    <span class="fs-h2">Siscon</span>
-                </a>
-                <input type="checkbox" name="tablet-mobile-menu" class="tab-mob-menu" aria-label="tablet and mobile menu">
-                <div class="navigation-container">
-                    <a href="{{URL('index')}}">Home</a>
-                    <a href="{{URL('about')}}">Sobre nós</a>
-                    <a href="{{URL('service')}}">Serviços</a>
-                    <!-- <a href="{{URL('industries')}}">Industries</a>
-                        <a href="{{URL('blog/blog')}}">Blog</a> 
-                        <a href="{{URL('career/career')}}">Career</a> -->
-                    <a href="{{URL('contact')}}" class="btn-bg1 border-round">Fale conosco</a>
-                </div>
-            </div>
-        </nav>
+        @include('layout.nav')
 
         <a href="https://wa.me/5511965873624"
             target="_blank"

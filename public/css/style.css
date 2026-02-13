@@ -1200,3 +1200,16 @@ a.fc-white{
     outline: 3px solid var(--primaryColor);
     outline-offset: -3px;
 }
+
+/* Active Navigation State */
+.navigation-container > a.nav-link-active:not(.btn-bg1) {
+    color: var(--primaryColor);
+    font-weight: bold;
+}
+.navigation-container > a.nav-link-active:not(.btn-bg1)::after {
+    -webkit-transform: scale(1);
+       -moz-transform: scale(1);
+        -ms-transform: scale(1);
+         -o-transform: scale(1);
+            transform: scale(1);
+}
