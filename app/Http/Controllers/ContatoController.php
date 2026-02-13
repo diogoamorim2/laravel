@@ -9,6 +9,7 @@ use App\Mail\Newsletter;
 use App\Models\Contato;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
@@ -43,26 +44,33 @@ class ContatoController extends Controller
         $msgRetorno = 'Mensagem enviada com sucesso.';
         $status = 'success';
 
-        //Salva no BD no contato cadastrado.
-        $contato = Contato::create($request->validated());
+        try {
+            //Salva no BD no contato cadastrado.
+            $contato = Contato::create($request->validated());
 
-        if (! $contato) {
-            $msgRetorno = 'Falha ao enviar a mensagem.';
-            $status = 'error';
+            //Em caso de usuario não logado e novo cadastrado, dispara email de boas vindas
+            if (! Auth::check()) {
+                Mail::to($contato->email)
+                    ->queue(new Newsletter($contato));
 
-            return redirect()->back()->with($status, $msgRetorno);
-        }
-
-        //Em caso de usuario não logado e novo cadastrado, dispara email de boas vindas
-        if (! Auth::check() && $request) {
-            Mail::to($contato->email)
-                ->queue(new Newsletter($contato));
-
-            // Send email to admin if it's a contact request (has subject or comment)
-            if ($contato->assunto || $contato->comentario) {
-                Mail::to(self::EMAIL_CONTATO_SISCON)
-                    ->queue(new FaleConoscoContato($contato));
+                // Send email to admin if it's a contact request (has subject or comment)
+                if ($contato->assunto || $contato->comentario) {
+                    Mail::to(self::EMAIL_CONTATO_SISCON)
+                        ->queue(new FaleConoscoContato($contato));
+                }
             }
+
+            Log::info('New contact form submission', ['id' => $contato->id, 'ip' => $request->ip()]);
+
+        } catch (\Exception $e) {
+            Log::error('Failed to store contact or send email', [
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
+                'ip' => $request->ip()
+            ]);
+
+            return redirect()->back()
+                ->with('error', 'Falha ao enviar a mensagem. Por favor, tente novamente mais tarde.');
         }
 
         return redirect()->back()
