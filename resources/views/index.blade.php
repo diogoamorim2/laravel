@@ -368,6 +368,14 @@
 
         document.querySelectorAll('.youtube-facade').forEach(function(facade) {
             var loadVideo = function() {
+                if (this.classList.contains('loading')) return;
+                this.classList.add('loading');
+
+                var playBtn = this.querySelector('.play-button');
+                if (playBtn) {
+                    playBtn.innerHTML = '<span class="spinner"></span>';
+                }
+
                 var videoId = this.dataset.videoId;
                 var iframe = document.createElement('iframe');
                 iframe.setAttribute('src', 'https://www.youtube.com/embed/' + videoId + '?autoplay=1');
@@ -378,14 +386,33 @@
                 iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
                 iframe.setAttribute('allowfullscreen', '');
                 iframe.style.borderRadius = '12px';
+                iframe.style.position = 'absolute';
+                iframe.style.top = '0';
+                iframe.style.left = '0';
+                iframe.style.zIndex = '2';
+                iframe.style.opacity = '0';
+                iframe.style.transition = 'opacity 0.5s ease-in';
 
-                this.innerHTML = '';
+                var that = this;
+                iframe.onload = function() {
+                    iframe.style.opacity = '1';
+
+                    setTimeout(function() {
+                        Array.from(that.children).forEach(function(child) {
+                            if (child !== iframe) child.remove();
+                        });
+
+                        that.classList.remove('loading');
+                        that.classList.remove('youtube-facade');
+                        that.style.backgroundImage = 'none';
+                        that.style.display = 'block';
+                        that.removeAttribute('tabindex');
+                        that.removeAttribute('role');
+                        iframe.style.position = 'static';
+                    }, 500);
+                };
+
                 this.appendChild(iframe);
-                this.classList.remove('youtube-facade');
-                this.style.backgroundImage = 'none';
-                this.style.display = 'block';
-                this.removeAttribute('tabindex');
-                this.removeAttribute('role');
             };
 
             facade.addEventListener('click', loadVideo);
