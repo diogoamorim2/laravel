@@ -18,6 +18,14 @@
         <!-- THE TITLE OF THE PAGE -->
         <title>Siscon Contabilidade</title>
 
+        {{--
+            ⚡ Bolt Optimization: Preload critical fonts to improve LCP and reduce CLS.
+            These fonts are used above the fold or are essential for the initial paint.
+        --}}
+        <link rel="preload" href="{{ asset('font/Damion.ttf') }}" as="font" type="font/ttf" crossorigin>
+        <link rel="preload" href="{{ asset('font/Nunito-Regular.ttf') }}" as="font" type="font/ttf" crossorigin>
+        <link rel="preload" href="{{ asset('icons/fonts/bootstrap-icons.woff2') }}?1fa40e8900654d2863d011707b9fb6f2" as="font" type="font/woff2" crossorigin>
+
         <link rel="stylesheet" href="{{URL('icons/bootstrap-icons.css')}}">
         <link rel="stylesheet" href="{{URL('css/fontstyle.css')}}">
         <link rel="stylesheet" href="{{URL('css/layout.css')}}">
