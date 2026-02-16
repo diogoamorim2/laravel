@@ -133,10 +133,11 @@
                             <textarea name="comentario" id="message-message" rows="5" placeholder="Escreva a sua mensagem" aria-label="Escreva a sua mensagem" maxlength="2000"
                                 class="@error('comentario') is-invalid @enderror"
                                 aria-invalid="{{ $errors->has('comentario') ? 'true' : 'false' }}"
-                                aria-describedby="error-comentario"></textarea>
+                                aria-describedby="error-comentario char-count-comentario"></textarea>
                             @error('comentario')
                                 <span id="error-comentario" class="text-danger">{{ $message }}</span>
                             @enderror
+                            <div class="row"><small id="char-count-comentario" class="fc-primary ml-a">0/2000</small></div>
                         </div>
                         <button type="submit" class="btn-bg1 border-round mt-20" id="btn-submit">Enviar mensagem</button>
                     </form>
@@ -166,6 +167,23 @@
             var btn = document.getElementById('btn-submit');
             btn.disabled = true;
             btn.innerHTML = 'Enviando... <span class="spinner"></span>';
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const messageInput = document.getElementById('message-message');
+            const charCount = document.getElementById('char-count-comentario');
+            const maxLength = messageInput.getAttribute('maxlength');
+
+            if (messageInput && charCount) {
+                const updateCount = function() {
+                    const currentLength = messageInput.value.length;
+                    charCount.textContent = currentLength + '/' + maxLength;
+                };
+
+                messageInput.addEventListener('input', updateCount);
+                // Initialize on load
+                updateCount();
+            }
         });
     </script>
 @endsection
