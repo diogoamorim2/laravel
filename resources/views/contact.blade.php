@@ -95,7 +95,7 @@
                             <input type="hidden" name='newslatter' value="1">
                             <div class="col-balance">
                                 <label for="message-name" class="sr-only">Seu nome</label>
-                                <input name="nome" type="text" id="message-name" placeholder="Seu nome *" aria-label="Digite seu nome" required
+                                <input name="nome" type="text" id="message-name" placeholder="Seu nome *" aria-label="Digite seu nome" required maxlength="255"
                                     class="@error('nome') is-invalid @enderror"
                                     aria-invalid="{{ $errors->has('nome') ? 'true' : 'false' }}"
                                     aria-describedby="error-nome"
@@ -106,7 +106,7 @@
                             </div>
                             <div class="col-balance ml-a">
                                 <label for="message-email" class="sr-only">Seu email</label>
-                                <input name="email" type="email" id="message-email" placeholder="Seu email *" aria-label="Digite seu email" required
+                                <input name="email" type="email" id="message-email" placeholder="Seu email *" aria-label="Digite seu email" required maxlength="255"
                                     class="@error('email') is-invalid @enderror"
                                     aria-invalid="{{ $errors->has('email') ? 'true' : 'false' }}"
                                     aria-describedby="error-email"
@@ -119,7 +119,7 @@
 
                         <div class="mb-20">
                             <label for="message-subject" class="sr-only">Assunto</label>
-                            <input name="assunto" type="text" id="message-subject" aria-label="Nos fale o tema da pergunta" placeholder="Assunto"
+                            <input name="assunto" type="text" id="message-subject" aria-label="Nos fale o tema da pergunta" placeholder="Assunto" maxlength="255"
                                 class="@error('assunto') is-invalid @enderror"
                                 aria-invalid="{{ $errors->has('assunto') ? 'true' : 'false' }}"
                                 aria-describedby="error-assunto">
@@ -130,7 +130,7 @@
 
                         <div>
                             <label for="message-message" class="sr-only">Mensagem</label>
-                            <textarea name="comentario" id="message-message" rows="5" placeholder="Escreva a sua mensagem" aria-label="Escreva a sua mensagem"
+                            <textarea name="comentario" id="message-message" rows="5" placeholder="Escreva a sua mensagem" aria-label="Escreva a sua mensagem" maxlength="2000"
                                 class="@error('comentario') is-invalid @enderror"
                                 aria-invalid="{{ $errors->has('comentario') ? 'true' : 'false' }}"
                                 aria-describedby="error-comentario"></textarea>

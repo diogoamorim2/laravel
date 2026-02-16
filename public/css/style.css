@@ -960,9 +960,23 @@ a.fc-white{
         position: relative;
         margin: auto 20px auto auto;
         font-family: 'bootstrap-icons';
-        visibility: hidden;
+        /* Accessibility Fix: Replace visibility:hidden with appearance:none to keep it focusable */
+        /* visibility: hidden; */
         display: block;
         font-size: var(--h3TextSize);
+        appearance: none;
+        -webkit-appearance: none;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        width: 1em;
+        height: 1em;
+        padding: 0;
+        color: inherit;
+    }
+    .tab-mob-menu:focus-visible {
+        outline: 3px solid var(--primaryColor);
+        border-radius: 4px;
     }
     .tab-mob-menu::after{
         position: absolute;
