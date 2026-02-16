@@ -29,7 +29,6 @@ Route::middleware('auth')->group(function () {
         ->only(['index', 'show', 'edit', 'update', 'destroy']);
 });
 
-
 //View disabled
 /*
     Route::get('/outros', function () {

@@ -2,10 +2,10 @@
 
 namespace Tests\Feature;
 
+use App\Models\Contato;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
-use App\Models\Contato;
 
 class ContatoIndexPerformanceTest extends TestCase
 {
@@ -20,16 +20,16 @@ class ContatoIndexPerformanceTest extends TestCase
         $sql = $query->toSql();
         $bindings = $query->getBindings();
 
-        $plan = DB::select('EXPLAIN QUERY PLAN ' . $sql, $bindings);
+        $plan = DB::select('EXPLAIN QUERY PLAN '.$sql, $bindings);
 
         $details = '';
         foreach ($plan as $row) {
-            $details .= $row->detail . "\n";
+            $details .= $row->detail."\n";
         }
 
         // We expect the query to use an index to avoid sorting (USE TEMP B-TREE FOR ORDER BY)
         // When indexed, SQLite usually says "SCAN contatos USING INDEX ..."
 
-        $this->assertStringContainsString('USING INDEX', $details, "Query is not using an index. Plan details: \n" . $details);
+        $this->assertStringContainsString('USING INDEX', $details, "Query is not using an index. Plan details: \n".$details);
     }
 }
