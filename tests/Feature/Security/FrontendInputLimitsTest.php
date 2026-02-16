@@ -13,15 +13,10 @@ class FrontendInputLimitsTest extends TestCase
 
         $response->assertStatus(200);
 
-        // Verify that maxlength attributes are present in the response
-        // This is a basic check. In a real scenario, we might want to parse the HTML
-        // to ensure the attribute belongs to the correct input.
-        // However, since we know these attributes are currently missing,
-        // asserting their presence is a sufficient test for this task.
+        // Check for 'nome' input base structure
+        $response->assertSee('<input name="nome" type="text" id="message-name" placeholder="Seu nome *" aria-label="Digite seu nome" required', false);
 
-        // We expect 3 inputs with maxlength="255" (nome, email, assunto)
-        // and 1 textarea with maxlength="2000" (comentario)
-
+        // Assert presence of maxlength attributes for inputs and textarea
         $response->assertSee('maxlength="255"', false);
         $response->assertSee('maxlength="2000"', false);
     }
@@ -33,7 +28,7 @@ class FrontendInputLimitsTest extends TestCase
 
         $response->assertStatus(200);
 
-        // Verify that maxlength attribute is present for the newsletter email input
+        // Check for newsletter email input
         $response->assertSee('maxlength="255"', false);
     }
 }

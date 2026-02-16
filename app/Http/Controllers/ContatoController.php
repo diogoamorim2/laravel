@@ -66,7 +66,7 @@ class ContatoController extends Controller
             Log::error('Failed to store contact or send email', [
                 'error' => $e->getMessage(),
                 'trace' => $e->getTraceAsString(),
-                'ip' => $request->ip()
+                'ip' => $request->ip(),
             ]);
 
             return redirect()->back()
