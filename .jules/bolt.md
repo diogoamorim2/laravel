@@ -24,3 +24,7 @@
 ## 2026-02-13 - Route Caching Optimization
 **Learning:** Defining routes using Closures in `routes/web.php` prevents Laravel from caching routes (`php artisan route:cache`), which significantly degrades boot performance in production.
 **Action:** Refactor all closure-based routes into dedicated controllers (e.g., `PageController`). This enables route caching, resulting in faster request dispatching and lower application overhead.
+
+## 2026-03-03 - Scroll Event Throttling
+**Learning:** The global "Back to Top" button in `default.blade.php` used a raw `window.addEventListener('scroll', ...)` listener. This causes the callback to fire on every pixel scroll, potentially blocking the main thread and causing layout thrashing on low-end devices.
+**Action:** Wrap scroll event listeners in `requestAnimationFrame` to throttle execution to the browser's refresh rate (approx. 60fps). This ensures UI updates (like class toggling) happen only when the browser is ready to paint, significantly improving scroll performance.
