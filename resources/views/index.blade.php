@@ -3,6 +3,13 @@
 @section('head')
 <link rel="preload" as="image" href="{{ asset('art/hero1.webp') }}">
 {{--
+    ⚡ Bolt Optimization: Prefetch subsequent slides for the hero slideshow.
+    This ensures they are downloaded with low priority before the animation transitions to them.
+--}}
+<link rel="prefetch" href="{{ asset('art/hero2.webp') }}">
+<link rel="prefetch" href="{{ asset('art/hero3.webp') }}">
+
+{{--
     ⚡ Bolt Optimization: Preconnect to YouTube domains to speed up thumbnail loading and video playback.
     This saves DNS lookup and TCP handshake time when the user eventually plays a video.
 --}}

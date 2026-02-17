@@ -19,7 +19,7 @@
     <span class="fade"></span>
     <main id="main-content">
         <!-- SUB HERO BANNER START -->
-        <section class="sub-hero-banner" style="background-image: url('art/hero2.webp');">
+        <section class="sub-hero-banner" style="background-image: url('{{ asset('art/hero2.webp') }}');">
             <div class="hero-contained">
                 <div class="hero-title fc-white">
                     <h1 class="ff-damion">Fale conosco</h1>
