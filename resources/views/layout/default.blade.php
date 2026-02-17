@@ -178,11 +178,20 @@
     document.addEventListener('DOMContentLoaded', function() {
         var backToTopBtn = document.querySelector('.btn-back-to-top');
         if (backToTopBtn) {
+            // ⚡ Bolt Optimization: Use requestAnimationFrame to throttle scroll events
+            // and prevent layout thrashing on the main thread.
+            var ticking = false;
             window.addEventListener('scroll', function() {
-                if (window.scrollY > 300) {
-                    backToTopBtn.classList.add('show');
-                } else {
-                    backToTopBtn.classList.remove('show');
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        if (window.scrollY > 300) {
+                            backToTopBtn.classList.add('show');
+                        } else {
+                            backToTopBtn.classList.remove('show');
+                        }
+                        ticking = false;
+                    });
+                    ticking = true;
                 }
             });
         }
