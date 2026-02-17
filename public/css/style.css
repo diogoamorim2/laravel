@@ -906,6 +906,28 @@ a.fc-white{
 }
 
 
+/* Breadcrumbs */
+.breadcrumb,
+.hero-title .breadcrumb {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+}
+.breadcrumb li {
+    display: inline-flex;
+    align-items: center;
+}
+.breadcrumb li + li::before {
+    content: "\F285"; /* bootstrap-icon chevron-right */
+    font-family: 'bootstrap-icons';
+    margin: 0 10px;
+    color: var(--textWhite);
+    font-size: 0.8em;
+}
+
 /* Tablet View */
 @media only screen and (max-width: 992px) {
 

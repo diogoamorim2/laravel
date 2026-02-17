@@ -23,13 +23,12 @@
             <div class="hero-contained">
                 <div class="hero-title fc-white">
                     <h1 class="ff-damion">Fale conosco</h1>
-                    <a href="index.html" class="fc-white">
-                        Home
-                    </a>
-                    <i class="bi bi-chevron-right"></i>
-                    <a href="#" class="fc-white">
-                        Fale conosco
-                    </a>
+                    <nav aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                            <li><a href="{{ url('/') }}" class="fc-white">Home</a></li>
+                            <li><span class="fc-white" aria-current="page">Fale conosco</span></li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
             <!-- INICIO REDES SOCIAIS -->

@@ -17,13 +17,12 @@
             <div class="hero-contained">
                 <div class="hero-title fc-white">
                     <h1 class="ff-damion">Serviços que oferecemos</h1>
-                    <a href="{{URL('index')}}" class="fc-white">
-                        Home
-                    </a>
-                    <i class="bi bi-chevron-right"></i>
-                    <a href="#" class="fc-white">
-                        Serviços
-                    </a>
+                    <nav aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                            <li><a href="{{ url('/') }}" class="fc-white">Home</a></li>
+                            <li><span class="fc-white" aria-current="page">Serviços</span></li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
                  <!-- INICIO REDES SOCIAIS -->
