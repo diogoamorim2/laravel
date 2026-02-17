@@ -11,25 +11,30 @@
     <meta name="keywords" content="HTML, CSS, Blue, Rounded, Modern, Nice">
 
     <!-- OG IMAGE IS THE IMAGE SHOWN WHEN YOUR WEBSITE LINK IS SHARED ON SOCIAL MEDIA -->
-    <meta property="og:image" content="art/og-card.png">
-    <meta property="og:title" content="Roundazzle - Free corporate web template">
+    <meta property="og:image" content="{{ asset('art/og-card.png') }}">
+    <meta property="og:title" content="Roundazzle | Industries">
     <meta name="twitter:card" content="summary_large_image">
 
     <!-- THE TITLE OF THE PAGE -->
     <title>Roundazzle | Industries</title>
 
-    <link rel="preload" href="icons/bootstrap-icons.css" as="style">
-    <link rel="preload" href="css/fontstyle.css" as="style">
-    <link rel="preload" href="css/layout.css" as="style">
-    <link rel="preload" href="css/animation.css" as="style">
-    <link rel="preload" href="css/style.css" as="style">
+    {{--
+        ⚡ Bolt Optimization: Preload LCP image.
+    --}}
+    <link rel="preload" as="image" href="{{ asset('art/hero2.webp') }}">
 
-    <link rel="stylesheet" href="icons/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/fontstyle.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/animation.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/png" href="art/favicon.png">
+    <link rel="preload" href="{{ asset('icons/bootstrap-icons.css') }}" as="style">
+    <link rel="preload" href="{{ asset('css/fontstyle.css') }}" as="style">
+    <link rel="preload" href="{{ asset('css/layout.css') }}" as="style">
+    <link rel="preload" href="{{ asset('css/animation.css') }}" as="style">
+    <link rel="preload" href="{{ asset('css/style.css') }}" as="style">
+
+    <link rel="stylesheet" href="{{ asset('icons/bootstrap-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/fontstyle.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/animation.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ asset('art/favicon.png') }}">
 </head>
 <body>
     <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
@@ -37,7 +42,7 @@
     <span class="fade"></span>
     <main id="main-content">
         <!-- SUB HERO BANNER START -->
-        <section class="sub-hero-banner" style="background-image: url('art/hero2.webp');">
+        <section class="sub-hero-banner" style="background-image: url('{{ asset('art/hero2.webp') }}');">
             <div class="hero-contained">
                 <div class="hero-title fc-white">
                     <h1 class="ff-damion">Roundazzle | Industries</h1>
@@ -92,7 +97,7 @@
 
             <div class="row flex-alig-center mt-50">
                 <div class="col-balance">
-                    <img src="art/work1.webp" alt="">
+                    <img loading="lazy" src="{{ asset('art/work1.webp') }}" alt="">
                 </div>
                 <div class="col-balance">
                     <span class="fc-primary fs-h3">Business Process</span>
@@ -129,13 +134,13 @@
                     </ul>
                 </div>
                 <div class="col-balance order-tab-1">
-                    <img src="art/work3.webp" alt="">
+                    <img loading="lazy" src="{{ asset('art/work3.webp') }}" alt="">
                 </div>
             </div>
 
             <div class="row flex-alig-center mt-50">
                 <div class="col-balance">
-                    <img src="art/work2.webp" alt="">
+                    <img loading="lazy" src="{{ asset('art/work2.webp') }}" alt="">
                 </div>
                 <div class="col-balance">
                     <span class="fc-primary fs-h3">Retail</span>
