@@ -9,3 +9,11 @@
 ## 2026-02-16 - Character Counter on Textarea
 **Learning:** Users typing long messages into a `maxlength` restricted textarea without feedback can lose context and get frustrated when input stops.
 **Action:** Implemented a simple character counter (`X/2000`) and associated it with the textarea using `aria-describedby` for accessibility, providing both visual and assistive technology feedback.
+
+## 2026-03-02 - Semantic Breadcrumbs
+**Learning:** Hardcoded links like `index.html` in breadcrumbs break when routing structure changes, and non-semantic breadcrumbs (using `div` instead of `nav`) are confusing for screen reader users.
+**Action:** Implemented a reusable `.breadcrumb` CSS class and refactored breadcrumbs to use `<nav aria-label="Breadcrumb">` and `<ol>` for better accessibility and maintainability.
+
+## 2026-03-02 - Breadcrumb Visual Regression
+**Learning:** Using common class names like `.breadcrumb` can inadvertently inherit conflicting styles from CSS frameworks (like Bootstrap), causing accessibility issues (e.g., white text on white background).
+**Action:** Always verify new components against potential framework conflicts and explicitly override properties (e.g., `background-color: transparent`) to ensure consistent styling.

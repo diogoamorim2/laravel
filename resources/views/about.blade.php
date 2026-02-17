@@ -16,13 +16,12 @@
             <div class="hero-contained">
                 <div class="hero-title fc-white">
                     <h1 class="ff-damion">Sobre nós</h1>
-                    <a href="{{URL('index')}}" class="fc-white">
-                        Home
-                    </a>
-                    <i class="bi bi-chevron-right"></i>
-                    <a href="#" class="fc-white">
-                        About Us
-                    </a>
+                    <nav aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                            <li><a href="{{ url('/') }}" class="fc-white">Home</a></li>
+                            <li><span class="fc-white" aria-current="page">Sobre nós</span></li>
+                        </ol>
+                    </nav>
                 </div>
                 <!-- INICIO REDES SOCIAIS -->
                 
