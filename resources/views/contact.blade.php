@@ -161,31 +161,6 @@
         {{-- Opcional: Texto para leitores de tela, se quiser ser mais explícito --}}
         {{-- <span class="sr-only">Fale conosco pelo WhatsApp</span> --}}
     </a>
-
-    <script>
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            var btn = document.getElementById('btn-submit');
-            btn.disabled = true;
-            btn.innerHTML = 'Enviando... <span class="spinner"></span>';
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const messageInput = document.getElementById('message-message');
-            const charCount = document.getElementById('char-count-comentario');
-            const maxLength = messageInput.getAttribute('maxlength');
-
-            if (messageInput && charCount) {
-                const updateCount = function() {
-                    const currentLength = messageInput.value.length;
-                    charCount.textContent = currentLength + '/' + maxLength;
-                };
-
-                messageInput.addEventListener('input', updateCount);
-                // Initialize on load
-                updateCount();
-            }
-        });
-    </script>
 @endsection
 
 @section('footer')
