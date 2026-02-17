@@ -174,28 +174,6 @@
     <i class="bi bi-chevron-up"></i>
 </a>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var backToTopBtn = document.querySelector('.btn-back-to-top');
-        if (backToTopBtn) {
-            // ⚡ Bolt Optimization: Use requestAnimationFrame to throttle scroll events
-            // and prevent layout thrashing on the main thread.
-            var ticking = false;
-            window.addEventListener('scroll', function() {
-                if (!ticking) {
-                    window.requestAnimationFrame(function() {
-                        if (window.scrollY > 300) {
-                            backToTopBtn.classList.add('show');
-                        } else {
-                            backToTopBtn.classList.remove('show');
-                        }
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            });
-        }
-    });
-</script>
+<script src="{{ asset('js/script.js') }}" defer></script>
 </body>
 </html>
