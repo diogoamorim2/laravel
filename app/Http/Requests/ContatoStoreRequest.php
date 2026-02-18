@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Log;
 
 class ContatoStoreRequest extends FormRequest
 {
@@ -34,5 +36,25 @@ class ContatoStoreRequest extends FormRequest
             'ativo' => 'nullable|bool',
             'newslatter' => 'nullable|boolean',
         ];
+    }
+
+    /**
+     * Handle a failed validation attempt.
+     *
+     * @return void
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    protected function failedValidation(Validator $validator)
+    {
+        if ($this->has('fax') && ! empty($this->input('fax'))) {
+            Log::warning('Honeypot triggered', [
+                'ip' => $this->ip(),
+                'user_agent' => $this->userAgent(),
+                'fax_content' => $this->input('fax'),
+            ]);
+        }
+
+        parent::failedValidation($validator);
     }
 }
