@@ -3,6 +3,7 @@
 namespace Tests\Feature\Security;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Log;
 use Tests\TestCase;
 
 class HoneypotTest extends TestCase
@@ -35,5 +36,24 @@ class HoneypotTest extends TestCase
 
         $response->assertSessionHasNoErrors();
         $response->assertRedirect();
+    }
+
+    /** @test */
+    public function submission_with_filled_honeypot_triggers_log()
+    {
+        Log::shouldReceive('warning')
+            ->once()
+            ->withArgs(function ($message, $context) {
+                return $message === 'Honeypot triggered' &&
+                       isset($context['ip']) &&
+                       $context['fax_content'] === 'Spam content';
+            });
+
+        $this->post(route('contatos.store'), [
+            'nome' => 'Bot',
+            'email' => 'bot@example.com',
+            'fax' => 'Spam content',
+            'newslatter' => '1',
+        ]);
     }
 }
