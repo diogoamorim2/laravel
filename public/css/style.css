@@ -245,6 +245,7 @@ section.bg-primary-foot{
 
 .hero-banner,
 .sub-hero-banner{
+    position: relative;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -268,13 +269,44 @@ section.bg-primary-foot{
     margin: unset;
 }
 .hero-banner{
-    -webkit-animation: hero-slideshow 15s infinite linear;
-       -moz-animation: hero-slideshow 15s infinite linear;
-         -o-animation: hero-slideshow 15s infinite linear;
-            animation: hero-slideshow 15s infinite linear;
+    /* ⚡ Bolt Optimization: Animation moved to .hero-slideshow-wrapper for GPU acceleration */
+    /* animation: hero-slideshow 15s infinite linear; */
 }
 .sub-hero-banner{
     height: 60vh;
+}
+
+/* ⚡ Bolt Optimization: GPU-accelerated slideshow */
+.hero-slideshow-wrapper {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    animation: hero-zoom 15s infinite linear;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    /* background-attachment: fixed; - Removed for performance */
+    opacity: 0;
+}
+
+.slide-1 {
+    background-image: var(--slideImage1);
+    animation: hero-fade-1 15s infinite linear;
+}
+.slide-2 {
+    background-image: var(--slideImage2);
+    animation: hero-fade-2 15s infinite linear;
+}
+.slide-3 {
+    background-image: var(--slideImage3);
+    animation: hero-fade-3 15s infinite linear;
 }
 
 .hero-banner::before,
@@ -288,11 +320,12 @@ section.bg-primary-foot{
     -webkit-filter: brightness(30%);
             filter: brightness(30%);
     background-position: center;
+    z-index: 1; /* ⚡ Bolt: Ensure overlay is on top of fixed background */
 }
 .hero-title{
     position: relative;
     width: 50%;
-    z-index: 1;
+    z-index: 2; /* ⚡ Bolt: Ensure text is above overlay */
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;
@@ -300,6 +333,7 @@ section.bg-primary-foot{
 }
 .hero-socials{
     position: absolute;
+    z-index: 2; /* ⚡ Bolt: Ensure socials are above overlay */
     height: 80%;
     top: 50%; right: 15px;
     -webkit-transform: translateY(-50%);

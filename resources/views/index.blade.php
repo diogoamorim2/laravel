@@ -69,6 +69,15 @@
     <main id="main-content" tabindex="-1">
         <!-- MAIN HERO BANNER START -->
         <section class="hero-banner">
+            <div class="hero-slideshow-wrapper" style="
+                --slideImage1: url('{{ asset('art/hero1.webp') }}');
+                --slideImage2: url('{{ asset('art/hero2.webp') }}');
+                --slideImage3: url('{{ asset('art/hero3.webp') }}');
+            ">
+                <div class="hero-slide slide-1"></div>
+                <div class="hero-slide slide-2"></div>
+                <div class="hero-slide slide-3"></div>
+            </div>
             <div class="hero-contained">
                 <div class="hero-title fc-white">
                     <h1 class="ff-damion">Bem-vindo à Siscon Contabilidade</h1>

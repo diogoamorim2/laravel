@@ -103,6 +103,42 @@
     100%{ opacity: 0; }
 }
 
+/*
+    ⚡ Bolt Optimization: GPU-accelerated animations using transform and opacity.
+    These replace the expensive background-size/image animations.
+*/
+@keyframes hero-zoom {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes hero-fade-1 {
+    0% { opacity: 1; }
+    16% { opacity: 1; }
+    20% { opacity: 0; }
+    80% { opacity: 0; }
+    84% { opacity: 1; }
+    100% { opacity: 1; }
+}
+
+@keyframes hero-fade-2 {
+    0% { opacity: 0; }
+    16% { opacity: 0; }
+    20% { opacity: 1; }
+    49% { opacity: 1; }
+    53% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes hero-fade-3 {
+    0% { opacity: 0; }
+    49% { opacity: 0; }
+    53% { opacity: 1; }
+    80% { opacity: 1; }
+    84% { opacity: 0; }
+    100% { opacity: 0; }
+}
 
 
 @media only screen and (max-width: 992px) {
