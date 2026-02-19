@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 iframe.setAttribute('src', 'https://www.youtube.com/embed/' + videoId + '?autoplay=1');
                 iframe.setAttribute('width', '100%');
                 iframe.setAttribute('height', '100%');
-                iframe.setAttribute('title', 'YouTube video player');
+                iframe.setAttribute('title', 'Vídeo do YouTube');
                 iframe.setAttribute('frameborder', '0');
                 iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
                 iframe.setAttribute('allowfullscreen', '');
