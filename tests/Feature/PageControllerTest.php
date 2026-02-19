@@ -91,4 +91,20 @@ class PageControllerTest extends TestCase
         // Assert bootstrap icons font is preloaded with correct query string
         $response->assertSee('rel="preload" href="http://localhost/icons/fonts/bootstrap-icons.woff2?1fa40e8900654d2863d011707b9fb6f2"', false);
     }
+
+    /**
+     * Test that the industries page includes preload tags for critical fonts.
+     */
+    public function test_industries_page_has_preload_tags(): void
+    {
+        $response = $this->get('/industries');
+        $response->assertStatus(200);
+
+        // Assert critical fonts are preloaded
+        $response->assertSee('rel="preload" href="http://localhost/font/Damion.ttf"', false);
+        $response->assertSee('rel="preload" href="http://localhost/font/Nunito-Regular.ttf"', false);
+
+        // Assert bootstrap icons font is preloaded with correct query string
+        $response->assertSee('rel="preload" href="http://localhost/icons/fonts/bootstrap-icons.woff2?1fa40e8900654d2863d011707b9fb6f2"', false);
+    }
 }

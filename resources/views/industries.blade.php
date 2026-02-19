@@ -23,6 +23,14 @@
     --}}
     <link rel="preload" as="image" href="{{ asset('art/hero2.webp') }}">
 
+    {{--
+        ⚡ Bolt Optimization: Preload critical fonts to prevent FOUT.
+        These fonts are used in the hero section and throughout the page.
+    --}}
+    <link rel="preload" href="{{ asset('font/Damion.ttf') }}" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="{{ asset('font/Nunito-Regular.ttf') }}" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="{{ asset('icons/fonts/bootstrap-icons.woff2') }}?1fa40e8900654d2863d011707b9fb6f2" as="font" type="font/woff2" crossorigin>
+
     <link rel="preload" href="{{ asset('icons/bootstrap-icons.css') }}" as="style">
     <link rel="preload" href="{{ asset('css/fontstyle.css') }}" as="style">
     <link rel="preload" href="{{ asset('css/layout.css') }}" as="style">
