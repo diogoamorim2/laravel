@@ -35,4 +35,8 @@ return [
         'api_key' => env('GOOGLE_MAPS_API_KEY'),
     ],
 
+    'contact' => [
+        'email' => env('CONTACT_EMAIL', 'contato@sisconsp.com.br'),
+    ],
+
 ];

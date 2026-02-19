@@ -18,8 +18,6 @@ class ContatoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    private const EMAIL_CONTATO_SISCON = 'contato@sisconsp.com.br';
-
     public function index(): View
     {
         $contatos = Contato::latest()->paginate(5);
@@ -55,7 +53,7 @@ class ContatoController extends Controller
 
                 // Send email to admin if it's a contact request (has subject or comment)
                 if ($contato->assunto || $contato->comentario) {
-                    Mail::to(self::EMAIL_CONTATO_SISCON)
+                    Mail::to(config('services.contact.email'))
                         ->queue(new FaleConoscoContato($contato));
                 }
             }
