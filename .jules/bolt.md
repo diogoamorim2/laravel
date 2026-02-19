@@ -28,3 +28,7 @@
 ## 2026-03-03 - Scroll Event Throttling
 **Learning:** The global "Back to Top" button in `default.blade.php` used a raw `window.addEventListener('scroll', ...)` listener. This causes the callback to fire on every pixel scroll, potentially blocking the main thread and causing layout thrashing on low-end devices.
 **Action:** Wrap scroll event listeners in `requestAnimationFrame` to throttle execution to the browser's refresh rate (approx. 60fps). This ensures UI updates (like class toggling) happen only when the browser is ready to paint, significantly improving scroll performance.
+
+## 2026-03-03 - Standalone View Optimization
+**Learning:** The `industries.blade.php` view is a standalone HTML file and does not extend `layout.default`. This means global performance optimizations (like font preloading, critical CSS, etc.) applied in the main layout are not automatically inherited by this page.
+**Action:** When optimizing pages, verify if they extend the main layout. If they are standalone, ensure critical resource hints (preload, preconnect) are manually duplicated to maintain performance parity.
