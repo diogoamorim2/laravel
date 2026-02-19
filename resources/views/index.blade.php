@@ -146,7 +146,7 @@
                     <img src="{{asset('svg/blob.svg')}}" alt="" class="blob">
                     <img src="{{asset('art/hero2.webp')}}" alt="">
                 -->
-                <div class="youtube-facade" data-video-id="3PWgUvvxjkI" aria-label="Play Video" role="button" tabindex="0">
+                <div class="youtube-facade" data-video-id="3PWgUvvxjkI" aria-label="Reproduzir vídeo" role="button" tabindex="0">
                     <img src="https://i.ytimg.com/vi/3PWgUvvxjkI/hqdefault.jpg" class="youtube-thumb" alt="Video Thumbnail" loading="lazy">
                     <div class="play-button"><i class="bi bi-play-circle-fill"></i></div>
                 </div>
@@ -156,7 +156,7 @@
             <h2 class="section-title ff-damion">Sobre nós</h2>
             <div class="col-balance">
                 <div class="sticky-img-dual">
-                <div class="youtube-facade" data-video-id="-urSrobDaVE" aria-label="Play Video" role="button" tabindex="0">
+                <div class="youtube-facade" data-video-id="-urSrobDaVE" aria-label="Reproduzir vídeo" role="button" tabindex="0">
                     <img src="https://i.ytimg.com/vi/-urSrobDaVE/hqdefault.jpg" class="youtube-thumb" alt="Video Thumbnail" loading="lazy">
                     <div class="play-button"><i class="bi bi-play-circle-fill"></i></div>
                 </div>
