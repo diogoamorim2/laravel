@@ -7,3 +7,8 @@
 **Vulnerability:** While a honeypot field (`fax`) existed to reject spam submissions, these attempts were silently discarded (via validation error). This prevented visibility into the volume and source of automated attacks.
 **Learning:** Security controls like honeypots or rate limits should not just block attacks but also log them. Without logs, we cannot analyze attack patterns or block persistent offenders at the network level.
 **Prevention:** Implement explicit logging for security control failures (e.g., honeypot triggers, validation failures on critical fields). Use structured logging to capture context like IP and User-Agent.
+
+## 2024-05-25 - Email Rate Limiting
+**Vulnerability:** The contact form was vulnerable to email bombing because rate limiting was only IP-based (`throttle:3,1`). A distributed attack could spam a single email address.
+**Learning:** Public forms that trigger emails to user-input addresses must have rate limiting on the *recipient* address, not just the sender IP.
+**Prevention:** Implement `RateLimiter` keyed by the recipient email address in addition to standard IP-based throttling.
