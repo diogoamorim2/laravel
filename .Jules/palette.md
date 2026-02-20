@@ -17,3 +17,7 @@
 ## 2026-03-02 - Breadcrumb Visual Regression
 **Learning:** Using common class names like `.breadcrumb` can inadvertently inherit conflicting styles from CSS frameworks (like Bootstrap), causing accessibility issues (e.g., white text on white background).
 **Action:** Always verify new components against potential framework conflicts and explicitly override properties (e.g., `background-color: transparent`) to ensure consistent styling.
+
+## 2026-03-02 - Interactive Service Previews
+**Learning:** Static service highlights on landing pages (icon + title) frustrate users who expect them to be clickable entry points to detailed content.
+**Action:** Wrapped service highlights in anchor tags linking to specific sections on the services page, using `display-block` to maximize the hit area and `aria-label` to provide context for screen readers.
