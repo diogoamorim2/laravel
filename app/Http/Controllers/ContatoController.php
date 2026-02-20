@@ -11,6 +11,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class ContatoController extends Controller
@@ -39,6 +41,18 @@ class ContatoController extends Controller
      */
     public function store(ContatoStoreRequest $request): RedirectResponse
     {
+        // Rate limit by email to prevent spamming a single address
+        $emailKey = 'contact_email_limit:' . Str::lower($request->input('email'));
+
+        if (RateLimiter::tooManyAttempts($emailKey, 3)) {
+            Log::warning('Email rate limit exceeded', ['email' => $request->input('email'), 'ip' => $request->ip()]);
+
+            return redirect()->back()
+                ->with('error', 'Muitas tentativas para este email. Tente novamente mais tarde.');
+        }
+
+        RateLimiter::hit($emailKey, 3600); // 1 hour decay
+
         $msgRetorno = 'Mensagem enviada com sucesso.';
         $status = 'success';
 
