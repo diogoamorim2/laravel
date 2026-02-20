@@ -284,6 +284,8 @@ section.bg-primary-foot{
     z-index: 0;
     pointer-events: none;
     animation: hero-zoom 15s infinite linear;
+    /* ⚡ Bolt Optimization: Promote to GPU layer to reduce main thread jank during animation */
+    will-change: transform;
 }
 
 .hero-slide {
@@ -294,6 +296,8 @@ section.bg-primary-foot{
     background-position: center;
     /* background-attachment: fixed; - Removed for performance */
     opacity: 0;
+    /* ⚡ Bolt Optimization: Promote to GPU layer to reduce main thread jank during animation */
+    will-change: opacity;
 }
 
 .slide-1 {

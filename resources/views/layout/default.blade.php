@@ -34,11 +34,6 @@
         <link rel="icon" type="image/png" href="{{URL('image/favicon.png')}}">
         <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
-        <style>
-            .col-quad_bg{
-                width: 200px !important;
-            }
-        </style>
         @yield('head')
     </head>
 <body>
