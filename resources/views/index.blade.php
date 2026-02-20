@@ -253,22 +253,28 @@
                     <hr>
                 </div>
                 <div class="col-tri">
-                    <i class="bi bi-stars fs-h2"></i>
-                    <h3 class="mt-10 ff-damion">Serviços Contábeis para Empresas</h3>
+                    <a href="{{ url('service#service-dev') }}" class="fc-white display-block" aria-label="Saiba mais sobre Serviços Contábeis para Empresas">
+                        <i class="bi bi-stars fs-h2"></i>
+                        <h3 class="mt-10 ff-damion">Serviços Contábeis para Empresas</h3>
+                    </a>
                     <p>
                         Nosso objetivo é ajudar sua empresa a prosperar, fornecendo relatórios financeiros precisos e oportunos que ajudam você a tomar decisões informadas.
                     </p>
                 </div>
                 <div class="col-tri">
-                    <i class="bi bi-diagram-3 fs-h2"></i>
-                    <h3 class="mt-10 ff-damion">Serviços Contábeis para Indivíduos</h3>
+                    <a href="{{ url('service#service-data') }}" class="fc-white display-block" aria-label="Saiba mais sobre Serviços Contábeis para Indivíduos">
+                        <i class="bi bi-diagram-3 fs-h2"></i>
+                        <h3 class="mt-10 ff-damion">Serviços Contábeis para Indivíduos</h3>
+                    </a>
                     <p>
                         Nosso objetivo é ajudá-lo a maximizar suas economias fiscais e alcançar seus objetivos financeiros.
                     </p>
                 </div>
                 <div class="col-tri">
-                    <i class="bi bi-code-slash fs-h2"></i>
-                    <h3 class="mt-10 ff-damion">Certificado Digital</h3>
+                    <a href="{{ url('service#service-design') }}" class="fc-white display-block" aria-label="Saiba mais sobre Certificado Digital">
+                        <i class="bi bi-code-slash fs-h2"></i>
+                        <h3 class="mt-10 ff-damion">Certificado Digital</h3>
+                    </a>
                     <p>
                         Ele pode ser usado para assinar documentos digitalmente, realizar transações seguras na internet e cumprir obrigações acessórias.
                     </p>
@@ -353,12 +359,12 @@
                         <input type="hidden" name="newslatter" value="1">
                         <input type="email" name="email" id="subscribe-email" aria-label="Receba nossos avisos" 
                             class="form-control @error('email') is-invalid @else is-valid @enderror"
-                            placeholder="Email" required maxlength="255">
+                            placeholder="Email" required maxlength="255" autocomplete="email">
                             @error('email')
                                 <div class="form-text text-danger">{{ $message }}</div>
                             @enderror
 
-                        <button class="btn-bg2" id="btn-subscribe">Inscreva-se</button>
+                        <button type="submit" class="btn-bg2" id="btn-subscribe">Inscreva-se</button>
                     </form>
                 </div>
             </div>
