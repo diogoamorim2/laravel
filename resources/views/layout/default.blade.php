@@ -85,7 +85,7 @@
 
         <!-- FOOTER WEBSITE LOGO START -->
         <div class="col-quad_bg">
-                <img loading="lazy" src="{{asset('image/logo-removebg_204_200.png')}}" alt="Siscon Contabilidade">
+                <img loading="lazy" src="{{asset('image/logo-removebg_204_200.png')}}" width="204" height="200" alt="Siscon Contabilidade">
         </div>
         <!-- FOOTER WEBSITE LOGO END -->
 

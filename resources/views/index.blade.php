@@ -106,7 +106,7 @@
             aria-label="Fale conosco pelo WhatsApp"
             title="Fale conosco pelo WhatsApp">  {{-- Label para acessibilidade --}}
         
-            <img src="{{asset('image/whatsbggreen.webp')}}"
+            <img src="{{asset('image/whatsbggreen.webp')}}" width="300" height="300"
                 alt="Ícone WhatsApp"> {{-- Alt text descrevendo a imagem --}}
         
             {{-- Opcional: Texto para leitores de tela, se quiser ser mais explícito --}}
@@ -147,7 +147,7 @@
                     <img src="{{asset('art/hero2.webp')}}" alt="">
                 -->
                 <div class="youtube-facade" data-video-id="3PWgUvvxjkI" aria-label="Reproduzir vídeo" role="button" tabindex="0">
-                    <img src="https://i.ytimg.com/vi/3PWgUvvxjkI/hqdefault.jpg" class="youtube-thumb" alt="Video Thumbnail" loading="lazy">
+                    <img src="https://i.ytimg.com/vi/3PWgUvvxjkI/hqdefault.jpg" width="480" height="360" class="youtube-thumb" alt="Video Thumbnail" loading="lazy">
                     <div class="play-button"><i class="bi bi-play-circle-fill"></i></div>
                 </div>
                 </div>
@@ -157,7 +157,7 @@
             <div class="col-balance">
                 <div class="sticky-img-dual">
                 <div class="youtube-facade" data-video-id="-urSrobDaVE" aria-label="Reproduzir vídeo" role="button" tabindex="0">
-                    <img src="https://i.ytimg.com/vi/-urSrobDaVE/hqdefault.jpg" class="youtube-thumb" alt="Video Thumbnail" loading="lazy">
+                    <img src="https://i.ytimg.com/vi/-urSrobDaVE/hqdefault.jpg" width="480" height="360" class="youtube-thumb" alt="Video Thumbnail" loading="lazy">
                     <div class="play-button"><i class="bi bi-play-circle-fill"></i></div>
                 </div>
                 </div>
