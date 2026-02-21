@@ -155,7 +155,7 @@
         aria-label="Fale conosco pelo WhatsApp"
         title="Fale conosco pelo WhatsApp">  {{-- Label para acessibilidade --}}
 
-        <img src="{{asset('image/whatsbggreen.webp')}}"
+        <img src="{{asset('image/whatsbggreen.webp')}}" width="300" height="300"
             alt="Ícone WhatsApp"> {{-- Alt text descrevendo a imagem --}}
 
         {{-- Opcional: Texto para leitores de tela, se quiser ser mais explícito --}}

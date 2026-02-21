@@ -105,7 +105,7 @@
 
             <div class="row flex-alig-center mt-50">
                 <div class="col-balance">
-                    <img loading="lazy" src="{{ asset('art/work1.webp') }}" alt="">
+                    <img loading="lazy" src="{{ asset('art/work1.webp') }}" width="640" height="427" alt="">
                 </div>
                 <div class="col-balance">
                     <span class="fc-primary fs-h3">Business Process</span>
@@ -142,13 +142,13 @@
                     </ul>
                 </div>
                 <div class="col-balance order-tab-1">
-                    <img loading="lazy" src="{{ asset('art/work3.webp') }}" alt="">
+                    <img loading="lazy" src="{{ asset('art/work3.webp') }}" width="640" height="427" alt="">
                 </div>
             </div>
 
             <div class="row flex-alig-center mt-50">
                 <div class="col-balance">
-                    <img loading="lazy" src="{{ asset('art/work2.webp') }}" alt="">
+                    <img loading="lazy" src="{{ asset('art/work2.webp') }}" width="640" height="427" alt="">
                 </div>
                 <div class="col-balance">
                     <span class="fc-primary fs-h3">Retail</span>
