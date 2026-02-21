@@ -21,3 +21,7 @@
 ## 2026-03-02 - Interactive Service Previews
 **Learning:** Static service highlights on landing pages (icon + title) frustrate users who expect them to be clickable entry points to detailed content.
 **Action:** Wrapped service highlights in anchor tags linking to specific sections on the services page, using `display-block` to maximize the hit area and `aria-label` to provide context for screen readers.
+
+## 2026-03-03 - Semantic Heading Structure & Anchor Focus
+**Learning:** Using `<span>` elements styled as headings creates a visual hierarchy but breaks the document outline for screen reader users, making navigation difficult. Similarly, using empty `<img>` tags or anchors for scroll targets is semantically incorrect and can trap focus.
+**Action:** Refactored headings to use semantic `<h3>`/`<h4>` tags while maintaining visual styling with classes. Replaced image-based anchors with `<div>` containers having `id` and `tabindex="-1"` to ensure proper focus management and semantic correctness.
