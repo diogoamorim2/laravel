@@ -25,7 +25,7 @@ class ContatoStoreRequest extends FormRequest
     {
         return [
             'fax' => 'prohibited', // Honeypot field: must be empty or missing
-            'nome' => 'nullable|string|max:255',
+            'nome' => ['nullable', 'string', 'max:255', 'not_regex:/https?:\/\/|www\./i'],
             'email' => 'required|email|max:255',
             'assunto' => 'nullable|string|max:255',
             'telefone_fixo' => ['nullable', 'string', 'max:20', 'regex:/^[\d\s\(\)\-\+]+$/'],
