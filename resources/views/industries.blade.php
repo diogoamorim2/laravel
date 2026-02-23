@@ -37,7 +37,9 @@
     <link rel="preload" href="{{ asset('css/animation.css') }}" as="style">
     <link rel="preload" href="{{ asset('css/style.css') }}" as="style">
 
-    <link rel="stylesheet" href="{{ asset('icons/bootstrap-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('icons/bootstrap-icons.css') }}" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="{{ asset('icons/bootstrap-icons.css') }}"></noscript>
+
     <link rel="stylesheet" href="{{ asset('css/fontstyle.css') }}">
     <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animation.css') }}">

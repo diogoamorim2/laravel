@@ -11,8 +11,8 @@
         <meta name="keywords" content="Contabilidade , serviços contabeis , certificado digital">
 
         <!-- OG IMAGE IS THE IMAGE SHOWN WHEN YOUR WEBSITE LINK IS SHARED ON SOCIAL MEDIA -->
-        <meta property="og:image" content="{{asset('art/og-card.png')}}>
-                <meta property=" og:title" content="Siscon Contabilidade">
+        <meta property="og:image" content="{{asset('art/og-card.png')}}">
+        <meta property="og:title" content="Siscon Contabilidade">
         <meta name="twitter:card" content="summary_large_image">
 
         <!-- THE TITLE OF THE PAGE -->
@@ -26,12 +26,24 @@
         <link rel="preload" href="{{ asset('font/Nunito-Regular.ttf') }}" as="font" type="font/ttf" crossorigin>
         <link rel="preload" href="{{ asset('icons/fonts/bootstrap-icons.woff2') }}?1fa40e8900654d2863d011707b9fb6f2" as="font" type="font/woff2" crossorigin>
 
-        <link rel="stylesheet" href="{{URL('icons/bootstrap-icons.css')}}">
-        <link rel="stylesheet" href="{{URL('css/fontstyle.css')}}">
-        <link rel="stylesheet" href="{{URL('css/layout.css')}}">
-        <link rel="stylesheet" href="{{URL('css/animation.css')}}">
-        <link rel="stylesheet" href="{{URL('css/style.css')}}">
-        <link rel="icon" type="image/png" href="{{URL('image/favicon.png')}}">
+        {{--
+            ⚡ Bolt Optimization: Preload CSS and load non-critical styles asynchronously.
+            Bootstrap Icons (92KB) is deferred to unblock the main thread and improve FCP.
+        --}}
+        <link rel="preload" href="{{ asset('icons/bootstrap-icons.css') }}" as="style">
+        <link rel="preload" href="{{ asset('css/fontstyle.css') }}" as="style">
+        <link rel="preload" href="{{ asset('css/layout.css') }}" as="style">
+        <link rel="preload" href="{{ asset('css/animation.css') }}" as="style">
+        <link rel="preload" href="{{ asset('css/style.css') }}" as="style">
+
+        <link rel="stylesheet" href="{{ asset('icons/bootstrap-icons.css') }}" media="print" onload="this.media='all'">
+        <noscript><link rel="stylesheet" href="{{ asset('icons/bootstrap-icons.css') }}"></noscript>
+
+        <link rel="stylesheet" href="{{ asset('css/fontstyle.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/animation.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="icon" type="image/png" href="{{ asset('image/favicon.png') }}">
         <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
         @yield('head')
