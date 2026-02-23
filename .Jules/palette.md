@@ -25,3 +25,7 @@
 ## 2026-03-03 - Semantic Heading Structure & Anchor Focus
 **Learning:** Using `<span>` elements styled as headings creates a visual hierarchy but breaks the document outline for screen reader users, making navigation difficult. Similarly, using empty `<img>` tags or anchors for scroll targets is semantically incorrect and can trap focus.
 **Action:** Refactored headings to use semantic `<h3>`/`<h4>` tags while maintaining visual styling with classes. Replaced image-based anchors with `<div>` containers having `id` and `tabindex="-1"` to ensure proper focus management and semantic correctness.
+
+## 2026-03-03 - Focus Trap in Animated Menus
+**Learning:** Animating only `height` to hide a navigation menu leaves its internal links focusable in the DOM, creating a "ghost focus" trap where keyboard users traverse invisible elements.
+**Action:** Implemented `visibility: hidden` on the closed state with a transition delay to allow the height animation to finish, ensuring links are removed from the accessibility tree when the menu is collapsed.

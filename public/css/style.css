@@ -1007,10 +1007,11 @@ a.fc-white{
            -moz-box-align: center;
             -ms-flex-align: center;
                 align-items: center;
-        -webkit-transition: height 1s;
-        -o-transition: height 1s;
-        -moz-transition: height 1s;
-        transition: height 1s;
+        visibility: hidden;
+        -webkit-transition: height 1s, visibility 0s 1s;
+        -o-transition: height 1s, visibility 0s 1s;
+        -moz-transition: height 1s, visibility 0s 1s;
+        transition: height 1s, visibility 0s 1s;
     }
     .navigation-container > a{
         margin: 5px 0 5px 0;
@@ -1056,6 +1057,11 @@ a.fc-white{
     .tab-mob-menu:checked ~ .navigation-container{
         border-top: 1px solid var(--shadowColor);
         height: 280px;
+        visibility: visible;
+        -webkit-transition: height 1s, visibility 0s;
+        -o-transition: height 1s, visibility 0s;
+        -moz-transition: height 1s, visibility 0s;
+        transition: height 1s, visibility 0s;
     }
 
     .sticky-img-dual > .blob{
