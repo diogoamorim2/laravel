@@ -12,3 +12,8 @@
 **Vulnerability:** The contact form was vulnerable to email bombing because rate limiting was only IP-based (`throttle:3,1`). A distributed attack could spam a single email address.
 **Learning:** Public forms that trigger emails to user-input addresses must have rate limiting on the *recipient* address, not just the sender IP.
 **Prevention:** Implement `RateLimiter` keyed by the recipient email address in addition to standard IP-based throttling.
+
+## 2024-05-26 - Mass Assignment Protection
+**Vulnerability:** The public contact form allowed mass assignment of the `ativo` field, which is an internal flag used to mark contacts as active/inactive. Although defaulting to true, enabling users to set it to false (0) is a security risk (e.g. hiding spam).
+**Learning:** Even if a field has a default value in the database, including it in validation rules (`nullable|bool`) allows it to be mass-assigned from user input.
+**Prevention:** Strictly limit validation rules in FormRequests to only those fields that are exposed in the HTML form and are safe for user input. Remove internal flags from validation rules so they are stripped by `$request->validated()`.

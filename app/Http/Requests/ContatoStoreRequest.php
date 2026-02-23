@@ -33,7 +33,6 @@ class ContatoStoreRequest extends FormRequest
             'empresa_nome' => 'nullable|string|max:255',
             'empresa_contato' => 'nullable|string|max:255',
             'comentario' => 'nullable|string|max:2000',
-            'ativo' => 'nullable|bool',
             'newslatter' => 'nullable|boolean',
         ];
     }
