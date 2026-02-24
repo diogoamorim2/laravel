@@ -19,6 +19,10 @@ class DatabasePerformanceTest extends TestCase
             $this->markTestSkipped('This test is only for SQLite.');
         }
 
+        if (DB::connection()->getDatabaseName() === ':memory:') {
+            $this->markTestSkipped('WAL mode is not applicable for in-memory databases.');
+        }
+
         // Manually apply the optimization to verify the commands are valid
         DB::statement('PRAGMA journal_mode=WAL;');
         DB::statement('PRAGMA synchronous=NORMAL;');

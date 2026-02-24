@@ -15,6 +15,20 @@ class ContatoUpdateRequest extends FormRequest
     }
 
     /**
+     * Prepare the data for validation.
+     */
+    protected function prepareForValidation(): void
+    {
+        $input = [];
+        foreach (['nome', 'assunto', 'empresa_nome', 'empresa_contato', 'comentario'] as $field) {
+            if ($this->has($field) && $this->input($field) !== null) {
+                $input[$field] = strip_tags($this->input($field));
+            }
+        }
+        $this->merge($input);
+    }
+
+    /**
      * Get the validation rules that apply to the request.
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
