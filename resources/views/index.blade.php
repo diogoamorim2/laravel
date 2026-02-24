@@ -345,7 +345,7 @@
         <!-- PREVIEW BLOGS SECTION END -->
 
         <!-- SUBSCRIBE TO NEWS LETTERS START -->
-        <section class="subscribe bg-primary-foot" style="background-image: url('art/overlay.webp');">
+        <section class="subscribe bg-primary-foot" style="background-image: url('{{ asset('art/overlay.webp') }}');">
             <div class="contained row ta-center">
                 <div class="col-balance fc-white">
                     <h3 class="mb-a ff-damion mt-a">Inscreva-se para saber mais sobre nós:</h3>

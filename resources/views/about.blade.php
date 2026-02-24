@@ -12,7 +12,7 @@
     <span class="fade"></span>
     <main id="main-content" tabindex="-1">
         <!-- SUB HERO BANNER START -->
-        <section class="sub-hero-banner" style="background-image: url('art/hero1.webp');">
+        <section class="sub-hero-banner" style="background-image: url('{{ asset('art/hero1.webp') }}');">
             <div class="hero-contained">
                 <div class="hero-title fc-white">
                     <h1 class="ff-damion">Sobre nós</h1>
@@ -174,7 +174,7 @@
             aria-label="Fale conosco pelo WhatsApp"
             title="Fale conosco pelo WhatsApp">  {{-- Label para acessibilidade --}}
         
-            <img src="{{asset('image/whatsbggreen.webp')}}"
+            <img src="{{asset('image/whatsbggreen.webp')}}" width="300" height="300"
                 alt="Ícone WhatsApp"> {{-- Alt text descrevendo a imagem --}}
         
             {{-- Opcional: Texto para leitores de tela, se quiser ser mais explícito --}}
