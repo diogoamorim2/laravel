@@ -29,3 +29,7 @@
 ## 2026-03-03 - Focus Trap in Animated Menus
 **Learning:** Animating only `height` to hide a navigation menu leaves its internal links focusable in the DOM, creating a "ghost focus" trap where keyboard users traverse invisible elements.
 **Action:** Implemented `visibility: hidden` on the closed state with a transition delay to allow the height animation to finish, ensuring links are removed from the accessibility tree when the menu is collapsed.
+
+## 2026-03-03 - Auto-Focus Feedback Messages
+**Learning:** Users (especially on mobile or using screen readers) can miss critical success/error messages if the page reloads and the message is rendered outside the initial viewport or reading order.
+**Action:** Implemented a JavaScript enhancement to automatically find `.alert` elements on page load, make them focusable with `tabindex="-1"`, and smoothly scroll/focus them to ensure immediate user awareness.
