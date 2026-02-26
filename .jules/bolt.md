@@ -32,3 +32,7 @@
 ## 2026-03-03 - Standalone View Optimization
 **Learning:** The `industries.blade.php` view is a standalone HTML file and does not extend `layout.default`. This means global performance optimizations (like font preloading, critical CSS, etc.) applied in the main layout are not automatically inherited by this page.
 **Action:** When optimizing pages, verify if they extend the main layout. If they are standalone, ensure critical resource hints (preload, preconnect) are manually duplicated to maintain performance parity.
+
+## 2024-05-23 - Async CSS Loading
+**Learning:** Loading non-critical CSS (fonts, animations) asynchronously significantly improves FCP by unblocking the main thread.
+**Action:** Use `media="print" onload="this.media='all'"` for CSS files that are not critical for the initial paint (like webfonts and keyframe animations), but ensure `<noscript>` fallbacks are present.
