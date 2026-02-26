@@ -13,7 +13,7 @@
     <main id="main-content" tabindex="-1">
 
         <!-- SUB HERO BANNER START -->
-        <section class="sub-hero-banner" style="background-image: url('art/hero3.webp');">
+        <section class="sub-hero-banner sub-hero-bg-service">
             <div class="hero-contained">
                 <div class="hero-title fc-white">
                     <h1 class="ff-damion">Serviços que oferecemos</h1>

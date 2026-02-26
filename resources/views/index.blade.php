@@ -17,50 +17,6 @@
 <link rel="dns-prefetch" href="https://i.ytimg.com">
 <link rel="preconnect" href="https://www.youtube.com">
 <link rel="dns-prefetch" href="https://www.youtube.com">
-<style>
-.youtube-facade {
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px;
-    position: relative;
-    overflow: hidden;
-}
-.youtube-thumb {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    z-index: 0;
-}
-.youtube-facade .play-button {
-    font-size: 4rem;
-    color: white;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    transition: transform 0.2s;
-    position: relative;
-    z-index: 1;
-}
-.youtube-thumb {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-    border-radius: 12px;
-}
-.youtube-facade:hover .play-button {
-    transform: scale(1.1);
-}
-</style>
 @endsection
 
 @section('content')
@@ -69,11 +25,7 @@
     <main id="main-content" tabindex="-1">
         <!-- MAIN HERO BANNER START -->
         <section class="hero-banner">
-            <div class="hero-slideshow-wrapper" style="
-                --slideImage1: url('{{ asset('art/hero1.webp') }}');
-                --slideImage2: url('{{ asset('art/hero2.webp') }}');
-                --slideImage3: url('{{ asset('art/hero3.webp') }}');
-            ">
+            <div class="hero-slideshow-wrapper">
                 <div class="hero-slide slide-1"></div>
                 <div class="hero-slide slide-2"></div>
                 <div class="hero-slide slide-3"></div>
@@ -345,7 +297,7 @@
         <!-- PREVIEW BLOGS SECTION END -->
 
         <!-- SUBSCRIBE TO NEWS LETTERS START -->
-        <section class="subscribe bg-primary-foot" style="background-image: url('art/overlay.webp');">
+        <section class="subscribe bg-primary-foot subscribe-overlay-bg">
             <div class="contained row ta-center">
                 <div class="col-balance fc-white">
                     <h3 class="mb-a ff-damion mt-a">Inscreva-se para saber mais sobre nós:</h3>
@@ -354,7 +306,7 @@
                     <form action="{{ route('contatos.store') }}" method="POST" id="newsletter-form">
                         @csrf
                         {{-- Honeypot field for spam protection --}}
-                        <input type="text" name="fax" style="display:none" tabindex="-1" autocomplete="off">
+                        <input type="text" name="fax" class="honeypot" tabindex="-1" autocomplete="off">
 
                         <input type="hidden" name="newslatter" value="1">
                         <input type="email" name="email" id="subscribe-email" aria-label="Receba nossos avisos" 
