@@ -33,5 +33,12 @@ class ServicePageAccessibilityTest extends TestCase
 
         // Assert sub-heading text content exists (ignoring whitespace around tags in the source)
         $response->assertSee('Nossos Serviços Incluem:', false);
+
+        // Assert that the sidebar navigation uses role="navigation" and aria-label
+        $response->assertSee('role="navigation" aria-label="Navegação rápida de serviços"', false);
+
+        // Assert that we don't have invalid list structure (strong inside ul)
+        $response->assertDontSee('<ul>
+                            <strong>', false);
     }
 }
