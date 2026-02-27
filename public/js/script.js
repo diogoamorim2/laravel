@@ -120,4 +120,21 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // --- Alert Feedback Logic ---
+    const alertMessage = document.querySelector('.alert');
+    if (alertMessage) {
+        // Ensure the alert is focusable for screen readers
+        if (!alertMessage.hasAttribute('tabindex')) {
+            alertMessage.setAttribute('tabindex', '-1');
+        }
+
+        // Focus the element so screen readers announce it immediately
+        // preventScroll: true prevents the browser from jumping to the element,
+        // allowing us to use smooth scroll instead.
+        alertMessage.focus({ preventScroll: true });
+
+        // Smoothly scroll the alert into view
+        alertMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
 });

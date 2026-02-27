@@ -19,12 +19,15 @@ class ContatoUpdateRequest extends FormRequest
      */
     protected function prepareForValidation(): void
     {
+        $fields = ['nome', 'assunto', 'comentario', 'empresa_nome', 'empresa_contato'];
         $input = [];
-        foreach (['nome', 'assunto', 'empresa_nome', 'empresa_contato', 'comentario'] as $field) {
+
+        foreach ($fields as $field) {
             if ($this->has($field) && $this->input($field) !== null) {
                 $input[$field] = strip_tags($this->input($field));
             }
         }
+
         $this->merge($input);
     }
 

@@ -40,9 +40,15 @@
     <link rel="stylesheet" href="{{ asset('icons/bootstrap-icons.css') }}" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="{{ asset('icons/bootstrap-icons.css') }}"></noscript>
 
-    <link rel="stylesheet" href="{{ asset('css/fontstyle.css') }}">
+    {{-- ⚡ Bolt Optimization: Load non-critical CSS asynchronously --}}
+    <link rel="stylesheet" href="{{ asset('css/fontstyle.css') }}" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="{{ asset('css/fontstyle.css') }}"></noscript>
+
     <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/animation.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('css/animation.css') }}" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="{{ asset('css/animation.css') }}"></noscript>
+
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="icon" type="image/png" href="{{ asset('art/favicon.png') }}">
 </head>
@@ -52,7 +58,7 @@
     <span class="fade"></span>
     <main id="main-content">
         <!-- SUB HERO BANNER START -->
-        <section class="sub-hero-banner" style="background-image: url('{{ asset('art/hero2.webp') }}');">
+        <section class="sub-hero-banner sub-hero-bg-industries">
             <div class="hero-contained">
                 <div class="hero-title fc-white">
                     <h1 class="ff-damion">Roundazzle | Industries</h1>
