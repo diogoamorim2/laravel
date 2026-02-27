@@ -12,7 +12,7 @@
     <span class="fade"></span>
     <main id="main-content" tabindex="-1">
         <!-- SUB HERO BANNER START -->
-        <section class="sub-hero-banner" style="background-image: url('{{ asset('art/hero1.webp') }}');">
+        <section class="sub-hero-banner sub-hero-bg-about">
             <div class="hero-contained">
                 <div class="hero-title fc-white">
                     <h1 class="ff-damion">Sobre nós</h1>
