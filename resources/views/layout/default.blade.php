@@ -184,6 +184,9 @@
 </footer>
 
 <a href="#main-content" class="btn-back-to-top" aria-label="Voltar para o topo" title="Voltar para o topo">
+    <svg class="progress-ring" width="100%" height="100%">
+        <circle class="progress-ring__circle" stroke="white" stroke-width="4" fill="transparent" r="20" cx="50%" cy="50%"/>
+    </svg>
     <i class="bi bi-chevron-up"></i>
 </a>
 
