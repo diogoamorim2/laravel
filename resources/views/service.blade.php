@@ -52,7 +52,7 @@
 
                     <!-- INDIVIDUAL SERVICES FEATURE START -->
                     <div id="service-dev" tabindex="-1">
-                        <img loading="lazy" src="{{asset('art/hero1.webp')}}" class="img-unheight" alt="">
+                        <img loading="lazy" src="{{asset('art/hero1.webp')}}" class="img-unheight" width="1920" height="1246" alt="">
                         <h3 class="fc-primary fs-h2"> Serviços Contábeis para Empresas</h3>
                         <p>
                             Nossos serviços contábeis para empresas são projetados para fornecer um suporte financeiro completo para o seu negócio. <br>
@@ -69,7 +69,7 @@
 
                     <!-- INDIVIDUAL SERVICES FEATURE START -->
                     <div id="service-data" tabindex="-1" class="mt-50">
-                        <img loading="lazy" src="{{asset('art/hero2.webp')}}" class="img-unheight" alt="">
+                        <img loading="lazy" src="{{asset('art/hero2.webp')}}" class="img-unheight" width="1920" height="1246" alt="">
                         <h3 class="fc-primary fs-h2"> Serviços Contábeis para pessoa física</h3>
                         <p>
                             Além de atender empresas, a Siscon oferece um conjunto abrangente de serviços contábeis especializados para pessoas físicas. Nossa missão é simplificar sua vida financeira e maximizar seus benefícios fiscais.
@@ -117,7 +117,7 @@
 
                     <!-- INDIVIDUAL SERVICES FEATURE START -->
                     <div id="service-design" tabindex="-1" class="mt-50">
-                        <img loading="lazy" src="{{asset('art/hero3.webp')}}" class="img-unheight" alt="">
+                        <img loading="lazy" src="{{asset('art/hero3.webp')}}" class="img-unheight" width="1920" height="1246" alt="">
                         <h3 class="fc-primary fs-h2">Emissão de Certificado Digital.</h3>
                         <p>
                             Aqui na Siscon, não nos limitamos apenas aos serviços contábeis tradicionais. Expandimos nossa oferta para incluir soluções digitais essenciais para o seu negócio no mundo moderno.
@@ -186,7 +186,7 @@
             aria-label="Fale conosco pelo WhatsApp"
             title="Fale conosco pelo WhatsApp">  {{-- Label para acessibilidade --}}
         
-            <img src="{{asset('image/whatsbggreen.webp')}}"
+            <img src="{{asset('image/whatsbggreen.webp')}}" width="300" height="300"
                 alt="Ícone WhatsApp"> {{-- Alt text descrevendo a imagem --}}
         
             {{-- Opcional: Texto para leitores de tela, se quiser ser mais explícito --}}
