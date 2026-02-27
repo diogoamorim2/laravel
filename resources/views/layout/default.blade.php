@@ -39,9 +39,15 @@
         <link rel="stylesheet" href="{{ asset('icons/bootstrap-icons.css') }}" media="print" onload="this.media='all'">
         <noscript><link rel="stylesheet" href="{{ asset('icons/bootstrap-icons.css') }}"></noscript>
 
-        <link rel="stylesheet" href="{{ asset('css/fontstyle.css') }}">
+        {{-- ⚡ Bolt Optimization: Load non-critical CSS asynchronously to improve FCP --}}
+        <link rel="stylesheet" href="{{ asset('css/fontstyle.css') }}" media="print" onload="this.media='all'">
+        <noscript><link rel="stylesheet" href="{{ asset('css/fontstyle.css') }}"></noscript>
+
         <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/animation.css') }}">
+
+        <link rel="stylesheet" href="{{ asset('css/animation.css') }}" media="print" onload="this.media='all'">
+        <noscript><link rel="stylesheet" href="{{ asset('css/animation.css') }}"></noscript>
+
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link rel="icon" type="image/png" href="{{ asset('image/favicon.png') }}">
         <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
