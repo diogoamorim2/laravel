@@ -102,20 +102,54 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- Layout Logic (Back to Top) ---
     var backToTopBtn = document.querySelector('.btn-back-to-top');
+    var progressCircle = document.querySelector('.progress-ring__circle');
+
     if (backToTopBtn) {
         // ⚡ Bolt Optimization: Use requestAnimationFrame to throttle scroll events
         // and prevent layout thrashing on the main thread.
         var ticking = false;
+
+        // Calculate circumference based on radius (r=20)
+        // 2 * Math.PI * 20 = 125.66...
+        var circumference = 126;
+        if (progressCircle) {
+             progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+             progressCircle.style.strokeDashoffset = circumference;
+        }
+
+        var updateProgress = function() {
+            var scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+            var scrollProgress = window.scrollY;
+
+            // Show/Hide button
+            if (scrollProgress > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+
+            // Update Progress Ring
+            if (progressCircle && scrollTotal > 0) {
+                var offset = circumference - (scrollProgress / scrollTotal) * circumference;
+                // Ensure offset is within bounds (0 to circumference)
+                offset = Math.max(0, Math.min(circumference, offset));
+                progressCircle.style.strokeDashoffset = offset;
+            }
+
+            ticking = false;
+        };
+
         window.addEventListener('scroll', function() {
             if (!ticking) {
-                window.requestAnimationFrame(function() {
-                    if (window.scrollY > 300) {
-                        backToTopBtn.classList.add('show');
-                    } else {
-                        backToTopBtn.classList.remove('show');
-                    }
-                    ticking = false;
-                });
+                window.requestAnimationFrame(updateProgress);
+                ticking = true;
+            }
+        });
+
+        // Update on resize too, as scrollHeight might change
+        window.addEventListener('resize', function() {
+             if (!ticking) {
+                window.requestAnimationFrame(updateProgress);
                 ticking = true;
             }
         });

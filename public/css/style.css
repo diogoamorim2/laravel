@@ -163,6 +163,23 @@ nav > div{
          -o-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
 }
+
+.progress-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(-90deg);
+    pointer-events: none;
+}
+
+.progress-ring__circle {
+    transition: stroke-dashoffset 0.1s;
+    transform-origin: 50% 50%;
+    /* Use a larger circumference to ensure full coverage (2 * PI * r) */
+    /* r=20 => C ~ 125.6 */
+    stroke-dasharray: 126;
+    stroke-dashoffset: 126;
+}
 .btn-back-to-top:hover,
 .btn-back-to-top:focus{
     color: var(--textWhite);
