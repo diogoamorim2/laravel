@@ -17,6 +17,23 @@ class ContatoStoreRequest extends FormRequest
     }
 
     /**
+     * Prepare the data for validation.
+     */
+    protected function prepareForValidation(): void
+    {
+        $fields = ['nome', 'assunto', 'comentario', 'empresa_nome', 'empresa_contato'];
+        $input = [];
+
+        foreach ($fields as $field) {
+            if ($this->has($field) && $this->input($field) !== null) {
+                $input[$field] = strip_tags($this->input($field));
+            }
+        }
+
+        $this->merge($input);
+    }
+
+    /**
      * Get the validation rules that apply to the request.
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>

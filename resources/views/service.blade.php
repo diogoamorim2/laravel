@@ -13,7 +13,7 @@
     <main id="main-content" tabindex="-1">
 
         <!-- SUB HERO BANNER START -->
-        <section class="sub-hero-banner" style="background-image: url('art/hero3.webp');">
+        <section class="sub-hero-banner sub-hero-bg-service">
             <div class="hero-contained">
                 <div class="hero-title fc-white">
                     <h1 class="ff-damion">Serviços que oferecemos</h1>
@@ -78,35 +78,41 @@
                         <h4 class="fc-primary fs-h3">
                             Nossos Serviços Incluem:
                         </h4>
-                        <ul>
-                            <strong>Preparação de Imposto de Renda:</strong>
+                        <div>
+                            <strong class="display-block mb-10">Preparação de Imposto de Renda:</strong>
                             <ul>
                                 <li>Análise detalhada de sua situação fiscal</li>
                                 <li>Preenchimento preciso da declaração</li>
                                 <li>Identificação de todas as deduções possíveis</li>
                                 <li>Acompanhamento pós-entrega e suporte em caso de malha fina</li>
                             </ul>
-                            <strong>Planejamento Tributário Personalizado:</strong>
+                        </div>
+                        <div class="mt-20">
+                            <strong class="display-block mb-10">Planejamento Tributário Personalizado:</strong>
                             <ul>
                                 <li>Avaliação completa de sua situação financeira</li>
                                 <li>Estratégias para otimização da carga tributária</li>
                                 <li>Recomendações para investimentos fiscalmente eficientes</li>
                                 <li>Planejamento sucessório e patrimonial</li>
                             </ul>
-                            <strong>Consultoria Financeira Abrangente:</strong>
+                        </div>
+                        <div class="mt-20">
+                            <strong class="display-block mb-10">Consultoria Financeira Abrangente:</strong>
                             <ul>
                                 <li>Análise de fluxo de caixa pessoal</li>
                                 <li>Aconselhamento para gestão de dívidas</li>
                                 <li>Planejamento para aposentadoria</li>
                                 <li>Orientação para investimentos alinhados com seus objetivos</li>
                             </ul>
-                            <strong>Serviços Especializados:</strong>
+                        </div>
+                        <div class="mt-20">
+                            <strong class="display-block mb-10">Serviços Especializados:</strong>
                             <ul>
                                 <li>Assessoria para profissionais autônomos e freelancers</li>
                                 <li>Consultoria para expatriados e não-residentes</li>
                                 <li>Planejamento financeiro para eventos de vida (casamento, filhos, compra de imóveis)</li>
                             </ul>
-                        </ul>
+                        </div>
                     <!-- INDIVIDUAL SERVICES FEATURE END -->
 
                     <!-- INDIVIDUAL SERVICES FEATURE START -->
@@ -160,7 +166,7 @@
 
                 <!-- SERVICES SIDE BAR SHORTCUT LINKS START -->
                 <div class="col-slim order-tab-1">
-                    <div class="card-side card-side-navigation">
+                    <div class="card-side card-side-navigation" role="navigation" aria-label="Navegação rápida de serviços">
                         <h3 class="no-margin ff-damion">Serviços</h3>
                         <hr>
                         <a href="#service-dev">Serviços Contábeis para Empresas</a>

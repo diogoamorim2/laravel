@@ -17,3 +17,8 @@
 **Vulnerability:** The public contact form allowed mass assignment of the `ativo` field, which is an internal flag used to mark contacts as active/inactive. Although defaulting to true, enabling users to set it to false (0) is a security risk (e.g. hiding spam).
 **Learning:** Even if a field has a default value in the database, including it in validation rules (`nullable|bool`) allows it to be mass-assigned from user input.
 **Prevention:** Strictly limit validation rules in FormRequests to only those fields that are exposed in the HTML form and are safe for user input. Remove internal flags from validation rules so they are stripped by `$request->validated()`.
+
+## 2024-05-27 - Input Sanitization Layer
+**Vulnerability:** User input was only relying on output encoding to prevent XSS. Stored data contained raw HTML if submitted, posing a risk if data is ever used in non-escaped contexts.
+**Learning:** `FormRequest` validation rules do not alter the input data. To sanitize data, one must explicitly use `prepareForValidation`.
+**Prevention:** Implement `prepareForValidation` in `FormRequest` classes to sanitize string inputs (e.g., using `strip_tags`) before they are validated and stored.
