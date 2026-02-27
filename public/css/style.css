@@ -1294,16 +1294,14 @@ a.fc-white{
             transform: scale(1);
 }
 
-/* ⚡ Bolt Optimization: Subscribe section background image replacement */
-.subscribe {
-    overflow: hidden;
-    position: relative; /* Ensure it's the containing block for absolute children */
-}
-.subscribe-bg {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    object-position: center bottom;
-    z-index: -2;
+/* ⚡ Bolt Optimization: Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }

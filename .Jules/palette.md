@@ -29,3 +29,7 @@
 ## 2026-03-03 - Focus Trap in Animated Menus
 **Learning:** Animating only `height` to hide a navigation menu leaves its internal links focusable in the DOM, creating a "ghost focus" trap where keyboard users traverse invisible elements.
 **Action:** Implemented `visibility: hidden` on the closed state with a transition delay to allow the height animation to finish, ensuring links are removed from the accessibility tree when the menu is collapsed.
+
+## 2026-02-25 - Invalid List Semantics and Global Style Conflicts
+**Learning:** Grouping list items under a `<strong>` heading directly inside a `<ul>` creates invalid HTML and confuses screen readers. Also, applying global styles to semantic tags like `<nav>` prevents their reuse in other contexts (e.g., sidebar navigation).
+**Action:** Refactored invalid lists into semantic blocks (`div` with `strong` headings and nested `ul`) and used `role="navigation"` on a `div` for sidebar navigation to avoid inheriting global `nav` styles while maintaining accessibility.
