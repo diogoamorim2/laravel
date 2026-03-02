@@ -24,7 +24,9 @@ class ContatoUpdateRequest extends FormRequest
 
         foreach ($fields as $field) {
             if ($this->has($field) && $this->input($field) !== null) {
-                $input[$field] = strip_tags($this->input($field));
+                if (is_string($this->input($field))) {
+                    $input[$field] = strip_tags($this->input($field));
+                }
             }
         }
 
