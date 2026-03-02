@@ -36,3 +36,7 @@
 ## 2024-05-23 - Async CSS Loading
 **Learning:** Loading non-critical CSS (fonts, animations) asynchronously significantly improves FCP by unblocking the main thread.
 **Action:** Use `media="print" onload="this.media='all'"` for CSS files that are not critical for the initial paint (like webfonts and keyframe animations), but ensure `<noscript>` fallbacks are present.
+
+## 2026-03-03 - Widespread Lazy Loading of Images
+**Learning:** Native lazy loading via `loading="lazy"` isn't applied automatically to images within Blade components or standalone files. When optimizing a page, we must look beyond just one hero image or video facade and comprehensively add `loading="lazy"` to all below-the-fold `<img>` tags, such as team portraits, "about" section images, and fixed-position WhatsApp buttons. Also, some legacy performance tests checking for inline background image paths will fail if the background image logic is migrated to CSS classes without corresponding updates to the test assertions.
+**Action:** Always do a global codebase sweep for `<img>` tags missing `loading="lazy"` on non-critical images when optimizing page performance. Furthermore, when migrating inline styles to CSS classes, remember to update specific integration tests like `LazyLoadingTest` that explicitly assert the absence/presence of inline styles or specific image URLs.

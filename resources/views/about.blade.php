@@ -174,7 +174,7 @@
             aria-label="Fale conosco pelo WhatsApp"
             title="Fale conosco pelo WhatsApp">  {{-- Label para acessibilidade --}}
         
-            <img src="{{asset('image/whatsbggreen.webp')}}" width="300" height="300"
+            <img loading="lazy" src="{{asset('image/whatsbggreen.webp')}}" width="300" height="300"
                 alt="Ícone WhatsApp"> {{-- Alt text descrevendo a imagem --}}
         
             {{-- Opcional: Texto para leitores de tela, se quiser ser mais explícito --}}
@@ -191,7 +191,7 @@
             <div class="row flex-just-center">
                 <div class="col-tri">
                     <article class="card-team">
-                        <img src="art/team.webp" alt="">
+                        <img loading="lazy" src="art/team.webp" alt="">
                         <h3 class="title ff-damion">Johnny Doe</h3>
                         <div class="info">
                             <h3 class="ff-damion">Frontend Developer</h3>
@@ -208,7 +208,7 @@
                 </div>
                 <div class="col-tri">
                     <article class="card-team">
-                        <img src="art/team.webp" alt="">
+                        <img loading="lazy" src="art/team.webp" alt="">
                         <h3 class="title ff-damion">Johnny Doe</h3>
                         <div class="info">
                             <h3 class="ff-damion">Frontend Developer</h3>
@@ -225,7 +225,7 @@
                 </div>
                 <div class="col-tri">
                     <article class="card-team">
-                        <img src="art/team.webp" alt="">
+                        <img loading="lazy" src="art/team.webp" alt="">
                         <h3 class="title ff-damion">Johnny Doe</h3>
                         <div class="info">
                             <h3 class="ff-damion">Frontend Developer</h3>
