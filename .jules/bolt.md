@@ -36,3 +36,11 @@
 ## 2024-05-23 - Async CSS Loading
 **Learning:** Loading non-critical CSS (fonts, animations) asynchronously significantly improves FCP by unblocking the main thread.
 **Action:** Use `media="print" onload="this.media='all'"` for CSS files that are not critical for the initial paint (like webfonts and keyframe animations), but ensure `<noscript>` fallbacks are present.
+
+## 2024-05-23 - Image Dimensions and CLS
+**Learning:** `<img>` tags without explicit `width` and `height` attributes cause the browser to not know how much space to allocate for the image until it is downloaded. This results in Cumulative Layout Shift (CLS) as the content reflows when the image renders, negatively impacting Core Web Vitals and user experience.
+**Action:** Always provide explicit `width` and `height` attributes (representing the aspect ratio or actual rendered size) on all `<img>` tags. This allows the browser to pre-allocate the correct space, eliminating layout shifts even before the image finishes loading.
+
+## 2026-03-03 - Prevent Lazy Loading (N+1 Problem)
+**Learning:** N+1 queries occur when a collection of models is retrieved and a relationship is accessed on each individual model, resulting in an additional query per model. This severely impacts database performance, especially with large datasets.
+**Action:** Use `Model::preventLazyLoading(! app()->isProduction());` in `AppServiceProvider::boot()` to throw an exception in local/testing environments when a relationship is lazy-loaded. This forces developers to eagerly load relationships (e.g., using `with()`), guaranteeing performant queries before shipping to production.

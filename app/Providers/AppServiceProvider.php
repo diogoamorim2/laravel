@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Eloquent\Model;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,6 +29,9 @@ class AppServiceProvider extends ServiceProvider
         //Here, we will use bootstrap 5 for pagination. so, we need to import it on AppServiceProvider.php file. let's update it.
         Paginator::useBootstrapFive();
         Blade::withoutDoubleEncoding();
+
+        // ⚡ Bolt Optimization: Prevent N+1 queries by throwing an exception when lazy loading is attempted in local/testing
+        Model::preventLazyLoading(! $this->app->isProduction());
 
         /*if ($this->app->environment('local')) {
             Mail::alwaysTo('diogo@sisconsp.com.br');
