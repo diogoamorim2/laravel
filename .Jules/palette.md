@@ -33,3 +33,7 @@
 ## 2026-02-25 - Invalid List Semantics and Global Style Conflicts
 **Learning:** Grouping list items under a `<strong>` heading directly inside a `<ul>` creates invalid HTML and confuses screen readers. Also, applying global styles to semantic tags like `<nav>` prevents their reuse in other contexts (e.g., sidebar navigation).
 **Action:** Refactored invalid lists into semantic blocks (`div` with `strong` headings and nested `ul`) and used `role="navigation"` on a `div` for sidebar navigation to avoid inheriting global `nav` styles while maintaining accessibility.
+
+## 2024-05-15 - [Missing Disabled Button State Feedback]
+**Learning:** While the JavaScript successfully disabled form submission buttons and added a loading spinner, the lack of `:disabled` CSS styles left the button looking interactive (retaining cursor pointer and full opacity). This disconnect between technical state and visual feedback can lead users to think the button is still clickable.
+**Action:** To provide clear visual confirmation without violating the constraint against adding new custom CSS classes, added inline styles via JavaScript (`opacity = '0.65'` and `cursor = 'not-allowed'`) to the submit buttons in `public/js/script.js` during form submission.
