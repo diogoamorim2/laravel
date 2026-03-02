@@ -1305,3 +1305,10 @@ a.fc-white{
         scroll-behavior: auto !important;
     }
 }
+
+/* Disabled Interactive Elements */
+button:disabled,
+input[type="submit"]:disabled {
+    cursor: not-allowed !important;
+    opacity: 0.7;
+}
