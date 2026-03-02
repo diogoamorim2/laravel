@@ -22,3 +22,8 @@
 **Vulnerability:** User input was only relying on output encoding to prevent XSS. Stored data contained raw HTML if submitted, posing a risk if data is ever used in non-escaped contexts.
 **Learning:** `FormRequest` validation rules do not alter the input data. To sanitize data, one must explicitly use `prepareForValidation`.
 **Prevention:** Implement `prepareForValidation` in `FormRequest` classes to sanitize string inputs (e.g., using `strip_tags`) before they are validated and stored.
+
+## 2024-05-28 - Array Input DoS
+**Vulnerability:** `strip_tags` was used on input fields inside `prepareForValidation` without ensuring the input was a string. Submitting an array (e.g., `nome[]=1`) triggered a PHP `TypeError`, leading to a 500 error and potential DoS.
+**Learning:** Built-in PHP string functions like `strip_tags` and `mb_strtolower` crash when passed arrays. Form inputs can easily be manipulated into arrays by attackers appending `[]` to the input name.
+**Prevention:** Always verify the type of user input before passing it to native string functions in `prepareForValidation` (e.g., use `is_string($request->input(...))`). Let Laravel's validation rules (`string`, `array`) handle type enforcement *after* preparation.
