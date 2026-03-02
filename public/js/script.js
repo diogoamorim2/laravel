@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (btn) {
                 btn.disabled = true;
                 btn.innerHTML = 'Enviando... <span class="spinner"></span>';
+                btn.style.opacity = '0.65';
+                btn.style.cursor = 'not-allowed';
             }
         });
     }
@@ -35,6 +37,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (btn) {
                 btn.disabled = true;
                 btn.innerHTML = 'Inscrevendo... <span class="spinner"></span>';
+                btn.style.opacity = '0.65';
+                btn.style.cursor = 'not-allowed';
             }
         });
     }
