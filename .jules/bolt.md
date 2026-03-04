@@ -36,3 +36,7 @@
 ## 2024-05-23 - Async CSS Loading
 **Learning:** Loading non-critical CSS (fonts, animations) asynchronously significantly improves FCP by unblocking the main thread.
 **Action:** Use `media="print" onload="this.media='all'"` for CSS files that are not critical for the initial paint (like webfonts and keyframe animations), but ensure `<noscript>` fallbacks are present.
+
+## 2026-03-05 - Lazy Loading Below-the-Fold Background Images
+**Learning:** Background images cannot be natively lazy-loaded by the browser, causing them to be downloaded immediately even if they are far below the fold. This can delay critical rendering paths for content that is actually visible to the user.
+**Action:** Replace CSS background images (`background-image: url(...)`) on below-the-fold elements with an `<img>` tag using `loading="lazy"` and `object-fit: cover`. Ensure proper absolute positioning and negative `z-index` so the image sits underneath the content, mimicking a background while allowing the browser to intelligently defer its download.
