@@ -297,7 +297,8 @@
         <!-- PREVIEW BLOGS SECTION END -->
 
         <!-- SUBSCRIBE TO NEWS LETTERS START -->
-        <section class="subscribe bg-primary-foot subscribe-overlay-bg">
+        <section class="subscribe bg-primary-foot">
+            <img src="{{ asset('art/overlay.webp') }}" class="subscribe-bg" loading="lazy" alt="">
             <div class="contained row ta-center">
                 <div class="col-balance fc-white">
                     <h3 class="mb-a ff-damion mt-a">Inscreva-se para saber mais sobre nós:</h3>
