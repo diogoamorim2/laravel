@@ -22,3 +22,8 @@
 **Vulnerability:** User input was only relying on output encoding to prevent XSS. Stored data contained raw HTML if submitted, posing a risk if data is ever used in non-escaped contexts.
 **Learning:** `FormRequest` validation rules do not alter the input data. To sanitize data, one must explicitly use `prepareForValidation`.
 **Prevention:** Implement `prepareForValidation` in `FormRequest` classes to sanitize string inputs (e.g., using `strip_tags`) before they are validated and stored.
+
+## 2024-05-28 - Array Input Denial of Service (DoS)
+**Vulnerability:** The application crashed with a 500 TypeError when an array payload (e.g., `nome[]=value`) was submitted to a field that was expected to be a string. This occurred because `strip_tags()` does not accept arrays, and the input was only checked against `!== null` before sanitization.
+**Learning:** PHP's type strictness on native functions like `strip_tags` can turn minor type juggling into fatal errors. Validating input types *before* sanitizing is critical to prevent DoS via payload manipulation.
+**Prevention:** Always verify input types explicitly before applying string operations. Use `is_string($this->input($field))` instead of `$this->input($field) !== null` in `prepareForValidation` loops. Let the validator handle type rejections safely.
