@@ -28,6 +28,10 @@
 **Learning:** PHP's type strictness on native functions like `strip_tags` can turn minor type juggling into fatal errors. Validating input types *before* sanitizing is critical to prevent DoS via payload manipulation.
 **Prevention:** Always verify input types explicitly before applying string operations. Use `is_string($this->input($field))` instead of `$this->input($field) !== null` in `prepareForValidation` loops. Let the validator handle type rejections safely.
 
+## 2026-03-06 - Error Handling Stack Trace Leak
+**Vulnerability:** The `ContatoController` was catching exceptions during the contact creation and email sending process and logging the entire stack trace using `$e->getTraceAsString()`. Logging full stack traces in general production logs, especially when triggered by user input, can lead to information leakage about the application's internal structure and dependencies if logs are ever exposed or improperly handled.
+**Learning:** While stack traces are useful for debugging, they should be handled carefully and typically restricted to dedicated error tracking systems (like Sentry or Bugsnag) rather than written as raw text to standard application logs where they might be exposed.
+**Prevention:** Avoid logging full stack traces in standard application logs. Log the exception message (`$e->getMessage()`) and relevant context (like user IP or ID), and rely on a dedicated exception handler/tracker for detailed stack traces.
 ## 2026-03-06 - Stack Trace Exposure in Logs
 **Vulnerability:** Exception stack traces were being written directly to logs (using `$e->getTraceAsString()`) in the `ContatoController@store` method upon failures.
 **Learning:** Writing full stack traces to production logs can inadvertently expose sensitive information such as server file paths, internal component structures, and potentially environment variables or database connection strings present in stack frames.
