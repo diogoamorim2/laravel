@@ -12,7 +12,7 @@ class CsrfTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function get_request_to_create_endpoint_no_longer_creates_contact()
     {
         Mail::fake();
@@ -41,7 +41,7 @@ class CsrfTest extends TestCase
         Mail::assertNothingQueued();
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function post_request_to_store_creates_contact_and_sends_emails()
     {
         Mail::fake();
@@ -74,7 +74,7 @@ class CsrfTest extends TestCase
         Mail::assertQueued(FaleConoscoContato::class);
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function newsletter_subscription_only_sends_newsletter_email()
     {
         Mail::fake();

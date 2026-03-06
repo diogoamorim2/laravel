@@ -10,7 +10,7 @@ class MassAssignmentTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function ativo_field_cannot_be_set_via_public_form()
     {
         // Attempt to create a contact with 'ativo' set to false (0)

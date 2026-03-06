@@ -7,7 +7,7 @@ use Tests\TestCase;
 
 class EmailRateLimitTest extends TestCase
 {
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_limits_submissions_to_the_same_email_from_different_ips()
     {
         $email = 'victim@example.com';

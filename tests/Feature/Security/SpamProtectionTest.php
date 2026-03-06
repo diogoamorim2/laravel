@@ -9,7 +9,7 @@ class SpamProtectionTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_rejects_names_with_urls()
     {
         $payload = [
@@ -24,7 +24,7 @@ class SpamProtectionTest extends TestCase
         $response->assertSessionHasErrors(['nome']);
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_rejects_names_with_https_urls()
     {
         $payload = [
@@ -39,7 +39,7 @@ class SpamProtectionTest extends TestCase
         $response->assertSessionHasErrors(['nome']);
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_rejects_names_with_www_urls()
     {
         $payload = [
@@ -54,7 +54,7 @@ class SpamProtectionTest extends TestCase
         $response->assertSessionHasErrors(['nome']);
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_accepts_valid_names()
     {
         $payload = [

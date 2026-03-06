@@ -10,7 +10,7 @@ class XssSanitizationTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function contact_store_request_sanitizes_html_tags()
     {
         $payload = [

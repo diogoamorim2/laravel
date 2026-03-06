@@ -9,7 +9,7 @@ class InputValidationTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function test_contact_validation_rejects_invalid_inputs()
     {
         // Current implementation: Allows random strings in phone (max 20) and newsletter.
@@ -31,7 +31,7 @@ class InputValidationTest extends TestCase
         $response->assertSessionHasErrors(['telefone_celular', 'telefone_fixo', 'newslatter']);
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function test_contact_validation_accepts_valid_inputs()
     {
         // Test Valid Inputs
