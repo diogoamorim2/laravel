@@ -112,6 +112,8 @@ class ContatoController extends Controller
     {
         $contato->update($request->validated());
 
+        Log::info('Contato updated', ['contato_id' => $contato->id, 'user_id' => Auth::id(), 'ip' => $request->ip()]);
+
         return redirect()->route('contatos.index')
             ->with('success', 'Contato atualizado com sucesso');
     }
@@ -121,7 +123,10 @@ class ContatoController extends Controller
      */
     public function destroy(Contato $contato)
     {
+        $id = $contato->id;
         $contato->delete();
+
+        Log::info('Contato deleted', ['contato_id' => $id, 'user_id' => Auth::id()]);
 
         return redirect()->route('contatos.index')
             ->with('success', 'Contato apagado com sucesso');
