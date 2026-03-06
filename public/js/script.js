@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (btn) {
                 btn.disabled = true;
                 btn.innerHTML = 'Enviando... <span class="spinner"></span>';
+                btn.setAttribute('aria-live', 'polite');
+                btn.setAttribute('aria-busy', 'true');
             }
         });
     }
@@ -35,6 +37,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (btn) {
                 btn.disabled = true;
                 btn.innerHTML = 'Inscrevendo... <span class="spinner"></span>';
+                btn.setAttribute('aria-live', 'polite');
+                btn.setAttribute('aria-busy', 'true');
             }
         });
     }
