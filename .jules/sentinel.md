@@ -28,7 +28,7 @@
 **Learning:** PHP's type strictness on native functions like `strip_tags` can turn minor type juggling into fatal errors. Validating input types *before* sanitizing is critical to prevent DoS via payload manipulation.
 **Prevention:** Always verify input types explicitly before applying string operations. Use `is_string($this->input($field))` instead of `$this->input($field) !== null` in `prepareForValidation` loops. Let the validator handle type rejections safely.
 
-## 2024-05-29 - Prevent Information Leakage in Logs
-**Vulnerability:** The application was using `$e->getTraceAsString()` in error logs when catching exceptions (e.g., in `ContatoController`). This exposes the complete call stack, which can reveal sensitive details about the application's internal structure, framework versions, and potentially system paths or arguments.
-**Learning:** Full stack traces are useful for debugging during development but are a security risk when written to standard application logs in a production environment, as logs might be aggregated, forwarded, or accessed by unauthorized personnel.
-**Prevention:** Avoid writing raw stack traces to logs. Always log specific exception messages (`$e->getMessage()`) or use structured logging that categorizes and redacts sensitive information. If stack traces are needed, they should be isolated to secure, dedicated error tracking systems (like Sentry) where access is strictly controlled.
+## 2024-05-29 - Stack Trace Information Disclosure
+**Vulnerability:** When a contact form submission failed, the exception's full stack trace (`$e->getTraceAsString()`) was written directly to standard application logs.
+**Learning:** Stack traces can expose sensitive information about the application's internal file structure, dependencies, database queries, and environment setup. If logs are compromised, leaked, or temporarily accessible via a vulnerability (like path traversal), this internal knowledge aids attackers.
+**Prevention:** To prevent information leakage, full stack traces should not be written to standard, potentially broad-access logs in production. Log only necessary context (like `$e->getMessage()`, IP, User-Agent) and rely on dedicated, secure error tracking systems (like Sentry or Flare) to handle detailed stack traces.
