@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 
+// Prevent PHP from leaking version information
+header_remove('X-Powered-By');
+
 define('LARAVEL_START', microtime(true));
 
 // Determine if the application is in maintenance mode...

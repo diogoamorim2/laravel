@@ -28,6 +28,10 @@
 **Learning:** PHP's type strictness on native functions like `strip_tags` can turn minor type juggling into fatal errors. Validating input types *before* sanitizing is critical to prevent DoS via payload manipulation.
 **Prevention:** Always verify input types explicitly before applying string operations. Use `is_string($this->input($field))` instead of `$this->input($field) !== null` in `prepareForValidation` loops. Let the validator handle type rejections safely.
 
+## 2026-03-06 - Security Headers Tightening
+**Vulnerability:** The application was missing the `X-Permitted-Cross-Domain-Policies` header, and the `X-Powered-By` header was exposing the PHP version to attackers.
+**Learning:** Default PHP and Laravel setups might leak version information or miss specific restrictive cross-domain headers, providing attackers with unnecessary fingerprinting data.
+**Prevention:** Always remove `X-Powered-By` at the application entry point (e.g., `public/index.php`) and enforce strict security headers via middleware, explicitly denying cross-domain policies like Flash/PDF unless explicitly required.
 ## 2024-05-29 - Server Information Leakage Prevention
 **Vulnerability:** The application was emitting the `X-Powered-By: PHP/8.x.x` HTTP response header, which exposes specific version information about the underlying technology stack. Additionally, it was missing `X-Permitted-Cross-Domain-Policies: none`.
 **Learning:** Exposing technology versions aids attackers in targeting known vulnerabilities for that specific stack version. Relying solely on middleware to strip headers like `X-Powered-By` may be insufficient if the server (PHP/Apache/Nginx) adds them at the infrastructure layer or before the framework is fully bootstrapped.
