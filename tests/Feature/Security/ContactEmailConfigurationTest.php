@@ -2,10 +2,10 @@
 
 namespace Tests\Feature\Security;
 
+use App\Mail\FaleConoscoContato;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\FaleConoscoContato;
 use Tests\TestCase;
 
 class ContactEmailConfigurationTest extends TestCase

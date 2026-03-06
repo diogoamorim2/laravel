@@ -32,3 +32,7 @@
 **Vulnerability:** Exception stack traces were being written directly to logs (using `$e->getTraceAsString()`) in the `ContatoController@store` method upon failures.
 **Learning:** Writing full stack traces to production logs can inadvertently expose sensitive information such as server file paths, internal component structures, and potentially environment variables or database connection strings present in stack frames.
 **Prevention:** Do not use `getTraceAsString()` or `getTrace()` when logging production exceptions unless strictly managed within a secure logging channel. The `$e->getMessage()` method usually provides enough context for debugging without leaking structural information.
+## 2024-05-29 - Stack Trace Information Disclosure
+**Vulnerability:** When a contact form submission failed, the exception's full stack trace (`$e->getTraceAsString()`) was written directly to standard application logs.
+**Learning:** Stack traces can expose sensitive information about the application's internal file structure, dependencies, database queries, and environment setup. If logs are compromised, leaked, or temporarily accessible via a vulnerability (like path traversal), this internal knowledge aids attackers.
+**Prevention:** To prevent information leakage, full stack traces should not be written to standard, potentially broad-access logs in production. Log only necessary context (like `$e->getMessage()`, IP, User-Agent) and rely on dedicated, secure error tracking systems (like Sentry or Flare) to handle detailed stack traces.
