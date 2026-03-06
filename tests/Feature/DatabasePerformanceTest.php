@@ -54,11 +54,11 @@ class DatabasePerformanceTest extends TestCase
         // Revert to default mode to prevent "database is locked" errors in other tests
         // that use RefreshDatabase (which might struggle with persistent WAL files).
         if (DB::connection()->getDriverName() === 'sqlite') {
-             try {
+            try {
                 DB::statement('PRAGMA journal_mode=DELETE;');
-             } catch (\Exception $e) {
-                 // Ignore if connection is already closed or failed
-             }
+            } catch (\Exception $e) {
+                // Ignore if connection is already closed or failed
+            }
         }
 
         parent::tearDown();
