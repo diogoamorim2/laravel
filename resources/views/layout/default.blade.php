@@ -110,15 +110,15 @@
         <!-- FOOTER QUICK CONTACT START -->
         <div class="col-quad">
             <h3 class="ff-damion">Fale conosco</h3>
-            <a href="contact" class="display-block fc-white icon-link mt-10 mb-10">
+            <a href="mailto:contato@sisconsp.com.br" class="display-block fc-white icon-link mt-10 mb-10" aria-label="Enviar email para contato@sisconsp.com.br">
                 <i class="bi bi-envelope-fill"></i>
                 contato@sisconsp.com.br
             </a>
-            <a href="https://wa.me/11965873624" class="display-inblock" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/11965873624" class="display-inblock fc-white icon-link mt-10 mb-10" target="_blank" rel="noopener noreferrer" aria-label="Enviar mensagem via WhatsApp para (11) 9 6587-3624">
                 <i class="bi bi-telephone-fill"></i>
                 (11) 9 6587-3624
             </a>
-            <a href="{{URL('https://maps.app.goo.gl/v68DNXwJwkwtCE6s5')}}" class="display-block fc-white icon-link mt-10 mb-10">
+            <a href="{{URL('https://maps.app.goo.gl/v68DNXwJwkwtCE6s5')}}" class="display-block fc-white icon-link mt-10 mb-10" aria-label="Ver localização no mapa" target="_blank" rel="noopener noreferrer">
                 <i class="bi bi-geo-alt-fill"></i>
                 Estrada do Aderno, 50 - Carapicuíba - SP
             </a>
