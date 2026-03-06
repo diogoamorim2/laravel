@@ -30,7 +30,7 @@ class ArrayInputDosTest extends TestCase
         $contato = Contato::create([
             'nome' => 'Original Name',
             'email' => 'original@example.com',
-            'assunto' => 'Original Subject'
+            'assunto' => 'Original Subject',
         ]);
 
         $response = $this->actingAs($user)->put(route('contatos.update', $contato), [
