@@ -27,3 +27,8 @@
 **Vulnerability:** The application crashed with a 500 TypeError when an array payload (e.g., `nome[]=value`) was submitted to a field that was expected to be a string. This occurred because `strip_tags()` does not accept arrays, and the input was only checked against `!== null` before sanitization.
 **Learning:** PHP's type strictness on native functions like `strip_tags` can turn minor type juggling into fatal errors. Validating input types *before* sanitizing is critical to prevent DoS via payload manipulation.
 **Prevention:** Always verify input types explicitly before applying string operations. Use `is_string($this->input($field))` instead of `$this->input($field) !== null` in `prepareForValidation` loops. Let the validator handle type rejections safely.
+
+## 2026-03-06 - Security Headers Tightening
+**Vulnerability:** The application was missing the `X-Permitted-Cross-Domain-Policies` header, and the `X-Powered-By` header was exposing the PHP version to attackers.
+**Learning:** Default PHP and Laravel setups might leak version information or miss specific restrictive cross-domain headers, providing attackers with unnecessary fingerprinting data.
+**Prevention:** Always remove `X-Powered-By` at the application entry point (e.g., `public/index.php`) and enforce strict security headers via middleware, explicitly denying cross-domain policies like Flash/PDF unless explicitly required.
