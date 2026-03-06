@@ -27,3 +27,8 @@
 **Vulnerability:** The application crashed with a 500 TypeError when an array payload (e.g., `nome[]=value`) was submitted to a field that was expected to be a string. This occurred because `strip_tags()` does not accept arrays, and the input was only checked against `!== null` before sanitization.
 **Learning:** PHP's type strictness on native functions like `strip_tags` can turn minor type juggling into fatal errors. Validating input types *before* sanitizing is critical to prevent DoS via payload manipulation.
 **Prevention:** Always verify input types explicitly before applying string operations. Use `is_string($this->input($field))` instead of `$this->input($field) !== null` in `prepareForValidation` loops. Let the validator handle type rejections safely.
+
+## 2026-03-06 - Stack Trace Exposure in Logs
+**Vulnerability:** Exception stack traces were being written directly to logs (using `$e->getTraceAsString()`) in the `ContatoController@store` method upon failures.
+**Learning:** Writing full stack traces to production logs can inadvertently expose sensitive information such as server file paths, internal component structures, and potentially environment variables or database connection strings present in stack frames.
+**Prevention:** Do not use `getTraceAsString()` or `getTrace()` when logging production exceptions unless strictly managed within a secure logging channel. The `$e->getMessage()` method usually provides enough context for debugging without leaking structural information.

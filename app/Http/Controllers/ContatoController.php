@@ -77,7 +77,6 @@ class ContatoController extends Controller
         } catch (\Exception $e) {
             Log::error('Failed to store contact or send email', [
                 'error' => $e->getMessage(),
-                'trace' => $e->getTraceAsString(),
                 'ip' => $request->ip(),
             ]);
 
