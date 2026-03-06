@@ -24,6 +24,8 @@ class EnsureSecurityHeaders
         $response->headers->set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
         $response->headers->set('Content-Security-Policy', "upgrade-insecure-requests; default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https://i.ytimg.com; font-src 'self' data:; frame-src 'self' https://www.youtube.com https://www.google.com https://maps.google.com; object-src 'none'; base-uri 'self'; form-action 'self';");
         $response->headers->set('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=()');
+        $response->headers->set('X-Permitted-Cross-Domain-Policies', 'none');
+        $response->headers->remove('X-Powered-By');
 
         return $response;
     }

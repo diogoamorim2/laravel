@@ -28,6 +28,10 @@
 **Learning:** PHP's type strictness on native functions like `strip_tags` can turn minor type juggling into fatal errors. Validating input types *before* sanitizing is critical to prevent DoS via payload manipulation.
 **Prevention:** Always verify input types explicitly before applying string operations. Use `is_string($this->input($field))` instead of `$this->input($field) !== null` in `prepareForValidation` loops. Let the validator handle type rejections safely.
 
+## 2024-05-29 - Server Information Leakage Prevention
+**Vulnerability:** The application was emitting the `X-Powered-By: PHP/8.x.x` HTTP response header, which exposes specific version information about the underlying technology stack. Additionally, it was missing `X-Permitted-Cross-Domain-Policies: none`.
+**Learning:** Exposing technology versions aids attackers in targeting known vulnerabilities for that specific stack version. Relying solely on middleware to strip headers like `X-Powered-By` may be insufficient if the server (PHP/Apache/Nginx) adds them at the infrastructure layer or before the framework is fully bootstrapped.
+**Prevention:** Explicitly remove the `X-Powered-By` header at the earliest possible entry point (e.g., `public/index.php` using `header_remove()`) and within framework middleware. Ensure all standard security headers, including `X-Permitted-Cross-Domain-Policies`, are explicitly set.
 ## 2026-03-06 - Error Handling Stack Trace Leak
 **Vulnerability:** The `ContatoController` was catching exceptions during the contact creation and email sending process and logging the entire stack trace using `$e->getTraceAsString()`. Logging full stack traces in general production logs, especially when triggered by user input, can lead to information leakage about the application's internal structure and dependencies if logs are ever exposed or improperly handled.
 **Learning:** While stack traces are useful for debugging, they should be handled carefully and typically restricted to dedicated error tracking systems (like Sentry or Bugsnag) rather than written as raw text to standard application logs where they might be exposed.
