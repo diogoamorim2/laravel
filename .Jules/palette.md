@@ -33,3 +33,7 @@
 ## 2026-02-25 - Invalid List Semantics and Global Style Conflicts
 **Learning:** Grouping list items under a `<strong>` heading directly inside a `<ul>` creates invalid HTML and confuses screen readers. Also, applying global styles to semantic tags like `<nav>` prevents their reuse in other contexts (e.g., sidebar navigation).
 **Action:** Refactored invalid lists into semantic blocks (`div` with `strong` headings and nested `ul`) and used `role="navigation"` on a `div` for sidebar navigation to avoid inheriting global `nav` styles while maintaining accessibility.
+
+## 2026-03-03 - Inline Validation Feedback
+**Learning:** Screen reader users will not know an input has an error if the error message is only shown visually. `aria-invalid` must be used to announce the invalid state, and `aria-describedby` must link the input to the element containing the specific error message text.
+**Action:** Always include `aria-invalid` and `aria-describedby` referencing the error message ID when rendering inline form validation errors (e.g., in Blade templates using `@error`).
