@@ -2,17 +2,17 @@
 
 namespace Tests\Feature\Security;
 
+use App\Mail\FaleConoscoContato;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\FaleConoscoContato;
 use Tests\TestCase;
 
 class ContactEmailConfigurationTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function contact_form_sends_email_to_configured_address()
     {
         // Mock the configuration

@@ -6,7 +6,7 @@ use Tests\TestCase;
 
 class FrontendInputLimitsTest extends TestCase
 {
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function contact_page_inputs_have_maxlength_attributes()
     {
         $response = $this->get('/contact');
@@ -21,7 +21,7 @@ class FrontendInputLimitsTest extends TestCase
         $response->assertSee('maxlength="2000"', false);
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function newsletter_input_has_maxlength_attribute()
     {
         $response = $this->get('/');

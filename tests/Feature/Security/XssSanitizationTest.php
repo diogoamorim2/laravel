@@ -4,14 +4,13 @@ namespace Tests\Feature\Security;
 
 use App\Models\Contato;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class XssSanitizationTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function contact_store_request_sanitizes_html_tags()
     {
         $payload = [

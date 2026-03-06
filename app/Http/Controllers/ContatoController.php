@@ -42,7 +42,7 @@ class ContatoController extends Controller
     public function store(ContatoStoreRequest $request): RedirectResponse
     {
         // Rate limit by email to prevent spamming a single address
-        $emailKey = 'contact_email_limit:' . Str::lower($request->input('email'));
+        $emailKey = 'contact_email_limit:'.Str::lower($request->input('email'));
 
         if (RateLimiter::tooManyAttempts($emailKey, 3)) {
             Log::warning('Email rate limit exceeded', ['email' => $request->input('email'), 'ip' => $request->ip()]);
@@ -77,7 +77,6 @@ class ContatoController extends Controller
         } catch (\Exception $e) {
             Log::error('Failed to store contact or send email', [
                 'error' => $e->getMessage(),
-                'trace' => $e->getTraceAsString(),
                 'ip' => $request->ip(),
             ]);
 
@@ -111,6 +110,11 @@ class ContatoController extends Controller
     public function update(ContatoUpdateRequest $request, Contato $contato)
     {
         $contato->update($request->validated());
+        Log::info('Contact updated', ['id' => $contato->id, 'user_id' => Auth::id()]);
+
+        Log::info('Contact updated', ['id' => $contato->id, 'user_id' => Auth::id()]);
+
+        Log::info('Contato updated', ['contato_id' => $contato->id, 'user_id' => Auth::id(), 'ip' => $request->ip()]);
 
         return redirect()->route('contatos.index')
             ->with('success', 'Contato atualizado com sucesso');
@@ -121,7 +125,13 @@ class ContatoController extends Controller
      */
     public function destroy(Contato $contato)
     {
+        $id = $contato->id;
         $contato->delete();
+        Log::info('Contact deleted', ['id' => $contato->id, 'user_id' => Auth::id()]);
+
+        Log::info('Contact deleted', ['id' => $contato->id, 'user_id' => Auth::id()]);
+
+        Log::info('Contato deleted', ['contato_id' => $id, 'user_id' => Auth::id()]);
 
         return redirect()->route('contatos.index')
             ->with('success', 'Contato apagado com sucesso');

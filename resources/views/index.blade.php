@@ -312,9 +312,11 @@
                         <input type="hidden" name="newslatter" value="1">
                         <input type="email" name="email" id="subscribe-email" aria-label="Receba nossos avisos" 
                             class="form-control @error('email') is-invalid @else is-valid @enderror"
-                            placeholder="Email" required maxlength="255" autocomplete="email">
+                            placeholder="Email" required maxlength="255" autocomplete="email"
+                            aria-invalid="{{ $errors->has('email') ? 'true' : 'false' }}"
+                            {!! $errors->has('email') ? 'aria-describedby="subscribe-email-error"' : '' !!}>
                             @error('email')
-                                <div class="form-text text-danger">{{ $message }}</div>
+                                <div id="subscribe-email-error" class="form-text text-danger">{{ $message }}</div>
                             @enderror
 
                         <button type="submit" class="btn-bg2" id="btn-subscribe">Inscreva-se</button>

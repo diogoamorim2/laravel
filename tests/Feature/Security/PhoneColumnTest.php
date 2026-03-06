@@ -11,7 +11,7 @@ class PhoneColumnTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function phone_columns_should_be_strings_to_preserve_leading_zeros()
     {
         // This test checks if the database schema correctly stores phone numbers as strings.
