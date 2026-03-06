@@ -12,7 +12,7 @@ class ContactUpdateValidationTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function test_update_accepts_valid_phone_number()
     {
         $user = User::factory()->create();
@@ -30,7 +30,7 @@ class ContactUpdateValidationTest extends TestCase
         $response->assertSessionHasNoErrors();
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function test_update_rejects_invalid_email()
     {
         $user = User::factory()->create();
@@ -46,7 +46,7 @@ class ContactUpdateValidationTest extends TestCase
         $response->assertSessionHasErrors(['email']);
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function test_update_rejects_long_strings()
     {
         $user = User::factory()->create();

@@ -10,7 +10,7 @@ class HoneypotTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function submission_with_filled_honeypot_is_rejected()
     {
         $response = $this->post(route('contatos.store'), [
@@ -24,7 +24,7 @@ class HoneypotTest extends TestCase
         $response->assertSessionHasErrors(['fax']);
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function submission_with_empty_honeypot_is_accepted()
     {
         $response = $this->post(route('contatos.store'), [
@@ -38,7 +38,7 @@ class HoneypotTest extends TestCase
         $response->assertRedirect();
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function submission_with_filled_honeypot_triggers_log()
     {
         Log::shouldReceive('warning')

@@ -12,7 +12,7 @@ class ContactEmailConfigurationTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function contact_form_sends_email_to_configured_address()
     {
         // Mock the configuration
