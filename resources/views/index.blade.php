@@ -37,7 +37,7 @@
                         Somos uma empresa de contabilidade dedicada a fornecer serviços contábeis excepcionais para empresas e indivíduos. <br>
                         Com anos de experiência e uma equipe de profissionais altamente qualificados, estamos prontos para atender às suas necessidades contábeis.
                     </p>
-                    <a href="{{URL('#about')}}" class="btn-bg2 border-round mt-20">
+                    <a href="{{URL('#about')}}" class="btn-bg2 border-round mt-20" aria-label="Saiba Mais sobre a Siscon Contabilidade">
                         Saiba Mais <i class="bi bi-chevron-compact-right"></i>
                     </a>
                 </div>
@@ -89,7 +89,7 @@
                 <p>
                     Oferecemos uma gama completa de serviços contábeis para empresas, incluindo preparação de declarações fiscais, contabilidade financeira, folha de pagamento, auditoria e muito mais. <br>
                 </p>
-                <a href="{{URL('about')}}" class="btn-bg1 mt-25 border-round">Saiba mais</a>
+                <a href="{{URL('about')}}" class="btn-bg1 mt-25 border-round" aria-label="Saiba mais sobre Serviços Contábeis para Empresas">Saiba mais</a>
             </div>
             <div class="col-balance">
                 <div class="sticky-img-dual">
@@ -121,7 +121,7 @@
                 <p>
                     Oferecemos soluções em certificação digital em conjunto com nossa parceira Valid. <br>
                 </p>
-                <a href="{{URL('about')}}" class="btn-bg1 mt-25 border-round">Saiba mais</a>
+                <a href="{{URL('about')}}" class="btn-bg1 mt-25 border-round" aria-label="Saiba mais sobre Emissão de Certificado Digital">Saiba mais</a>
             </div>
             
         </section>
@@ -232,7 +232,7 @@
                     </p>
                 </div>
             </div>
-            <a href="{{URL('service')}}" class="btn-bg2 border-round mt-25">
+            <a href="{{URL('service')}}" class="btn-bg2 border-round mt-25" aria-label="Ver todos os nossos serviços contábeis e de certificação">
                 Saiba mais sobre nossos serviços.
             </a>
         </section>
@@ -257,7 +257,7 @@
                         <p class="ml-10 mt-5 mb-20">
                             Duckonomics Meets Quackonomics.
                         </p>
-                        <a href="{{URL('blog/blog-1')}}" class="ml-10">
+                        <a href="{{URL('blog/blog-1')}}" class="ml-10" aria-label="Ler artigo: Duckonomics Meets Quackonomics">
                             Read blog <i class="bi bi-box-arrow-up-right"></i>
                         </a>
                     </article>
@@ -272,7 +272,7 @@
                         <p class="ml-10 mt-5 mb-20">
                             A Duck's Guide to Financial Success.
                         </p>
-                        <a href="{{URL('blog/blog-1')}}" class="ml-10">
+                        <a href="{{URL('blog/blog-1')}}" class="ml-10" aria-label="Ler artigo: A Duck's Guide to Financial Success">
                             Read blog <i class="bi bi-box-arrow-up-right"></i>
                         </a>
                     </article>
@@ -287,7 +287,7 @@
                         <p class="ml-10 mt-5 mb-20">
                             Toasting with the Stars.
                         </p>
-                        <a href="{{URL('blog/blog-1')}}" class="ml-10">
+                        <a href="{{URL('blog/blog-1')}}" class="ml-10" aria-label="Ler artigo: Toasting with the Stars">
                             Read blog <i class="bi bi-box-arrow-up-right"></i>
                         </a>
                     </article>
