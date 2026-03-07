@@ -191,7 +191,7 @@
             <div class="row flex-just-center">
                 <div class="col-tri">
                     <article class="card-team">
-                        <img src="art/team.webp" alt="">
+                        <img src="art/team.webp" loading="lazy" alt="">
                         <h3 class="title ff-damion">Johnny Doe</h3>
                         <div class="info">
                             <h3 class="ff-damion">Frontend Developer</h3>
@@ -208,7 +208,7 @@
                 </div>
                 <div class="col-tri">
                     <article class="card-team">
-                        <img src="art/team.webp" alt="">
+                        <img src="art/team.webp" loading="lazy" alt="">
                         <h3 class="title ff-damion">Johnny Doe</h3>
                         <div class="info">
                             <h3 class="ff-damion">Frontend Developer</h3>
@@ -225,7 +225,7 @@
                 </div>
                 <div class="col-tri">
                     <article class="card-team">
-                        <img src="art/team.webp" alt="">
+                        <img src="art/team.webp" loading="lazy" alt="">
                         <h3 class="title ff-damion">Johnny Doe</h3>
                         <div class="info">
                             <h3 class="ff-damion">Frontend Developer</h3>

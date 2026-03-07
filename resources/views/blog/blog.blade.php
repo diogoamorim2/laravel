@@ -97,7 +97,7 @@
             <div class="row flex-just-center">
                 <div class="col-tri">
                     <article class="card-blog">
-                        <img src="../art/work1.webp" alt="">
+                        <img src="../art/work1.webp" loading="lazy" alt="">
                         <div class="info">
                             <h3 class="mt-5 mb-5 ff-damion fc-primary">Duckonomics</h3>
                             <p class="ml-a mt-5">09/26/2023</p>
@@ -112,7 +112,7 @@
                 </div>
                 <div class="col-tri">
                     <article class="card-blog">
-                        <img src="../art/work2.webp" alt="">
+                        <img src="../art/work2.webp" loading="lazy" alt="">
                         <div class="info">
                             <h3 class="mt-5 mb-5 ff-damion fc-primary">Quackonomics</h3>
                             <p class="ml-a mt-5">09/26/2023</p>
@@ -127,7 +127,7 @@
                 </div>
                 <div class="col-tri">
                     <article class="card-blog">
-                        <img src="../art/work3.webp" alt="">
+                        <img src="../art/work3.webp" loading="lazy" alt="">
                         <div class="info">
                             <h3 class="mt-5 mb-5 ff-damion fc-primary">Galactic Gastronomy</h3>
                             <p class="ml-a mt-5">09/26/2023</p>

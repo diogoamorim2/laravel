@@ -93,7 +93,7 @@
         <section class="row contained">
             <div class="col-wide">
                 <!-- BLOG THUMBNAIL -->
-                <img src="../art/work2.webp" alt="" class="img-unheight">
+                <img src="../art/work2.webp" alt="" class="img-unheight" loading="lazy">
 
                 <!-- BLOG DETAIL -->
                 <div class="row fc-primary fw-bold">
@@ -139,7 +139,7 @@
                     <li class="fs-h4">Comments:</li>
                     
                     <li class="card-comment">
-                        <img src="../art/team.webp" alt="">
+                        <img src="../art/team.webp" loading="lazy" alt="">
                         <div class="info">
                             <div class="row">
                                 <p class="fw-bold no-margin">Johnny Doe Clone 0048</p>
@@ -153,7 +153,7 @@
                         </div>
                     </li>
                     <li class="card-comment">
-                        <img src="../art/team.webp" alt="">
+                        <img src="../art/team.webp" loading="lazy" alt="">
                         <div class="info">
                             <div class="row">
                                 <p class="fw-bold no-margin">Time Traveler Clone</p>
@@ -184,21 +184,21 @@
                     <span class="fs-h3 ff-damion">Latest Blogs</span>
                     <hr>
                     <a href="#" class="card-post">
-                        <img src="../art/work1.webp" alt="">
+                        <img src="../art/work1.webp" loading="lazy" alt="">
                         <div class="info">
                             <p class="no-margin fw-bold">Duckonomics</p>
                             <small class="no-margin">09/26/23</small>
                         </div>
                     </a>
                     <a href="#" class="card-post">
-                        <img src="../art/work2.webp" alt="">
+                        <img src="../art/work2.webp" loading="lazy" alt="">
                         <div class="info">
                             <p class="no-margin fw-bold">Quackonomics</p>
                             <small class="no-margin">09/26/23</small>
                         </div>
                     </a>
                     <a href="#" class="card-post">
-                        <img src="../art/work3.webp" alt="">
+                        <img src="../art/work3.webp" loading="lazy" alt="">
                         <div class="info">
                             <p class="no-margin fw-bold">Galactic Gastronomy</p>
                             <small class="no-margin">09/26/23</small>
