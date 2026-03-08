@@ -37,7 +37,7 @@
                         Somos uma empresa de contabilidade dedicada a fornecer serviços contábeis excepcionais para empresas e indivíduos. <br>
                         Com anos de experiência e uma equipe de profissionais altamente qualificados, estamos prontos para atender às suas necessidades contábeis.
                     </p>
-                    <a href="{{URL('#about')}}" class="btn-bg2 border-round mt-20">
+                    <a href="{{URL('#about')}}" class="btn-bg2 border-round mt-20" aria-label="Saiba mais sobre a Siscon Contabilidade">
                         Saiba Mais <i class="bi bi-chevron-compact-right"></i>
                     </a>
                 </div>
@@ -89,7 +89,7 @@
                 <p>
                     Oferecemos uma gama completa de serviços contábeis para empresas, incluindo preparação de declarações fiscais, contabilidade financeira, folha de pagamento, auditoria e muito mais. <br>
                 </p>
-                <a href="{{URL('about')}}" class="btn-bg1 mt-25 border-round">Saiba mais</a>
+                <a href="{{URL('about')}}" class="btn-bg1 mt-25 border-round" aria-label="Saiba mais sobre Serviços Contábeis para Empresas e Pessoa Física">Saiba mais</a>
             </div>
             <div class="col-balance">
                 <div class="sticky-img-dual">
@@ -121,7 +121,7 @@
                 <p>
                     Oferecemos soluções em certificação digital em conjunto com nossa parceira Valid. <br>
                 </p>
-                <a href="{{URL('about')}}" class="btn-bg1 mt-25 border-round">Saiba mais</a>
+                <a href="{{URL('about')}}" class="btn-bg1 mt-25 border-round" aria-label="Saiba mais sobre Emissão de Certificado digital">Saiba mais</a>
             </div>
             
         </section>
