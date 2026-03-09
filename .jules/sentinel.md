@@ -48,3 +48,8 @@
 **Vulnerability:** When a contact form submission failed, the exception's full stack trace (`$e->getTraceAsString()`) was written directly to standard application logs.
 **Learning:** Stack traces can expose sensitive information about the application's internal file structure, dependencies, database queries, and environment setup. If logs are compromised, leaked, or temporarily accessible via a vulnerability (like path traversal), this internal knowledge aids attackers.
 **Prevention:** To prevent information leakage, full stack traces should not be written to standard, potentially broad-access logs in production. Log only necessary context (like `$e->getMessage()`, IP, User-Agent) and rely on dedicated, secure error tracking systems (like Sentry or Flare) to handle detailed stack traces.
+
+## 2024-05-18 - [Fix redundant/insecure logging in Controller actions]
+**Vulnerability:** Duplicate logging operations in `update` and `destroy` actions inside `ContatoController`. Most of the logs were missing important audit details like the user's `ip` address.
+**Learning:** This implies a pattern where log statements are copy-pasted or added iteratively without refactoring the old ones. Incomplete audit logs (missing IP addresses) reduce visibility into potential abuse by authenticated users.
+**Prevention:** Ensure that audit logs containing a consistent format (`id`, `user_id`, `ip`) are consolidated into a single informative statement per critical action.
