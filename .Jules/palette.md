@@ -37,3 +37,7 @@
 ## 2026-03-03 - Inline Validation Feedback
 **Learning:** Screen reader users will not know an input has an error if the error message is only shown visually. `aria-invalid` must be used to announce the invalid state, and `aria-describedby` must link the input to the element containing the specific error message text.
 **Action:** Always include `aria-invalid` and `aria-describedby` referencing the error message ID when rendering inline form validation errors (e.g., in Blade templates using `@error`).
+
+## 2026-03-03 - Ambiguous Link Context
+**Learning:** Generic link text like "Saiba mais" or "Read more" makes navigation difficult for screen reader users who often tab through links out of context.
+**Action:** Always provide descriptive `aria-label` attributes for ambiguous links to ensure the destination or purpose is clear to assistive technologies.
