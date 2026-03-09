@@ -40,3 +40,7 @@
 ## 2026-03-05 - Lazy Loading Below-the-Fold Background Images
 **Learning:** Background images cannot be natively lazy-loaded by the browser, causing them to be downloaded immediately even if they are far below the fold. This can delay critical rendering paths for content that is actually visible to the user.
 **Action:** Replace CSS background images (`background-image: url(...)`) on below-the-fold elements with an `<img>` tag using `loading="lazy"` and `object-fit: cover`. Ensure proper absolute positioning and negative `z-index` so the image sits underneath the content, mimicking a background while allowing the browser to intelligently defer its download.
+
+## 2026-03-09 - Remove Dead Animation Code
+**Learning:** The legacy `hero-slideshow` animation was migrated to a new GPU-accelerated approach, but the old `@keyframes` blocks spanning roughly 100 lines remained in `public/css/animation.css`. These dead blocks increased CSS parse time and overall file payload size for no reason.
+**Action:** Always aggressively clean up legacy code and styling immediately after successfully migrating to a newer pattern to prevent bloat.
