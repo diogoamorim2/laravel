@@ -43,11 +43,11 @@
                     <a href="../index.html" class="fc-white">
                         Home
                     </a>
-                    <i class="bi bi-chevron-right"></i>
+                    <i aria-hidden="true" class="bi bi-chevron-right"></i>
                     <a href="blog.html" class="fc-white">
                         Blogs
                     </a>
-                    <i class="bi bi-chevron-right"></i>
+                    <i aria-hidden="true" class="bi bi-chevron-right"></i>
                     <a href="#" class="fc-white">
                         Quackonomics
                     </a>
@@ -55,16 +55,16 @@
             </div>
             <div class="hero-socials">
                 <a href="#" class="mt-a icon-link" aria-label="Follow us on facebook">
-                    <i class="bi bi-facebook"></i>
+                    <i aria-hidden="true" class="bi bi-facebook"></i>
                 </a>
                 <a href="#" class="icon-link mt-10" aria-label="Follow us on instagram">
-                    <i class="bi bi-instagram"></i>
+                    <i aria-hidden="true" class="bi bi-instagram"></i>
                 </a>
                 <a href="#" class="icon-link mt-10" aria-label="Follow us on twitter">
-                    <i class="bi bi-twitter"></i>
+                    <i aria-hidden="true" class="bi bi-twitter"></i>
                 </a>
                 <a href="#" class="icon-link mt-10" aria-label="Follow us on youtube">
-                    <i class="bi bi-youtube"></i>
+                    <i aria-hidden="true" class="bi bi-youtube"></i>
                 </a>
             </div>
         </section>
@@ -97,9 +97,9 @@
 
                 <!-- BLOG DETAIL -->
                 <div class="row fc-primary fw-bold">
-                    <small><i class="bi bi-person-circle"></i> By admin</small>
+                    <small><i aria-hidden="true" class="bi bi-person-circle"></i> By admin</small>
                     <a href="#comments" class="fc-primary" aria-label="A link to comment section">
-                        <small class="ml-10"><i class="bi bi-chat-right-text"></i> 2 Comments</small>
+                        <small class="ml-10"><i aria-hidden="true" class="bi bi-chat-right-text"></i> 2 Comments</small>
                     </a>
                     <small class="ml-a">09/26/2023</small>
                 </div>
@@ -121,16 +121,16 @@
                 <div class="row flex-alig-center mb-20">
                     <p class="no-margin mr-10">Share:</p>
                     <a href="#" class="icon-link" aria-label="Follow us on facebook">
-                        <i class="bi bi-facebook"></i>
+                        <i aria-hidden="true" class="bi bi-facebook"></i>
                     </a>
                     <a href="#" class="icon-link" aria-label="Follow us on instagram">
-                        <i class="bi bi-instagram"></i>
+                        <i aria-hidden="true" class="bi bi-instagram"></i>
                     </a>
                     <a href="#" class="icon-link" aria-label="Follow us on twitter">
-                        <i class="bi bi-twitter"></i>
+                        <i aria-hidden="true" class="bi bi-twitter"></i>
                     </a>
                     <a href="#" class="icon-link" aria-label="Follow us on youtube">
-                        <i class="bi bi-youtube"></i>
+                        <i aria-hidden="true" class="bi bi-youtube"></i>
                     </a>
                 </div>
                 <hr>
@@ -241,28 +241,28 @@
             <div class="col-quad">
                 <h3 class="ff-damion">Get in touch</h3>
                 <a href="#" class="display-block fc-white icon-link mt-10 mb-10">
-                    <i class="bi bi-envelope-fill"></i>
+                    <i aria-hidden="true" class="bi bi-envelope-fill"></i>
                     nonexistentadd@gmail.com
                 </a>
                 <a href="#" class="display-block fc-white icon-link mt-10 mb-10">
-                    <i class="bi bi-telephone-fill"></i>
+                    <i aria-hidden="true" class="bi bi-telephone-fill"></i>
                     +639123456789
                 </a>
                 <a href="#" class="display-block fc-white icon-link mt-10 mb-10">
-                    <i class="bi bi-geo-alt-fill"></i>
+                    <i aria-hidden="true" class="bi bi-geo-alt-fill"></i>
                     20th street, Dreamland
                 </a>
                 <a href="#" class="display-inblock fc-white icon-link mt-20" aria-label="Follow on facebook">
-                    <i class="bi bi-facebook"></i>
+                    <i aria-hidden="true" class="bi bi-facebook"></i>
                 </a>
                 <a href="#" class="display-inblock fc-white icon-link" aria-label="Follow on instagram">
-                    <i class="bi bi-instagram"></i>
+                    <i aria-hidden="true" class="bi bi-instagram"></i>
                 </a>
                 <a href="#" class="display-inblock fc-white icon-link" aria-label="Follow on twitter">
-                    <i class="bi bi-twitter"></i>
+                    <i aria-hidden="true" class="bi bi-twitter"></i>
                 </a>
                 <a href="#" class="display-inblock fc-white icon-link" aria-label="Follow on youtube">
-                    <i class="bi bi-youtube"></i>
+                    <i aria-hidden="true" class="bi bi-youtube"></i>
                 </a>
             </div>
             <div class="col-quad">
@@ -283,31 +283,31 @@
             <div class="col-quad">
                 <h3 class="ff-damion">Useful Links</h3>
                 <a href="../index.html" class="display-block fc-white mt-5 mb-5">
-                    <i class="bi bi-chevron-compact-right"></i>
+                    <i aria-hidden="true" class="bi bi-chevron-compact-right"></i>
                     Home
                 </a>
                 <a href="../about.html" class="display-block fc-white mt-5 mb-5">
-                    <i class="bi bi-chevron-compact-right"></i>
+                    <i aria-hidden="true" class="bi bi-chevron-compact-right"></i>
                     About
                 </a>
                 <a href="../service.html" class="display-block fc-white mt-5 mb-5">
-                    <i class="bi bi-chevron-compact-right"></i>
+                    <i aria-hidden="true" class="bi bi-chevron-compact-right"></i>
                     Service
                 </a>
                 <a href="../industries.html" class="display-block fc-white mt-5 mb-5">
-                    <i class="bi bi-chevron-compact-right"></i>
+                    <i aria-hidden="true" class="bi bi-chevron-compact-right"></i>
                     Industries
                 </a>
                 <a href="blog.html" class="display-block fc-white mt-5 mb-5">
-                    <i class="bi bi-chevron-compact-right"></i>
+                    <i aria-hidden="true" class="bi bi-chevron-compact-right"></i>
                     Blog
                 </a>
                 <a href="../career/career.html" class="display-block fc-white mt-5 mb-5">
-                    <i class="bi bi-chevron-compact-right"></i>
+                    <i aria-hidden="true" class="bi bi-chevron-compact-right"></i>
                     Career
                 </a>
                 <a href="../contact.html" class="display-block fc-white mt-5 mb-5">
-                    <i class="bi bi-chevron-compact-right"></i>
+                    <i aria-hidden="true" class="bi bi-chevron-compact-right"></i>
                     Contact
                 </a>
             </div>

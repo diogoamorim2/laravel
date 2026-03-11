@@ -38,7 +38,7 @@
                         Com anos de experiência e uma equipe de profissionais altamente qualificados, estamos prontos para atender às suas necessidades contábeis.
                     </p>
                     <a href="{{URL('#about')}}" class="btn-bg2 border-round mt-20" aria-label="Saiba mais sobre a Siscon Contabilidade">
-                        Saiba Mais <i class="bi bi-chevron-compact-right"></i>
+                        Saiba Mais <i aria-hidden="true" class="bi bi-chevron-compact-right"></i>
                     </a>
                 </div>
             </div>
@@ -100,7 +100,7 @@
                 -->
                 <div class="youtube-facade" data-video-id="3PWgUvvxjkI" aria-label="Reproduzir vídeo" role="button" tabindex="0">
                     <img src="https://i.ytimg.com/vi/3PWgUvvxjkI/hqdefault.jpg" width="480" height="360" class="youtube-thumb" alt="Video Thumbnail" loading="lazy">
-                    <div class="play-button"><i class="bi bi-play-circle-fill"></i></div>
+                    <div class="play-button"><i aria-hidden="true" class="bi bi-play-circle-fill"></i></div>
                 </div>
                 </div>
             </div>
@@ -110,7 +110,7 @@
                 <div class="sticky-img-dual">
                 <div class="youtube-facade" data-video-id="-urSrobDaVE" aria-label="Reproduzir vídeo" role="button" tabindex="0">
                     <img src="https://i.ytimg.com/vi/-urSrobDaVE/hqdefault.jpg" width="480" height="360" class="youtube-thumb" alt="Video Thumbnail" loading="lazy">
-                    <div class="play-button"><i class="bi bi-play-circle-fill"></i></div>
+                    <div class="play-button"><i aria-hidden="true" class="bi bi-play-circle-fill"></i></div>
                 </div>
                 </div>
             </div>
@@ -206,7 +206,7 @@
                 </div>
                 <div class="col-tri">
                     <a href="{{ url('service#service-dev') }}" class="fc-white display-block" aria-label="Saiba mais sobre Serviços Contábeis para Empresas">
-                        <i class="bi bi-stars fs-h2"></i>
+                        <i aria-hidden="true" class="bi bi-stars fs-h2"></i>
                         <h3 class="mt-10 ff-damion">Serviços Contábeis para Empresas</h3>
                     </a>
                     <p>
@@ -215,7 +215,7 @@
                 </div>
                 <div class="col-tri">
                     <a href="{{ url('service#service-data') }}" class="fc-white display-block" aria-label="Saiba mais sobre Serviços Contábeis para Indivíduos">
-                        <i class="bi bi-diagram-3 fs-h2"></i>
+                        <i aria-hidden="true" class="bi bi-diagram-3 fs-h2"></i>
                         <h3 class="mt-10 ff-damion">Serviços Contábeis para Indivíduos</h3>
                     </a>
                     <p>
@@ -224,7 +224,7 @@
                 </div>
                 <div class="col-tri">
                     <a href="{{ url('service#service-design') }}" class="fc-white display-block" aria-label="Saiba mais sobre Certificado Digital">
-                        <i class="bi bi-code-slash fs-h2"></i>
+                        <i aria-hidden="true" class="bi bi-code-slash fs-h2"></i>
                         <h3 class="mt-10 ff-damion">Certificado Digital</h3>
                     </a>
                     <p>
@@ -258,7 +258,7 @@
                             Duckonomics Meets Quackonomics.
                         </p>
                         <a href="{{URL('blog/blog-1')}}" class="ml-10">
-                            Read blog <i class="bi bi-box-arrow-up-right"></i>
+                            Read blog <i aria-hidden="true" class="bi bi-box-arrow-up-right"></i>
                         </a>
                     </article>
                 </div>
@@ -273,7 +273,7 @@
                             A Duck's Guide to Financial Success.
                         </p>
                         <a href="{{URL('blog/blog-1')}}" class="ml-10">
-                            Read blog <i class="bi bi-box-arrow-up-right"></i>
+                            Read blog <i aria-hidden="true" class="bi bi-box-arrow-up-right"></i>
                         </a>
                     </article>
                 </div>
@@ -288,7 +288,7 @@
                             Toasting with the Stars.
                         </p>
                         <a href="{{URL('blog/blog-1')}}" class="ml-10">
-                            Read blog <i class="bi bi-box-arrow-up-right"></i>
+                            Read blog <i aria-hidden="true" class="bi bi-box-arrow-up-right"></i>
                         </a>
                     </article>
                 </div>

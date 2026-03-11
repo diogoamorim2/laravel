@@ -41,3 +41,7 @@
 ## 2026-03-03 - Ambiguous Link Context
 **Learning:** Generic link text like "Saiba mais" or "Read more" makes navigation difficult for screen reader users who often tab through links out of context.
 **Action:** Always provide descriptive `aria-label` attributes for ambiguous links to ensure the destination or purpose is clear to assistive technologies.
+
+## 2026-03-11 - Decorative Icon Announcements
+**Learning:** Using decorative icon fonts (like Bootstrap Icons) directly with `<i>` tags can cause screen readers to read out confusing CSS class names or unhelpful characters, disorienting visually impaired users.
+**Action:** Always add `aria-hidden="true"` to decorative `<i>` tags to explicitly hide them from the accessibility tree, especially when they are accompanied by visible text or `aria-label` attributes on their parent elements.
