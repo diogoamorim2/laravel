@@ -43,7 +43,7 @@
                     <a href="../index.html" class="fc-white">
                         Home
                     </a>
-                    <i class="bi bi-chevron-right"></i>
+                    <i aria-hidden="true" class="bi bi-chevron-right"></i>
                     <a href="#" class="fc-white">
                         Careers
                     </a>
@@ -51,16 +51,16 @@
             </div>
             <div class="hero-socials">
                 <a href="#" class="mt-a icon-link" aria-label="Follow us on facebook">
-                    <i class="bi bi-facebook"></i>
+                    <i aria-hidden="true" class="bi bi-facebook"></i>
                 </a>
                 <a href="#" class="icon-link mt-10" aria-label="Follow us on instagram">
-                    <i class="bi bi-instagram"></i>
+                    <i aria-hidden="true" class="bi bi-instagram"></i>
                 </a>
                 <a href="#" class="icon-link mt-10" aria-label="Follow us on twitter">
-                    <i class="bi bi-twitter"></i>
+                    <i aria-hidden="true" class="bi bi-twitter"></i>
                 </a>
                 <a href="#" class="icon-link mt-10" aria-label="Follow us on youtube">
-                    <i class="bi bi-youtube"></i>
+                    <i aria-hidden="true" class="bi bi-youtube"></i>
                 </a>
             </div>
         </section>
@@ -97,15 +97,15 @@
                     <div class="card-career">
                         <span class="fs-h4 mb-5 mt-15">Web designer - Entry Level</span>
                         <p>
-                            <i class="bi bi-calendar"></i>
+                            <i aria-hidden="true" class="bi bi-calendar"></i>
                             09/26/23
                         </p>
                         <p>
-                            <i class="bi bi-geo-alt"></i>
+                            <i aria-hidden="true" class="bi bi-geo-alt"></i>
                             Philippines - NCR
                         </p>
                         <p>
-                            <i class="bi bi-briefcase"></i>
+                            <i aria-hidden="true" class="bi bi-briefcase"></i>
                             Min 3 years of experience lol!
                         </p>
                         <hr>
@@ -118,15 +118,15 @@
                     <div class="card-career">
                         <span class="fs-h4 mb-5 mt-15">Jr Data Analyst</span>
                         <p>
-                            <i class="bi bi-calendar"></i>
+                            <i aria-hidden="true" class="bi bi-calendar"></i>
                             09/26/23
                         </p>
                         <p>
-                            <i class="bi bi-geo-alt"></i>
+                            <i aria-hidden="true" class="bi bi-geo-alt"></i>
                             Philippines - NCR
                         </p>
                         <p>
-                            <i class="bi bi-briefcase"></i>
+                            <i aria-hidden="true" class="bi bi-briefcase"></i>
                             Min 5 years of experience lol!
                         </p>
                         <hr>
@@ -139,15 +139,15 @@
                     <div class="card-career">
                         <span class="fs-h4 mb-5 mt-15">Web developer - Entry Level</span>
                         <p>
-                            <i class="bi bi-calendar"></i>
+                            <i aria-hidden="true" class="bi bi-calendar"></i>
                             09/26/23
                         </p>
                         <p>
-                            <i class="bi bi-geo-alt"></i>
+                            <i aria-hidden="true" class="bi bi-geo-alt"></i>
                             Philippines - NCR
                         </p>
                         <p>
-                            <i class="bi bi-briefcase"></i>
+                            <i aria-hidden="true" class="bi bi-briefcase"></i>
                             Min 3 years of experience lol!
                         </p>
                         <hr>
@@ -177,28 +177,28 @@
             <div class="col-quad">
                 <h3 class="ff-damion">Get in touch</h3>
                 <a href="#" class="display-block fc-white icon-link mt-10 mb-10">
-                    <i class="bi bi-envelope-fill"></i>
+                    <i aria-hidden="true" class="bi bi-envelope-fill"></i>
                     nonexistentadd@gmail.com
                 </a>
                 <a href="#" class="display-block fc-white icon-link mt-10 mb-10">
-                    <i class="bi bi-telephone-fill"></i>
+                    <i aria-hidden="true" class="bi bi-telephone-fill"></i>
                     +639123456789
                 </a>
                 <a href="#" class="display-block fc-white icon-link mt-10 mb-10">
-                    <i class="bi bi-geo-alt-fill"></i>
+                    <i aria-hidden="true" class="bi bi-geo-alt-fill"></i>
                     20th street, Dreamland
                 </a>
                 <a href="#" class="display-inblock fc-white icon-link mt-20" aria-label="Follow on facebook">
-                    <i class="bi bi-facebook"></i>
+                    <i aria-hidden="true" class="bi bi-facebook"></i>
                 </a>
                 <a href="#" class="display-inblock fc-white icon-link" aria-label="Follow on instagram">
-                    <i class="bi bi-instagram"></i>
+                    <i aria-hidden="true" class="bi bi-instagram"></i>
                 </a>
                 <a href="#" class="display-inblock fc-white icon-link" aria-label="Follow on twitter">
-                    <i class="bi bi-twitter"></i>
+                    <i aria-hidden="true" class="bi bi-twitter"></i>
                 </a>
                 <a href="#" class="display-inblock fc-white icon-link" aria-label="Follow on youtube">
-                    <i class="bi bi-youtube"></i>
+                    <i aria-hidden="true" class="bi bi-youtube"></i>
                 </a>
             </div>
             <div class="col-quad">
@@ -219,31 +219,31 @@
             <div class="col-quad">
                 <h3 class="ff-damion">Useful Links</h3>
                 <a href="../index.html" class="display-block fc-white mt-5 mb-5">
-                    <i class="bi bi-chevron-compact-right"></i>
+                    <i aria-hidden="true" class="bi bi-chevron-compact-right"></i>
                     Home
                 </a>
                 <a href="../about.html" class="display-block fc-white mt-5 mb-5">
-                    <i class="bi bi-chevron-compact-right"></i>
+                    <i aria-hidden="true" class="bi bi-chevron-compact-right"></i>
                     About
                 </a>
                 <a href="../service.html" class="display-block fc-white mt-5 mb-5">
-                    <i class="bi bi-chevron-compact-right"></i>
+                    <i aria-hidden="true" class="bi bi-chevron-compact-right"></i>
                     Service
                 </a>
                 <a href="../industries.html" class="display-block fc-white mt-5 mb-5">
-                    <i class="bi bi-chevron-compact-right"></i>
+                    <i aria-hidden="true" class="bi bi-chevron-compact-right"></i>
                     Industries
                 </a>
                 <a href="../blog/blog.html" class="display-block fc-white mt-5 mb-5">
-                    <i class="bi bi-chevron-compact-right"></i>
+                    <i aria-hidden="true" class="bi bi-chevron-compact-right"></i>
                     Blog
                 </a>
                 <a href="../career.html" class="display-block fc-white mt-5 mb-5">
-                    <i class="bi bi-chevron-compact-right"></i>
+                    <i aria-hidden="true" class="bi bi-chevron-compact-right"></i>
                     Career
                 </a>
                 <a href="../contact.html" class="display-block fc-white mt-5 mb-5">
-                    <i class="bi bi-chevron-compact-right"></i>
+                    <i aria-hidden="true" class="bi bi-chevron-compact-right"></i>
                     Contact
                 </a>
             </div>

@@ -64,16 +64,16 @@
 @yield('redessociais')
 <!-- <div class="hero-socials">
         <a href="#" class="mt-a icon-link" aria-label="Follow us on facebook">
-            <i class="bi bi-facebook"></i>
+            <i aria-hidden="true" class="bi bi-facebook"></i>
         </a>
         <a href="#" class="icon-link mt-10" aria-label="Follow us on instagram">
-            <i class="bi bi-instagram"></i>
+            <i aria-hidden="true" class="bi bi-instagram"></i>
         </a>
         <a href="#" class="icon-link mt-10" aria-label="Follow us on twitter">
-            <i class="bi bi-twitter"></i>
+            <i aria-hidden="true" class="bi bi-twitter"></i>
         </a>
         <a href="#" class="icon-link mt-10" aria-label="Follow us on youtube">
-            <i class="bi bi-youtube"></i>
+            <i aria-hidden="true" class="bi bi-youtube"></i>
         </a>
     </div> -->
 <!-- FINAL REDES SOCIAIS -->
@@ -111,28 +111,28 @@
         <div class="col-quad">
             <h3 class="ff-damion">Fale conosco</h3>
             <a href="mailto:contato@sisconsp.com.br" class="display-block fc-white icon-link mt-10 mb-10" aria-label="Enviar email para contato@sisconsp.com.br">
-                <i class="bi bi-envelope-fill"></i>
+                <i aria-hidden="true" class="bi bi-envelope-fill"></i>
                 contato@sisconsp.com.br
             </a>
             <a href="https://wa.me/11965873624" class="display-inblock fc-white icon-link mt-10 mb-10" target="_blank" rel="noopener noreferrer" aria-label="Enviar mensagem via WhatsApp para (11) 9 6587-3624">
-                <i class="bi bi-telephone-fill"></i>
+                <i aria-hidden="true" class="bi bi-telephone-fill"></i>
                 (11) 9 6587-3624
             </a>
             <a href="{{URL('https://maps.app.goo.gl/v68DNXwJwkwtCE6s5')}}" class="display-block fc-white icon-link mt-10 mb-10" aria-label="Ver localização no mapa" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-geo-alt-fill"></i>
+                <i aria-hidden="true" class="bi bi-geo-alt-fill"></i>
                 Estrada do Aderno, 50 - Carapicuíba - SP
             </a>
             <!-- <a href="#" class="display-inblock fc-white icon-link mt-20" aria-label="Follow on facebook">
-                        <i class="bi bi-facebook"></i>
+                        <i aria-hidden="true" class="bi bi-facebook"></i>
                     </a>
                     <a href="#" class="display-inblock fc-white icon-link" aria-label="Follow on instagram">
-                        <i class="bi bi-instagram"></i>
+                        <i aria-hidden="true" class="bi bi-instagram"></i>
                     </a>
                     <a href="#" class="display-inblock fc-white icon-link" aria-label="Follow on twitter">
-                        <i class="bi bi-twitter"></i>
+                        <i aria-hidden="true" class="bi bi-twitter"></i>
                     </a>
                     <a href="#" class="display-inblock fc-white icon-link" aria-label="Follow on youtube">
-                        <i class="bi bi-youtube"></i>
+                        <i aria-hidden="true" class="bi bi-youtube"></i>
                     </a> -->
         </div>
         <!-- FOOTER QUICK CONTACT END -->
@@ -159,19 +159,19 @@
         <div class="col-quad">
             <h3 class="ff-damion">Links úteis</h3>
             <a href="{{URL('index')}}" class="display-block fc-white mt-5 mb-5">
-                <i class="bi bi-chevron-compact-right"></i>
+                <i aria-hidden="true" class="bi bi-chevron-compact-right"></i>
                 Home
             </a>
             <a href="{{URL('about')}}" class="display-block fc-white mt-5 mb-5">
-                <i class="bi bi-chevron-compact-right"></i>
+                <i aria-hidden="true" class="bi bi-chevron-compact-right"></i>
                 Sobre nós
             </a>
             <a href="{{URL('service')}}" class="display-block fc-white mt-5 mb-5">
-                <i class="bi bi-chevron-compact-right"></i>
+                <i aria-hidden="true" class="bi bi-chevron-compact-right"></i>
                 Serviços
             </a>
             <a href="{{URL('contact')}}" class="display-block fc-white mt-5 mb-5">
-                <i class="bi bi-chevron-compact-right"></i>
+                <i aria-hidden="true" class="bi bi-chevron-compact-right"></i>
                 Contato
             </a>
         </div>
@@ -184,7 +184,7 @@
 </footer>
 
 <a href="#main-content" class="btn-back-to-top" aria-label="Voltar para o topo" title="Voltar para o topo">
-    <i class="bi bi-chevron-up"></i>
+    <i aria-hidden="true" class="bi bi-chevron-up"></i>
 </a>
 
 <script src="{{ asset('js/script.js') }}" defer></script>

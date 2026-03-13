@@ -71,17 +71,17 @@
                 <div class="col-balance">
                     <span class="fs-h4 mb-15 mt-25 fc-primary">Onde nos encontrar:</span>
                     <a href="https://www.google.com/maps/search/?api=1&query=Estrada+do+Aderno,+50,+Carapicuíba,+SP" target="_blank" rel="noopener noreferrer" class="display-inblock">
-                        <i class="bi bi-geo-alt-fill"></i>
+                        <i aria-hidden="true" class="bi bi-geo-alt-fill"></i>
                         Estrada do Aderno, 50
                     </a>
                     
                     <span class="fs-h4 mb-15 mt-25 fc-primary">Nos ligue:</span>
                     <a href="mailto:contato@sisconsp.com.br" class="display-inblock">
-                        <i class="bi bi-envelope-fill"></i>
+                        <i aria-hidden="true" class="bi bi-envelope-fill"></i>
                         contato@sisconsp.com.br
                     </a>
                     <a href="https://wa.me/11965873624" class="display-inblock" target="_blank" rel="noopener noreferrer">
-                        <i class="bi bi-whatsapp"></i>
+                        <i aria-hidden="true" class="bi bi-whatsapp"></i>
                         (11) 9 6587-3624
                     </a>
                     <form action="{{ route('contatos.store') }}" method="POST" class="message-form mt-50 mb-25" id="contact-form">
