@@ -848,8 +848,14 @@ a.fc-white{
     transition: transform 0.2s ease-in-out;
 }
 
-.whatsapp-button:hover {
+.whatsapp-button:hover,
+.whatsapp-button:focus-visible {
     transform: scale(1.1);
+}
+
+.whatsapp-button:focus-visible {
+    outline: 3px solid #25d366;
+    outline-offset: 4px;
 }
 
 .whatsapp-button i {
