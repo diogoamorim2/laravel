@@ -53,3 +53,8 @@
 **Vulnerability:** Duplicate logging operations in `update` and `destroy` actions inside `ContatoController`. Most of the logs were missing important audit details like the user's `ip` address.
 **Learning:** This implies a pattern where log statements are copy-pasted or added iteratively without refactoring the old ones. Incomplete audit logs (missing IP addresses) reduce visibility into potential abuse by authenticated users.
 **Prevention:** Ensure that audit logs containing a consistent format (`id`, `user_id`, `ip`) are consolidated into a single informative statement per critical action.
+
+## 2026-03-06 - Array Payload DoS on Pagination Parameter
+**Vulnerability:** The `contatos.index` endpoint suffered from a Denial of Service (DoS) vulnerability. When an array payload was passed via the `page` query parameter (e.g., `?page[]=1`), the PHP 8+ strict typing in the mathematical operation `request()->input('page') - 1` threw a fatal `TypeError`, resulting in a 500 Internal Server Error.
+**Learning:** Any user input that participates in an arithmetic operation in PHP 8+ must be explicitly cast to a numeric type if it's not strictly validated as a numeric string. Framework helper functions like `request()->input()` can return arrays, which will cause fatal TypeErrors when unexpectedly injected into math.
+**Prevention:** Explicitly cast inputs that you expect to be numbers to `(int)` or `(float)` before performing arithmetic (e.g., `(int) request()->input('page')`), or validate them strictly as numeric/integer. This ensures safe fallback (an array casts to 1 or 0) and prevents application crashes.
