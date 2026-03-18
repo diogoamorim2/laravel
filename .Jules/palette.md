@@ -45,3 +45,7 @@
 ## 2026-03-11 - Decorative Icon Announcements
 **Learning:** Using decorative icon fonts (like Bootstrap Icons) directly with `<i>` tags can cause screen readers to read out confusing CSS class names or unhelpful characters, disorienting visually impaired users.
 **Action:** Always add `aria-hidden="true"` to decorative `<i>` tags to explicitly hide them from the accessibility tree, especially when they are accompanied by visible text or `aria-label` attributes on their parent elements.
+
+## 2026-03-18 - Missing Pointer Cursors on Interactive Non-Button Elements
+**Learning:** Using `role="button"` or a `tabindex` on a `div` (like `.youtube-facade`) makes it keyboard-accessible, but mouse users rely on `cursor: pointer` to recognize it as clickable. When this visual cue is missing, users may fail to discover the interaction.
+**Action:** Always ensure custom interactive elements not only have appropriate ARIA roles and keyboard support but also receive `cursor: pointer` via CSS or dynamic styling to maintain visual affordances for all users.

@@ -46,6 +46,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const facades = document.querySelectorAll('.youtube-facade');
     if (facades.length > 0) {
         facades.forEach(function(facade) {
+            facade.style.cursor = 'pointer';
+
             var loadVideo = function() {
                 if (this.classList.contains('loading')) return;
                 this.classList.add('loading');
