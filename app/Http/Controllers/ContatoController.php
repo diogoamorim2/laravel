@@ -22,10 +22,15 @@ class ContatoController extends Controller
      */
     public function index(): View
     {
+        $page = request()->input('page', 1);
+        if (is_array($page)) {
+            $page = 1;
+        }
+
         $contatos = Contato::latest()->paginate(5);
 
         return view('contato.index', compact('contatos'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', ((int) $page - 1) * 5);
     }
 
     /**
