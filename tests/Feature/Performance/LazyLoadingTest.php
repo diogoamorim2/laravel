@@ -20,7 +20,8 @@ class LazyLoadingTest extends TestCase
         // Assert that the inline style with background image is NOT present
         $response->assertDontSee("style=\"background-image: url('art/overlay.webp');\"", false);
 
-        // Verify that the background image is applied via CSS class instead of inline style or lazy-loaded image tag
-        $response->assertSee('class="subscribe bg-primary-foot subscribe-overlay-bg"', false);
+        // Verify that the background image is applied via a lazy-loaded image tag, which is the current Bolt optimization
+        $response->assertSee('class="subscribe-bg"', false);
+        $response->assertSee('loading="lazy"', false);
     }
 }
