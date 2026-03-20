@@ -136,9 +136,15 @@ nav > div{
     transform: translate(-50%, -50%);
 }
 .btn-back-to-top:hover,
-.btn-back-to-top:focus{
+.btn-back-to-top:focus,
+.btn-back-to-top:focus-visible {
     color: var(--textWhite);
     box-shadow: none;
+}
+
+.btn-back-to-top:focus-visible {
+    outline: 3px solid var(--primaryColor);
+    outline-offset: 4px;
 }
 
 .bg-primary{
@@ -848,8 +854,14 @@ a.fc-white{
     transition: transform 0.2s ease-in-out;
 }
 
-.whatsapp-button:hover {
+.whatsapp-button:hover,
+.whatsapp-button:focus-visible {
     transform: scale(1.1);
+}
+
+.whatsapp-button:focus-visible {
+    outline: 3px solid #25d366;
+    outline-offset: 4px;
 }
 
 .whatsapp-button i {
