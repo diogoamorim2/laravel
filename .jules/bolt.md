@@ -44,3 +44,7 @@
 ## 2026-03-09 - Remove Dead Animation Code
 **Learning:** The legacy `hero-slideshow` animation was migrated to a new GPU-accelerated approach, but the old `@keyframes` blocks spanning roughly 100 lines remained in `public/css/animation.css`. These dead blocks increased CSS parse time and overall file payload size for no reason.
 **Action:** Always aggressively clean up legacy code and styling immediately after successfully migrating to a newer pattern to prevent bloat.
+
+## 2026-03-09 - Character Counter Event Throttling
+**Learning:** The contact form character counter updated the DOM on every `input` event. On low-end devices or during fast typing, this synchronous DOM manipulation can cause layout thrashing and block the main thread, resulting in a sluggish typing experience.
+**Action:** Wrap frequent DOM update callbacks in `window.requestAnimationFrame()`. This throttles the execution to the browser's refresh rate, ensuring UI updates are batched and painted efficiently without interrupting the user's input.
