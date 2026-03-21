@@ -53,3 +53,7 @@
 **Vulnerability:** Duplicate logging operations in `update` and `destroy` actions inside `ContatoController`. Most of the logs were missing important audit details like the user's `ip` address.
 **Learning:** This implies a pattern where log statements are copy-pasted or added iteratively without refactoring the old ones. Incomplete audit logs (missing IP addresses) reduce visibility into potential abuse by authenticated users.
 **Prevention:** Ensure that audit logs containing a consistent format (`id`, `user_id`, `ip`) are consolidated into a single informative statement per critical action.
+## 2024-05-29 - Array Input Denial of Service (DoS) in Math Operations
+**Vulnerability:** The application crashed with a 500 TypeError when an array payload (e.g., `?page[]=1`) was submitted to a query parameter expected to be a number. This occurred because `request()->input('page', 1) - 1` threw a TypeError when `page` was an array.
+**Learning:** PHP's strict typing in mathematical operations will throw fatal exceptions when array payloads are injected. If unhandled, this results in an easily exploitable application-level Denial of Service.
+**Prevention:** Always explicitly cast user-provided query parameters to their expected primitive types (e.g., `(int) request()->input('page')`) before using them in mathematical operations or passing them to strict functions.
