@@ -19,9 +19,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (messageInput && charCount) {
         const maxLength = messageInput.getAttribute('maxlength');
+        let updatePending = false;
+
         const updateCount = function() {
-            const currentLength = messageInput.value.length;
-            charCount.textContent = currentLength + '/' + maxLength;
+            if (!updatePending) {
+                updatePending = true;
+                // ⚡ Bolt Optimization: Use requestAnimationFrame to throttle character count updates
+                // and prevent layout thrashing on the main thread during fast typing.
+                window.requestAnimationFrame(function() {
+                    const currentLength = messageInput.value.length;
+                    charCount.textContent = currentLength + '/' + maxLength;
+                    updatePending = false;
+                });
+            }
         };
 
         messageInput.addEventListener('input', updateCount);
