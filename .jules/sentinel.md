@@ -53,3 +53,8 @@
 **Vulnerability:** Duplicate logging operations in `update` and `destroy` actions inside `ContatoController`. Most of the logs were missing important audit details like the user's `ip` address.
 **Learning:** This implies a pattern where log statements are copy-pasted or added iteratively without refactoring the old ones. Incomplete audit logs (missing IP addresses) reduce visibility into potential abuse by authenticated users.
 **Prevention:** Ensure that audit logs containing a consistent format (`id`, `user_id`, `ip`) are consolidated into a single informative statement per critical action.
+
+## 2024-05-30 - Pagination Array DoS
+**Vulnerability:** The application crashed with a 500 TypeError when an array payload (e.g., `page[]=value`) was submitted to the pagination input (`request()->input('page')`). This occurred because the parameter was directly used in a mathematical operation (`(request()->input('page', 1) - 1) * 5`) which throws an error when an array is subtracted by an integer.
+**Learning:** PHP's type strictness on native mathematical operations can turn type juggling into fatal errors. Validating input types and explicit type casting *before* mathematical operations is critical to prevent DoS via payload manipulation.
+**Prevention:** Always explicitly cast HTTP inputs to the expected type (e.g., `(int) request()->input('page', 1)`) before performing mathematical operations or using them in contexts where an array would trigger a `TypeError`. Let the validator handle type rejections safely.
