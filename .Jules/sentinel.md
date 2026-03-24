@@ -27,6 +27,7 @@
 **Vulnerability:** Multiple external links using `target="_blank"` were missing `rel="noopener noreferrer"`, exposing users to potential reverse tabnabbing attacks where the target page could manipulate the window.opener.
 **Learning:** While modern browsers imply `noopener`, explicitly including it along with `noreferrer` is a critical defense-in-depth practice. Malformed HTML attributes (e.g., `target=”blank”`) can also bypass security checks if not caught.
 **Prevention:** Enforce the presence of `rel="noopener noreferrer"` on all `target="_blank"` links via automated linting or CI/CD checks.
+
 ## 2026-06-15 - Integer Schema for Phone Numbers
 **Vulnerability:** Despite validation rules enforcing string format, the database schema defined `telefone_fixo` and `telefone_celular` as `integer`. This caused data loss (stripping leading zeros) and potential integer overflow on strictly-typed database engines for valid phone numbers.
 **Learning:** Validation rules are the first line of defense, but the database schema is the final enforcer. Mismatches between validation (string) and schema (integer) lead to silent data corruption or runtime errors. Phone numbers are strings, not integers.
@@ -41,3 +42,8 @@
 **Vulnerability:** The `ContatoController` relied on manual `Auth::check()` logic within methods to protect administrative actions (`index`, `show`, `edit`), but fell back to rendering the public homepage instead of denying access. This allowed unauthenticated users to execute controller logic (like querying the database) and potentially receive sensitive data passed to the view (Broken Access Control).
 **Learning:** Manual checks inside controller methods are error-prone and can lead to "fail-open" or "fail-confusing" states where the route returns 200 OK instead of 403/302. Relying on `Route::resource` without explicit middleware exposes all standard actions by default.
 **Prevention:** Always use `middleware('auth')` on the route definition for administrative resources. Use `only()` or `except()` to strictly define which methods are exposed and protected. Ensure `auth` middleware has a valid `login` route to redirect to.
+
+## 2024-05-28 - DoS via Array Payload on Pagination Parameter
+**Vulnerability:** Passing an array instead of a string/integer to the `page` query parameter (e.g., `?page[]=1`) caused a fatal `TypeError` in PHP 8+ when mathematical operations were performed on the request input `(request()->input('page', 1) - 1) * 5`. This resulted in an unhandled 500 Internal Server Error, creating a Denial of Service (DoS) risk.
+**Learning:** Input from `request()->input()` can be an array if the client sends array notation in the query string or body. Mathematical operations on arrays without explicit casting result in strict type errors in modern PHP.
+**Prevention:** Always explicitly cast HTTP request inputs that are expected to be numeric before performing mathematical operations (e.g., `(int) request()->input('page', 1)`). Tests should assert the absence of `\TypeError::class` to specifically catch this vulnerability.
