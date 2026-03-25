@@ -25,7 +25,7 @@ class ContatoController extends Controller
         $contatos = Contato::latest()->paginate(5);
 
         return view('contato.index', compact('contatos'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', ((int) request()->input('page', 1) - 1) * 5);
     }
 
     /**
