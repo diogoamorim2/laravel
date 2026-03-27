@@ -208,7 +208,7 @@ section.bg-primary-foot{
 }
 .hero-banner{
     /* ⚡ Bolt Optimization: Animation moved to .hero-slideshow-wrapper for GPU acceleration */
-    /* animation: hero-slideshow 15s infinite linear; */
+    /* Dead code `animation: hero-slideshow` removed from animation.css and here to reduce CSS parsing overhead */
 }
 .sub-hero-banner{
     height: 60vh;
