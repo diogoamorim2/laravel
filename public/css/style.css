@@ -141,6 +141,13 @@ nav > div{
     box-shadow: none;
 }
 
+.whatsapp-button:focus-visible,
+.btn-back-to-top:focus-visible {
+    outline: 3px solid var(--primaryColor);
+    outline-offset: 4px;
+    border-radius: 50%;
+}
+
 .bg-primary{
     background-color: var(--primaryColor);
     color: var(--textWhite);
