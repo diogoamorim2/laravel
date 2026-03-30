@@ -25,7 +25,7 @@ class ContatoController extends Controller
         $contatos = Contato::latest()->paginate(5);
 
         return view('contato.index', compact('contatos'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', ((int) request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -42,7 +42,8 @@ class ContatoController extends Controller
     public function store(ContatoStoreRequest $request): RedirectResponse
     {
         // Rate limit by email to prevent spamming a single address
-        $emailKey = 'contact_email_limit:'.Str::lower($request->input('email'));
+        $email = is_string($request->input('email')) ? $request->input('email') : '';
+        $emailKey = 'contact_email_limit:'.Str::lower($email);
 
         if (RateLimiter::tooManyAttempts($emailKey, 3)) {
             Log::warning('Email rate limit exceeded', ['email' => $request->input('email'), 'ip' => $request->ip()]);
