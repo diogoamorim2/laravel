@@ -7,24 +7,6 @@
     --slideImage3 :url('../art/hero3.webp');
 }
 
-@keyframes hero-slideshow {
-    0%{ background-size: 100%; }
-    0%, 15% {
-        background-image: var(--slideImage1)
-    }
-    18%, 48% {
-        background-image: var(--slideImage2)
-    }
-    50%{ background-size: 150%; }
-    51%, 82% {
-        background-image: var(--slideImage3)
-    }
-    85%, 100% {
-        background-image: var(--slideImage1)
-    }
-    100%{ background-size: 100%; }
-}
-
 @keyframes fade {
     0%{ opacity: 1; }
     50%{ opacity: 1; }
@@ -66,23 +48,4 @@
     80% { opacity: 1; }
     84% { opacity: 0; }
     100% { opacity: 0; }
-}
-
-
-@media only screen and (max-width: 992px) {
-    @keyframes hero-slideshow {
-        0%, 15% {
-            background-image: var(--slideImage1)
-        }
-        18%, 48% {
-            background-image: var(--slideImage2)
-        }
-        51%, 82% {
-            background-image: var(--slideImage3)
-        }
-        85%, 100% {
-            background-image: var(--slideImage1)
-        }
-    }
-    
 }
