@@ -213,6 +213,10 @@ section.bg-primary-foot{
 .sub-hero-banner{
     height: 60vh;
 }
+.sub-hero-bg-about { background-image: url('../art/hero1.webp'); }
+.sub-hero-bg-contact { background-image: url('../art/hero2.webp'); }
+.sub-hero-bg-service { background-image: url('../art/hero3.webp'); }
+.sub-hero-bg-industries { background-image: url('../art/hero2.webp'); }
 
 /* ⚡ Bolt Optimization: GPU-accelerated slideshow */
 .hero-slideshow-wrapper {
