@@ -11,7 +11,9 @@
         This speeds up the map iframe loading by performing DNS/TCP handshakes early.
     --}}
     <link rel="preconnect" href="https://www.google.com">
+    <link rel="dns-prefetch" href="https://www.google.com">
     <link rel="preconnect" href="https://maps.gstatic.com">
+    <link rel="dns-prefetch" href="https://maps.gstatic.com">
 @endsection
 
 @section('content')
