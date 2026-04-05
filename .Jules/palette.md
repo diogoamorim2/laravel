@@ -45,3 +45,7 @@
 ## 2026-03-11 - Decorative Icon Announcements
 **Learning:** Using decorative icon fonts (like Bootstrap Icons) directly with `<i>` tags can cause screen readers to read out confusing CSS class names or unhelpful characters, disorienting visually impaired users.
 **Action:** Always add `aria-hidden="true"` to decorative `<i>` tags to explicitly hide them from the accessibility tree, especially when they are accompanied by visible text or `aria-label` attributes on their parent elements.
+
+## 2026-03-24 - Accessible Honeypot Fields
+**Learning:** Adding honeypot fields for spam protection without explicitly hiding them visually and from assistive technologies can trap legitimate users. Screen reader users might interact with the invisible (but still accessible) field, resulting in failed form validation and frustration.
+**Action:** Always apply `.sr-only` to visually hide honeypot fields and `aria-hidden="true"` to explicitly remove them from the accessibility tree, ensuring they serve their purpose without degrading the user experience.
