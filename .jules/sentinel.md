@@ -53,3 +53,8 @@
 **Vulnerability:** Duplicate logging operations in `update` and `destroy` actions inside `ContatoController`. Most of the logs were missing important audit details like the user's `ip` address.
 **Learning:** This implies a pattern where log statements are copy-pasted or added iteratively without refactoring the old ones. Incomplete audit logs (missing IP addresses) reduce visibility into potential abuse by authenticated users.
 **Prevention:** Ensure that audit logs containing a consistent format (`id`, `user_id`, `ip`) are consolidated into a single informative statement per critical action.
+
+## 2024-05-30 - Pagination Array Denial of Service (DoS)
+**Vulnerability:** The `ContatoController@index` method was directly casting the result of `request()->input('page')` minus 1 to an integer dynamically through subtraction, which causes a 500 `TypeError` in PHP 8+ when an array payload (like `?page[]=1`) is supplied.
+**Learning:** Native `paginate()` methods handle array inputs safely without crashing. However, custom arithmetic operations relying on query parameters like `request()->input('page')` must be explicitly cast to an integer prior to mathematical calculations to prevent array payload DoS.
+**Prevention:** Always explicitly cast HTTP query parameters (e.g., `(int) request()->input('page', 1)`) to the appropriate scalar type before performing arithmetic operations to defend against array payload DoS.
