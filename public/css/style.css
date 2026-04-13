@@ -286,6 +286,11 @@ section.bg-primary-foot{
     text-transform: uppercase;
 }
 
+.btn-back-to-top:focus-visible {
+    outline: 3px solid var(--primaryColor);
+    outline-offset: 4px;
+    border-radius: 50%;
+}
 
 .sticky-img,
 .sticky-img-dual{
@@ -850,6 +855,12 @@ a.fc-white{
 
 .whatsapp-button:hover {
     transform: scale(1.1);
+}
+
+.whatsapp-button:focus-visible {
+    outline: 3px solid var(--primaryColor);
+    outline-offset: 4px;
+    border-radius: 50%;
 }
 
 .whatsapp-button i {
