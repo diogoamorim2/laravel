@@ -53,3 +53,8 @@
 **Vulnerability:** Duplicate logging operations in `update` and `destroy` actions inside `ContatoController`. Most of the logs were missing important audit details like the user's `ip` address.
 **Learning:** This implies a pattern where log statements are copy-pasted or added iteratively without refactoring the old ones. Incomplete audit logs (missing IP addresses) reduce visibility into potential abuse by authenticated users.
 **Prevention:** Ensure that audit logs containing a consistent format (`id`, `user_id`, `ip`) are consolidated into a single informative statement per critical action.
+
+## 2024-04-14 - Controller Input Array Payload DoS
+**Vulnerability:** Endpoints handling query string or POST parameters (`?page[]=1` or `email[]`) triggered `TypeError` (HTTP 500) exceptions when these inputs were passed directly into mathematical operations or string functions without explicit type casting.
+**Learning:** In PHP 8+, math operations (`int - array`) or string functions (`Str::lower(array)`) strictly throw type errors rather than failing silently. Even if FormRequests validate input types, query string parameters or data accessed before validation completion remain unprotected, exposing the app to Denial of Service via simple array payloads.
+**Prevention:** Always defensively cast user inputs to their expected types (`(int)` or `(string)`) immediately when retrieved from the Request object in controllers or middlewares, prior to use in functions or calculations, regardless of upstream validation logic.
