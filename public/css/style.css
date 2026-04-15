@@ -140,6 +140,11 @@ nav > div{
     color: var(--textWhite);
     box-shadow: none;
 }
+.btn-back-to-top:focus-visible{
+    outline: 3px solid var(--primaryColor);
+    outline-offset: 4px;
+    border-radius: 50%;
+}
 
 .bg-primary{
     background-color: var(--primaryColor);
@@ -850,6 +855,12 @@ a.fc-white{
 
 .whatsapp-button:hover {
     transform: scale(1.1);
+}
+
+.whatsapp-button:focus-visible {
+    outline: 3px solid var(--primaryColor);
+    outline-offset: 4px;
+    border-radius: 50%;
 }
 
 .whatsapp-button i {
