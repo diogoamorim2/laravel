@@ -41,3 +41,8 @@
 **Vulnerability:** The `ContatoController` relied on manual `Auth::check()` logic within methods to protect administrative actions (`index`, `show`, `edit`), but fell back to rendering the public homepage instead of denying access. This allowed unauthenticated users to execute controller logic (like querying the database) and potentially receive sensitive data passed to the view (Broken Access Control).
 **Learning:** Manual checks inside controller methods are error-prone and can lead to "fail-open" or "fail-confusing" states where the route returns 200 OK instead of 403/302. Relying on `Route::resource` without explicit middleware exposes all standard actions by default.
 **Prevention:** Always use `middleware('auth')` on the route definition for administrative resources. Use `only()` or `except()` to strictly define which methods are exposed and protected. Ensure `auth` middleware has a valid `login` route to redirect to.
+
+## 2026-05-25 - Array Payload DoS in Pagination Math
+**Vulnerability:** The application was vulnerable to an Array Payload Denial of Service (DoS) in the `ContatoController@index` method. Passing an array payload to the `page` query parameter (e.g., `?page[]=1`) caused a `TypeError` exception when the array was used in a mathematical operation.
+**Learning:** PHP 8+ throws a `TypeError` when performing math operations on arrays. If query parameters used in math (like pagination offsets) are not explicitly validated or cast, an attacker can intentionally supply an array payload to crash the application endpoint.
+**Prevention:** Always explicitly cast HTTP query parameters used in mathematical operations (e.g., `(int) request()->input('page')`) to integers to safely handle unexpected array payloads.
