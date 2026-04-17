@@ -53,3 +53,7 @@
 **Vulnerability:** Duplicate logging operations in `update` and `destroy` actions inside `ContatoController`. Most of the logs were missing important audit details like the user's `ip` address.
 **Learning:** This implies a pattern where log statements are copy-pasted or added iteratively without refactoring the old ones. Incomplete audit logs (missing IP addresses) reduce visibility into potential abuse by authenticated users.
 **Prevention:** Ensure that audit logs containing a consistent format (`id`, `user_id`, `ip`) are consolidated into a single informative statement per critical action.
+## 2024-04-17 - Array Payload DoS in Pagination
+**Vulnerability:** A TypeError Denial of Service vulnerability exists in `ContatoController@index` when processing the `page` query parameter.
+**Learning:** In PHP 8+, math operations (like subtraction) using an array trigger a `TypeError`, causing a 500 server error when Laravel attempts to process unvalidated request parameters (like `page[]=1`).
+**Prevention:** Always explicitly cast variables to scalar types (like `(int)`) before performing arithmetic operations when handling external inputs.
