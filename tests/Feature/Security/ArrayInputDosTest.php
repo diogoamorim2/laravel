@@ -24,6 +24,27 @@ class ArrayInputDosTest extends TestCase
         $response->assertStatus(302);
     }
 
+    #[\PHPUnit\Framework\Attributes\Test]
+    public function it_rejects_array_payload_for_page_parameter_on_index()
+    {
+        $user = User::factory()->create();
+        $response = $this->actingAs($user)->get(route('contatos.index', ['page' => ['array_payload']]));
+
+        $this->assertNotInstanceOf(\TypeError::class, $response->exception);
+    }
+
+    #[\PHPUnit\Framework\Attributes\Test]
+    public function it_rejects_array_payload_for_email_parameter_on_store()
+    {
+        $response = $this->post(route('contatos.store'), [
+            'nome' => 'Test Name',
+            'email' => ['array_payload'],
+            'assunto' => 'Test Subject',
+        ]);
+
+        $this->assertNotInstanceOf(\TypeError::class, $response->exception);
+    }
+
     public function test_it_rejects_array_payload_for_string_fields_on_update()
     {
         $user = User::factory()->create();
