@@ -44,3 +44,11 @@
 ## 2026-03-09 - Remove Dead Animation Code
 **Learning:** The legacy `hero-slideshow` animation was migrated to a new GPU-accelerated approach, but the old `@keyframes` blocks spanning roughly 100 lines remained in `public/css/animation.css`. These dead blocks increased CSS parse time and overall file payload size for no reason.
 **Action:** Always aggressively clean up legacy code and styling immediately after successfully migrating to a newer pattern to prevent bloat.
+
+## 2026-03-24 - Input Event Throttling
+**Learning:** Frequent DOM updates triggered by continuous user input (e.g., character counters updating on every  event) can block the main thread and cause layout thrashing on low-end devices.
+**Action:** Wrap input event listeners that cause DOM updates in  to throttle execution to the browser's refresh rate. This ensures UI updates happen only when the browser is ready to paint, improving input responsiveness.
+
+## 2026-03-24 - Input Event Throttling
+**Learning:** Frequent DOM updates triggered by continuous user input (e.g., character counters updating on every input event) can block the main thread and cause layout thrashing on low-end devices.
+**Action:** Wrap input event listeners that cause DOM updates in requestAnimationFrame to throttle execution to the browser's refresh rate. This ensures UI updates happen only when the browser is ready to paint, improving input responsiveness.

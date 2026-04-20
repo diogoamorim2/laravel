@@ -19,9 +19,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (messageInput && charCount) {
         const maxLength = messageInput.getAttribute('maxlength');
+        let isUpdating = false;
+
+        // ⚡ Bolt Optimization: Use requestAnimationFrame to throttle character count updates.
+        // This prevents layout thrashing on the main thread during continuous typing
+        // by batching DOM reads/writes to the browser's refresh rate.
         const updateCount = function() {
-            const currentLength = messageInput.value.length;
-            charCount.textContent = currentLength + '/' + maxLength;
+            if (!isUpdating) {
+                window.requestAnimationFrame(function() {
+                    const currentLength = messageInput.value.length;
+                    charCount.textContent = currentLength + '/' + maxLength;
+                    isUpdating = false;
+                });
+                isUpdating = true;
+            }
         };
 
         messageInput.addEventListener('input', updateCount);
