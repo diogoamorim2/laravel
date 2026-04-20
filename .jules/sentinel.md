@@ -53,3 +53,8 @@
 **Vulnerability:** Duplicate logging operations in `update` and `destroy` actions inside `ContatoController`. Most of the logs were missing important audit details like the user's `ip` address.
 **Learning:** This implies a pattern where log statements are copy-pasted or added iteratively without refactoring the old ones. Incomplete audit logs (missing IP addresses) reduce visibility into potential abuse by authenticated users.
 **Prevention:** Ensure that audit logs containing a consistent format (`id`, `user_id`, `ip`) are consolidated into a single informative statement per critical action.
+
+## 2026-04-20 - Array Payload DoS in Pagination Math
+**Vulnerability:** The application crashed with a 500 TypeError (`Unsupported operand types: array - int`) when an array payload was submitted for the `page` query parameter (e.g., `?page[]=1`) on the `/contatos` endpoint. This occurred because the `page` parameter was used directly in mathematical operations without type checking or casting.
+**Learning:** In PHP 8+, mathematical operations involving arrays and integers result in fatal errors. Relying on default Laravel pagination safely handles arrays natively, but any custom math applied to query parameters that could potentially be arrays will introduce DoS vulnerabilities.
+**Prevention:** Always explicitly cast query parameters to integers (e.g., `(int) request()->input('page', 1)`) before using them in custom mathematical operations to safely discard array payloads and default to an integer value.
