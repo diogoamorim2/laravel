@@ -19,12 +19,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (messageInput && charCount) {
         const maxLength = messageInput.getAttribute('maxlength');
+        let tickingInput = false;
+
         const updateCount = function() {
             const currentLength = messageInput.value.length;
             charCount.textContent = currentLength + '/' + maxLength;
+            tickingInput = false;
         };
 
-        messageInput.addEventListener('input', updateCount);
+        // ⚡ Bolt Optimization: Use requestAnimationFrame to throttle continuous input events
+        // and prevent layout thrashing on the main thread during rapid typing.
+        messageInput.addEventListener('input', function() {
+            if (!tickingInput) {
+                window.requestAnimationFrame(updateCount);
+                tickingInput = true;
+            }
+        });
+
         // Initialize on load
         updateCount();
     }
