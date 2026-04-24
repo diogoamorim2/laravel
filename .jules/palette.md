@@ -1,0 +1,3 @@
+## 2024-05-02 - Floating action buttons keyboard focus
+**Learning:** Floating action buttons (like WhatsApp or back-to-top buttons) that are circular often have bad focus states by default (square outlines or none at all) when navigated via keyboard. Relying on default `:focus-visible` may look broken or remain invisible against certain backgrounds.
+**Action:** Always add explicit `:focus-visible` styling for circular floating action buttons with a distinct outline ring (`outline: 3px solid var(--primaryColor); outline-offset: 4px; border-radius: 50%;`) to ensure adequate keyboard accessibility and match the button shape.
