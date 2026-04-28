@@ -852,6 +852,13 @@ a.fc-white{
     transform: scale(1.1);
 }
 
+.btn-back-to-top:focus-visible,
+.whatsapp-button:focus-visible {
+    outline: 3px solid var(--primaryColor);
+    outline-offset: 4px;
+    border-radius: 50%;
+}
+
 .whatsapp-button i {
     font-size: 24px;
 }
