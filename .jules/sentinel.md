@@ -53,3 +53,7 @@
 **Vulnerability:** Duplicate logging operations in `update` and `destroy` actions inside `ContatoController`. Most of the logs were missing important audit details like the user's `ip` address.
 **Learning:** This implies a pattern where log statements are copy-pasted or added iteratively without refactoring the old ones. Incomplete audit logs (missing IP addresses) reduce visibility into potential abuse by authenticated users.
 **Prevention:** Ensure that audit logs containing a consistent format (`id`, `user_id`, `ip`) are consolidated into a single informative statement per critical action.
+## 2024-05-30 - Array Input DoS on Pagination Math
+**Vulnerability:** A `TypeError` occurs when mathematical operations are performed directly on unvalidated `request()->input('page')`. If an array payload (e.g., `?page[]=1`) is provided, PHP fails with "Unsupported operand types: array - int", causing a 500 error Denial of Service.
+**Learning:** The native `paginate()` method safely handles arrays, but custom calculations (like calculating an offset `$i` for a view) must explicitly cast query parameters to integers when used in arithmetic.
+**Prevention:** Always use `request()->integer('page', 1)` instead of `request()->input('page', 1)` when extracting parameters meant for mathematical operations to prevent type-related fatal errors.
