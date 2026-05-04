@@ -1,0 +1,4 @@
+Fix TypeError Array Payload DoS on pagination math
+
+Explicitly cast the `page` query parameter to an integer in `ContatoController@index`
+to prevent a 500 TypeError when an array payload is provided, protecting against DoS.
