@@ -53,3 +53,8 @@
 **Vulnerability:** Duplicate logging operations in `update` and `destroy` actions inside `ContatoController`. Most of the logs were missing important audit details like the user's `ip` address.
 **Learning:** This implies a pattern where log statements are copy-pasted or added iteratively without refactoring the old ones. Incomplete audit logs (missing IP addresses) reduce visibility into potential abuse by authenticated users.
 **Prevention:** Ensure that audit logs containing a consistent format (`id`, `user_id`, `ip`) are consolidated into a single informative statement per critical action.
+
+## 2024-05-18 - Prevent TypeError DoS with query parameters
+**Vulnerability:** Array Payload Denial of Service (TypeError)
+**Learning:** Using `request()->input('page')` directly in math operations can trigger an unhandled `TypeError` (resulting in a 500 server error) if an attacker passes an array payload like `?page[]=1`, because PHP 8+ throws an exception for array/int arithmetic.
+**Prevention:** Always explicitly cast query parameters used in math operations to an integer (e.g., `(int) request()->input('page', 1)`) or validate input strictly using FormRequests before processing.
