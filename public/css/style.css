@@ -1003,3 +1003,10 @@ input[type="submit"]:disabled {
     cursor: not-allowed !important;
     opacity: 0.7;
 }
+
+.btn-back-to-top:focus-visible,
+.whatsapp-button:focus-visible {
+    outline: 3px solid var(--primaryColor);
+    outline-offset: 4px;
+    border-radius: 50%;
+}
