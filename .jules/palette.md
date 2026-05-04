@@ -1,0 +1,3 @@
+## 2024-05-03 - Floating Action Buttons Keyboard Focus
+**Learning:** Standard `:focus` states often look poor on circular floating action buttons (like WhatsApp or back-to-top buttons) because the default square outline clashes with the round shape, leading developers to rely only on `:hover`.
+**Action:** Always add explicit `:focus-visible` styles with `outline-offset` and `border-radius: 50%` to circular buttons to ensure adequate keyboard accessibility while respecting the shape geometry.
