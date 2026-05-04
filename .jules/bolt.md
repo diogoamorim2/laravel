@@ -44,3 +44,11 @@
 ## 2026-03-09 - Remove Dead Animation Code
 **Learning:** The legacy `hero-slideshow` animation was migrated to a new GPU-accelerated approach, but the old `@keyframes` blocks spanning roughly 100 lines remained in `public/css/animation.css`. These dead blocks increased CSS parse time and overall file payload size for no reason.
 **Action:** Always aggressively clean up legacy code and styling immediately after successfully migrating to a newer pattern to prevent bloat.
+
+## 2026-03-09 - Remove Dead Animation Code
+**Learning:** The legacy `hero-slideshow` animation was migrated to a new GPU-accelerated approach, but the old `@keyframes` blocks spanning roughly 100 lines remained in `public/css/animation.css`. These dead blocks increased CSS parse time and overall file payload size for no reason.
+**Action:** Always aggressively clean up legacy code and styling immediately after successfully migrating to a newer pattern to prevent bloat.
+
+## 2026-03-09 - Remove Dead Animation Code
+**Learning:** The legacy `hero-slideshow` animation was migrated to a new GPU-accelerated approach, but the old `@keyframes` blocks spanning roughly 100 lines remained in `public/css/animation.css`. The `var(--slideImage1)` variables were also removed from `:root` which broke the rendering of the `.slide-1` elements.
+**Action:** Always aggressively clean up legacy code and styling immediately after successfully migrating to a newer pattern to prevent bloat. But always ensure you don't remove variables that are actively used. When extracting inline CSS variables, verify the values are still accessible where needed.

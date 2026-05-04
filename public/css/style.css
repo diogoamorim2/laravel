@@ -207,8 +207,6 @@ section.bg-primary-foot{
     margin: unset;
 }
 .hero-banner{
-    /* ⚡ Bolt Optimization: Animation moved to .hero-slideshow-wrapper for GPU acceleration */
-    /* animation: hero-slideshow 15s infinite linear; */
 }
 .sub-hero-banner{
     height: 60vh;
@@ -239,15 +237,15 @@ section.bg-primary-foot{
 }
 
 .slide-1 {
-    background-image: var(--slideImage1);
+    background-image: url('../art/hero1.webp');
     animation: hero-fade-1 15s infinite linear;
 }
 .slide-2 {
-    background-image: var(--slideImage2);
+    background-image: url('../art/hero2.webp');
     animation: hero-fade-2 15s infinite linear;
 }
 .slide-3 {
-    background-image: var(--slideImage3);
+    background-image: url('../art/hero3.webp');
     animation: hero-fade-3 15s infinite linear;
 }
 
