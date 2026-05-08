@@ -57,3 +57,8 @@
 **Vulnerability:** The application crashed with a 500 TypeError when an array payload (e.g., `page[]=foo`) was submitted to a pagination endpoint that manually calculated offsets using `(request()->input('page', 1) - 1) * 5`.
 **Learning:** While native Laravel `paginate()` methods safely handle array inputs, custom arithmetic operations relying directly on `request()->input()` without type casting are vulnerable to Array Payload DoS in PHP 8+.
 **Prevention:** Always cast query parameters used in mathematical operations to integers using Laravel's `$request->integer()` method to safely handle array payloads and prevent `TypeError` exceptions.
+
+## 2024-05-31 - Array Input DoS on Email Rate Limiting
+**Vulnerability:** The `ContatoController@store` method passed `request()->input('email')` directly to `Str::lower()` to generate a rate limit key. When an attacker sends an array payload (e.g., `email[]=foo`), `Str::lower()` throws a `TypeError`, resulting in a 500 server error and causing a Denial of Service before FormRequest validation could run.
+**Learning:** In Laravel, FormRequests execute before the controller, but if an input is accessed and passed to a strictly typed PHP function *before* or *during* validation (in this case, in the controller logic right at the start before the validated data is used or if the parameter is accessed raw), it causes a fatal error.
+**Prevention:** Always ensure request parameters passed to string manipulation functions are strings. Use ternary operators `is_string($req->input('val')) ? $req->input('val') : ''` to safely type-cast inputs that are expected to be strings, allowing normal validation to properly fail the request instead of crashing the app.
