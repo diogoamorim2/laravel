@@ -57,3 +57,22 @@
 **Vulnerability:** The application crashed with a 500 TypeError when an array payload (e.g., `page[]=foo`) was submitted to a pagination endpoint that manually calculated offsets using `(request()->input('page', 1) - 1) * 5`.
 **Learning:** While native Laravel `paginate()` methods safely handle array inputs, custom arithmetic operations relying directly on `request()->input()` without type casting are vulnerable to Array Payload DoS in PHP 8+.
 **Prevention:** Always cast query parameters used in mathematical operations to integers using Laravel's `$request->integer()` method to safely handle array payloads and prevent `TypeError` exceptions.
+## 2026-05-09 - Array Payload DoS on Rate Limiting
+**Vulnerability:** A  could be triggered, resulting in a 500 error (Denial of Service), when an array payload like `email[]=test` is submitted. Although `FormRequest` handles validation, the rate-limiting logic in `ContatoController` was accessing the request input directly and passing it to `Str::lower()`, which does not accept arrays in PHP 8+.
+**Learning:** Defensively programming input extractions even before `FormRequest` validation is fully verified (like in rate limiting logic at the top of a controller method) provides defense-in-depth.
+**Prevention:** Explicitly cast or check input types (e.g., `is_string($request->input('email')) ? $request->input('email') : ''`) before passing them to string functions or logging mechanisms.
+
+## 2026-05-09 - Strict Transport Security Preload Directive
+**Vulnerability:** The `Strict-Transport-Security` (HSTS) header lacked the `preload` directive.
+**Learning:** Without the `preload` directive, the application cannot be submitted to browser HSTS preload lists, which protect users on their very first visit to the domain.
+**Prevention:** Always include `; preload` in HSTS configurations for production applications.
+
+## 2024-05-30 - Array Payload DoS on Rate Limiting
+**Vulnerability:** A `TypeError` could be triggered, resulting in a 500 error (Denial of Service), when an array payload like `email[]=test` is submitted. Although `FormRequest` handles validation, the rate-limiting logic in `ContatoController` was accessing the request input directly and passing it to `Str::lower()`, which does not accept arrays in PHP 8+.
+**Learning:** Defensively programming input extractions even before `FormRequest` validation is fully verified (like in rate limiting logic at the top of a controller method) provides defense-in-depth.
+**Prevention:** Explicitly cast or check input types (e.g., `is_string($request->input('email')) ? $request->input('email') : ''`) before passing them to string functions or logging mechanisms.
+
+## 2024-05-30 - Strict Transport Security Preload Directive
+**Vulnerability:** The `Strict-Transport-Security` (HSTS) header lacked the `preload` directive.
+**Learning:** Without the `preload` directive, the application cannot be submitted to browser HSTS preload lists, which protect users on their very first visit to the domain.
+**Prevention:** Always include `; preload` in HSTS configurations for production applications.
