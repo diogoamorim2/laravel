@@ -1012,3 +1012,9 @@ input[type="submit"]:disabled {
     cursor: not-allowed !important;
     opacity: 0.7;
 }
+
+/* ⚡ Bolt Optimization: Restore missing classes to render preloaded LCP images, preventing wasted bandwidth */
+.sub-hero-bg-about { background-image: url('../art/hero1.webp'); }
+.sub-hero-bg-service { background-image: url('../art/hero3.webp'); }
+.sub-hero-bg-contact { background-image: url('../art/hero2.webp'); }
+.sub-hero-bg-industries { background-image: url('../art/hero2.webp'); }
