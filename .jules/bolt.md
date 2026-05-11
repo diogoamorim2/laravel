@@ -52,3 +52,7 @@
 ## 2026-03-09 - Remove Dead Animation Code
 **Learning:** The legacy `hero-slideshow` animation was migrated to a new GPU-accelerated approach, but the old `@keyframes` blocks spanning roughly 100 lines remained in `public/css/animation.css`. The `var(--slideImage1)` variables were also removed from `:root` which broke the rendering of the `.slide-1` elements.
 **Action:** Always aggressively clean up legacy code and styling immediately after successfully migrating to a newer pattern to prevent bloat. But always ensure you don't remove variables that are actively used. When extracting inline CSS variables, verify the values are still accessible where needed.
+
+## 2024-05-23 - Preloaded LCP Images Must Be Rendered
+**Learning:** LCP images were preloaded in Blade templates, but their corresponding CSS classes (`.sub-hero-bg-X`) were missing in the stylesheet. This caused wasted bandwidth since the images were downloaded but never rendered, leaving a blank header area.
+**Action:** Always ensure that elements preloaded for LCP are actually applied and rendered in CSS or HTML.
