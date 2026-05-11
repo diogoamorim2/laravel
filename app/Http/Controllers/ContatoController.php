@@ -41,11 +41,12 @@ class ContatoController extends Controller
      */
     public function store(ContatoStoreRequest $request): RedirectResponse
     {
+        $safeEmail = is_string($request->input('email')) ? $request->input('email') : '';
         // Rate limit by email to prevent spamming a single address
-        $emailKey = 'contact_email_limit:'.Str::lower($request->input('email'));
+        $emailKey = 'contact_email_limit:'.Str::lower($safeEmail);
 
         if (RateLimiter::tooManyAttempts($emailKey, 3)) {
-            Log::warning('Email rate limit exceeded', ['email' => $request->input('email'), 'ip' => $request->ip()]);
+            Log::warning('Email rate limit exceeded', ['email' => $safeEmail, 'ip' => $request->ip()]);
 
             return redirect()->back()
                 ->with('error', 'Muitas tentativas para este email. Tente novamente mais tarde.');
