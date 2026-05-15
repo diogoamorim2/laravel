@@ -45,3 +45,7 @@
 ## 2026-03-11 - Decorative Icon Announcements
 **Learning:** Using decorative icon fonts (like Bootstrap Icons) directly with `<i>` tags can cause screen readers to read out confusing CSS class names or unhelpful characters, disorienting visually impaired users.
 **Action:** Always add `aria-hidden="true"` to decorative `<i>` tags to explicitly hide them from the accessibility tree, especially when they are accompanied by visible text or `aria-label` attributes on their parent elements.
+
+## 2026-03-12 - Circular Floating Button Focus States
+**Learning:** By default, browsers apply rectangular focus rings (`outline`) to elements. For circular floating action buttons (like WhatsApp or Back to Top buttons), inheriting the global `:focus-visible` or default outline creates an ugly and confusing square ring around a circular button.
+**Action:** Always explicitly define `:focus-visible` styling for circular buttons with `border-radius: 50%` matching the element's shape, along with appropriate `outline` and `outline-offset`, to ensure focus states are both accessible and visually coherent.
