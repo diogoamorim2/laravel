@@ -136,7 +136,8 @@ nav > div{
     transform: translate(-50%, -50%);
 }
 .btn-back-to-top:hover,
-.btn-back-to-top:focus{
+.btn-back-to-top:focus,
+.btn-back-to-top:focus-visible{
     color: var(--textWhite);
     box-shadow: none;
 }
@@ -851,7 +852,8 @@ a.fc-white{
     transition: transform 0.2s ease-in-out;
 }
 
-.whatsapp-button:hover {
+.whatsapp-button:hover,
+.whatsapp-button:focus-visible {
     transform: scale(1.1);
 }
 
