@@ -45,3 +45,7 @@
 ## 2026-03-11 - Decorative Icon Announcements
 **Learning:** Using decorative icon fonts (like Bootstrap Icons) directly with `<i>` tags can cause screen readers to read out confusing CSS class names or unhelpful characters, disorienting visually impaired users.
 **Action:** Always add `aria-hidden="true"` to decorative `<i>` tags to explicitly hide them from the accessibility tree, especially when they are accompanied by visible text or `aria-label` attributes on their parent elements.
+
+## 2026-03-11 - Focus Visible on Circular Buttons
+**Learning:** Keyboard accessibility relies heavily on a distinct focus outline. Circular elements like floating action buttons need explicit `:focus-visible` styling with `border-radius: 50%` and sufficient `outline-offset`, otherwise the standard square outline looks disjointed or is masked by inherited hover styles.
+**Action:** Explicitly define `:focus-visible` styling with `outline`, `outline-offset`, and `border-radius` matching the button shape for non-standard or floating buttons to ensure an accessible and aesthetically pleasing focus state.
