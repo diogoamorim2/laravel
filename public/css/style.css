@@ -872,6 +872,12 @@ a.fc-white{
     border-radius: 50%;
 }
 
+.whatsapp-button:focus-visible {
+    outline: 3px solid var(--primaryColor);
+    outline-offset: 4px;
+    border-radius: 50%;
+}
+
 @media (max-width: 768px) {
     .whatsapp-button {
         bottom: 20px;
