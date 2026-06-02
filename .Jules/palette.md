@@ -45,3 +45,7 @@
 ## 2026-03-11 - Decorative Icon Announcements
 **Learning:** Using decorative icon fonts (like Bootstrap Icons) directly with `<i>` tags can cause screen readers to read out confusing CSS class names or unhelpful characters, disorienting visually impaired users.
 **Action:** Always add `aria-hidden="true"` to decorative `<i>` tags to explicitly hide them from the accessibility tree, especially when they are accompanied by visible text or `aria-label` attributes on their parent elements.
+
+## 2026-03-22 - Redundant Labeling
+**Learning:** Adding a visually hidden `<label class="sr-only">` to an input that already has a descriptive `aria-label` provides no additional benefit. According to the accessible name computation rules, `aria-label` completely overrides a standard label, making the extra markup redundant and technically useless.
+**Action:** Avoid adding `<label>` elements for accessibility when a sufficient `aria-label` is already present on the element, focusing instead on missing or incorrect accessible names.
