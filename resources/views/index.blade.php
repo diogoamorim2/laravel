@@ -232,7 +232,7 @@
                     </p>
                 </div>
             </div>
-            <a href="{{URL('service')}}" class="btn-bg2 border-round mt-25">
+            <a href="{{URL('service')}}" class="btn-bg2 border-round mt-25" aria-label="Saiba mais sobre nossos serviços contábeis">
                 Saiba mais sobre nossos serviços.
             </a>
         </section>
@@ -297,7 +297,7 @@
         <!-- PREVIEW BLOGS SECTION END -->
 
         <!-- SUBSCRIBE TO NEWS LETTERS START -->
-        <section class="subscribe bg-primary-foot">
+        <section class="subscribe bg-primary-foot subscribe-overlay-bg">
             <img src="{{ asset('art/overlay.webp') }}" class="subscribe-bg" loading="lazy" alt="">
             <div class="contained row ta-center">
                 <div class="col-balance fc-white">
@@ -331,7 +331,7 @@
             <p class="col-wide mlmr-a">
                 Para qualquer dúvida nos envie uma menssagem para entendermos como podemos melhor atender você.
             </p>
-            <a href="{{URL('contact')}}" class="btn-bg1 border-round mt-25">
+            <a href="{{URL('contact')}}" class="btn-bg1 border-round mt-25" aria-label="Entrar em contato com a Siscon Contabilidade">
                 Entrar em contato
             </a>
         </section>
