@@ -297,7 +297,7 @@
         <!-- PREVIEW BLOGS SECTION END -->
 
         <!-- SUBSCRIBE TO NEWS LETTERS START -->
-        <section class="subscribe bg-primary-foot">
+        <section class="subscribe bg-primary-foot subscribe-overlay-bg">
             <img src="{{ asset('art/overlay.webp') }}" class="subscribe-bg" loading="lazy" alt="">
             <div class="contained row ta-center">
                 <div class="col-balance fc-white">
@@ -307,7 +307,7 @@
                     <form action="{{ route('contatos.store') }}" method="POST" id="newsletter-form">
                         @csrf
                         {{-- Honeypot field for spam protection --}}
-                        <input type="text" name="fax" class="honeypot" tabindex="-1" autocomplete="off">
+                        <input type="text" name="fax" class="honeypot sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
 
                         <input type="hidden" name="newslatter" value="1">
                         <input type="email" name="email" id="subscribe-email" aria-label="Receba nossos avisos" 
