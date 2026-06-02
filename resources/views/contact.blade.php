@@ -87,7 +87,7 @@
                     <form action="{{ route('contatos.store') }}" method="POST" class="message-form mt-50 mb-25" id="contact-form">
                         @csrf
                         {{-- Honeypot field for spam protection --}}
-                        <input type="text" name="fax" class="honeypot" tabindex="-1" autocomplete="off">
+                        <input type="text" name="fax" class="honeypot sr-only" aria-hidden="true" tabindex="-1" autocomplete="off">
 
                         <span class="fs-h4 fc-primary mb-15">Envie uma mensagem para nós</span>
                         <div class="row mb-20">
